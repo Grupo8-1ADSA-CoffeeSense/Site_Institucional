@@ -23,17 +23,19 @@ nav{
     padding: 20px;
 }
 
+ul {
+    display: flex;
+}
+
 nav ul li {
     color: #6F4026;
     font-size: 17px;
     display: flex;
     padding-inline: 30px;
-    list-style: none;
+    list-style: none; 
 }
 
-ul {
-    display: flex;
-}
+
 .botao_login {
     font-family: "Roboto", sans-serif;
     height: 40px;
@@ -46,6 +48,7 @@ ul {
     margin-right: 20px;
 }
 
+/* FIM NAVBAR */
 
 /* Inicio HOME */
 .home_esquerda h1 {
@@ -115,6 +118,9 @@ ul {
     align-items: center;
     margin-top: 40px;
     margin-bottom: 40px;
+    width: 373px;
+    height: 289px;
+    top: 784px;
     
 }
 
@@ -163,12 +169,13 @@ ul {
     height: 280px;
     border-radius: 15px;
     background-color: #F4EBE2;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: #F4EBE2(0, 0, 0, 0.4) 0px 2px 4px, #F4EBE2(0, 0, 0, 0.3) 0px 7px 13px -3px, #F4EBE2(0, 0, 0, 0.2) 0px -3px 0px inset;
     margin-right: 40px; 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
+    
 }
 
 .cardArabica h1{
@@ -205,8 +212,6 @@ ul {
 }
 
 
-
-
 .graos_direita  img {
     /* invertendo a imagem */
     -moz-transform: scaleX(-1);
@@ -216,5 +221,11 @@ ul {
 
     align-items: center;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+
+    width: 373px;
+    height: 289px;
+    top: 784px;
 }
+
+/* FIM GRÃOS */
