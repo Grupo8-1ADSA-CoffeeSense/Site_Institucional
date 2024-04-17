@@ -108,6 +108,15 @@ nav ul li {
 
 /* FIM HOME */
 /* começo grãos */
+
+/* .graos_servicos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+} */
 .graos{
     display: flex;
     justify-content: space-between;
@@ -270,4 +279,28 @@ nav ul li {
     font-size: 25px;
     margin-left: 45px;
     text-align: center;
+}
+
+.cards_servicos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: column;
+    justify-content: center;
+}
+
+.card1,
+.card2,
+.card3 {
+    width: 376px;
+    height: 235px;
+    /* border-radius: 15px; */
+    background-color: #BE9B87    ;
+    box-shadow: #F4EBE2(0, 0, 0, 0.4) 0px 2px 4px, #F4EBE2(0, 0, 0, 0.3) 0px 7px 13px -3px, #F4EBE2(0, 0, 0, 0.2) 0px -3px 0px inset;
+    margin-right: 40px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    /* border-top: 100px;     */
 }
