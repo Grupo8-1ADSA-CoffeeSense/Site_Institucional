@@ -175,7 +175,7 @@ nav ul li {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    
+    /* border-top: 100px;     */
 }
 
 .cardArabica h1{
@@ -229,3 +229,45 @@ nav ul li {
 }
 
 /* FIM GRÃOS */
+
+/* COMEÇO SERVIÇOS */
+.serviços {
+    /* display: flex;
+    justify-content: space-between;
+    flex-direction: column; */
+    font-family: "Cinzel", serif;
+    color: #FEFFFD;
+    word-wrap: break-word;
+    font-weight: 100;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    margin-top: 25px;
+}
+
+.serviços h1 {
+    font-family: "Cinzel", serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+}
+
+.serviços img {
+    align-items: center;
+    width: 126px;
+    color: #6F4026;
+}
+
+.serviços p {
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    width: 686px;
+    font-size: 25px;
+    margin-left: 45px;
+    text-align: center;
+}
