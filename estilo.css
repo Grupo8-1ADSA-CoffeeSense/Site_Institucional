@@ -170,7 +170,23 @@ nav ul li {
 .cards {
     display: flex;
     flex-direction: row;
+    /* position: absolute; */
+    position: absolute; 
+    margin-top: 150px;
+    
 }
+
+
+.cardArabica{
+    margin-left: 48px;
+    margin: 48px;
+}
+
+.cardRobusta{
+    margin-left: 48px;
+    margin: 48px;
+}
+
 
 .cardArabica,
 .cardRobusta {
@@ -179,11 +195,13 @@ nav ul li {
     border-radius: 15px;
     background-color: #F4EBE2;
     box-shadow: #F4EBE2(0, 0, 0, 0.4) 0px 2px 4px, #F4EBE2(0, 0, 0, 0.3) 0px 7px 13px -3px, #F4EBE2(0, 0, 0, 0.2) 0px -3px 0px inset;
-    margin-right: 40px; 
+    margin-right: 35px; 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
+    z-index: 99px;
+    
     /* border-top: 100px;     */
 }
 
@@ -260,6 +278,7 @@ nav ul li {
     font-weight: 400;
     font-size: 30px;
     text-align: center;
+    margin-top: 150px;
 }
 
 .servicos img {
@@ -289,9 +308,8 @@ nav ul li {
 .cards_servicos {
     display: flex;
     flex-direction: row; 
-    justify-content: space-around; 
-    align-items: flex-start; 
-    margin-top: 50px; 
+    margin: 40px;
+    padding-left: 41px;
 }
 
 .card1,
@@ -299,9 +317,9 @@ nav ul li {
 .card3 {
     width: 376px;
     height: 235px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     background-color: #BE9B87;
-    margin-right: 20px;
+    margin-right: 60px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -309,14 +327,7 @@ nav ul li {
 }
 
 
-.subtitle{
-    font-family: "Cinzel", serif;
-    color: #6F4026;
-    word-wrap: break-word;
-    font-weight: 400;
-    font-size: 30px;
-    text-align: center;
-}
+
 
 .graos_servicos{
     display: flex;
