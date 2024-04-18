@@ -240,10 +240,8 @@ nav ul li {
 /* FIM GRÃOS */
 
 /* COMEÇO SERVIÇOS */
-.serviços {
-    /* display: flex;
-    justify-content: space-between;
-    flex-direction: column; */
+.servicos {
+
     font-family: "Cinzel", serif;
     color: #FEFFFD;
     word-wrap: break-word;
@@ -255,7 +253,7 @@ nav ul li {
     margin-top: 25px;
 }
 
-.serviços h1 {
+.servicos h1 {
     font-family: "Cinzel", serif;
     color: #6F4026;
     word-wrap: break-word;
@@ -264,13 +262,13 @@ nav ul li {
     text-align: center;
 }
 
-.serviços img {
+.servicos img {
     align-items: center;
     width: 126px;
     color: #6F4026;
 }
 
-.serviços p {
+.servicos p {
     font-weight: 300;
     font-family: "Roboto", sans-serif;
     color: #6F4026;
@@ -281,12 +279,19 @@ nav ul li {
     text-align: center;
 }
 
-.cards_servicos{
+
+.graos_servicos{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: column;
-    justify-content: center;
+}
+
+
+.cards_servicos {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around; 
+    align-items: flex-start; 
+    margin-top: 50px; 
 }
 
 .card1,
@@ -294,13 +299,26 @@ nav ul li {
 .card3 {
     width: 376px;
     height: 235px;
-    /* border-radius: 15px; */
-    background-color: #BE9B87    ;
-    box-shadow: #F4EBE2(0, 0, 0, 0.4) 0px 2px 4px, #F4EBE2(0, 0, 0, 0.3) 0px 7px 13px -3px, #F4EBE2(0, 0, 0, 0.2) 0px -3px 0px inset;
-    margin-right: 40px; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    /* border-top: 100px;     */
+    border-radius: 15px;
+    background-color: #BE9B87;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.subtitle{
+    font-family: "Cinzel", serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+}
+
+.graos_servicos{
+    display: flex;
+    flex-direction: column;
 }
