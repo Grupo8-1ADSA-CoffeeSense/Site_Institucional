@@ -333,3 +333,112 @@ nav ul li {
     display: flex;
     flex-direction: column;
 }
+
+.descricao_servicos{
+    display: flex;
+    flex-direction: row;
+    margin: 40px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.descricao_servicos h1{
+    font-family: "Cinzel", serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 40px;
+
+}
+
+.descricao_servicos p{
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    font-size: 20px;  
+}
+
+.descricao_servicos h3{
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    font-size: 20px;  
+}
+
+
+/* COMEÇO SOBRE */
+
+.sobre_nos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sobre_direita img{
+     /* invertendo a imagem */
+     -moz-transform: scaleX(-1);
+     -o-transform: scaleX(-1);
+     -webkit-transform: scaleX(-1);
+     transform: scaleX(-1);
+
+     margin-top: -179px;
+}
+
+.sobre_esquerda img{
+    margin-top: -179px;
+}
+
+.sobre_nos h1{
+    font-family: "Cinzel", serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.sobre_nos h3{
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    font-size: 30px;  
+}
+
+.sobre_meio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 179px;
+}
+
+.sobre_meio img{
+    align-items: center;
+    width: 126px;
+}
+
+.sobre_baixo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.sobre_baixo img{
+    width: 800px;
+    height: 500px;
+    flex: 1;
+}
+
+.sobre_baixo p{
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    color: #6F4026;
+    word-wrap: break-word;
+    font-size: 20px;  
+    flex: 1;
+    margin-left: 20px;
+    text-align: justify;
+    width: 200px;
+    word-wrap: break-word;
+}
