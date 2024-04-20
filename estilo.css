@@ -458,7 +458,7 @@ nav ul li {
 
 .form-container {
     width: 50%;
-    height: auto;
+    height: 460px;
     background: linear-gradient(#BE9B87
     , #BE9B87) padding-box,linear-gradient(145deg, transparent 35%,#32160B, #6F4026    ) border-box;
     border: 2px solid transparent;
@@ -559,5 +559,36 @@ nav ul li {
     background-color: #F4EBE2;
     border-color: #F4EBE2;
   }
+
+  .fim-container{
+  
+    width:100%;
+    height: 430px;
+    background-color: #32160B;
+    display: flex;
+  }
+
+  .fim-esquerda{
+    width: 400px;
+    height: 430px;
+    display: flex;
+  }
+ .fim-dentro{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 215px;
+    height: 100%;
+  }
+  .img-fim{
+    justify-content: start;
+    align-items: start;
+    height: 75px;
+    width:120px;  
+    
+  }
+
+ 
+
   
   
