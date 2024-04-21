@@ -10,7 +10,7 @@ body{
 
 .logo{
     margin-left: 20px;
-    height: 82px;
+    height: 60px;
 }
 
 /* mexendo na navbar */
@@ -29,23 +29,43 @@ ul {
 
 nav ul li {
     color: #6F4026;
-    font-size: 17px;
+    font-size: 18px;
     display: flex;
     padding-inline: 30px;
     list-style: none; 
+    position: relative;
 }
 
+nav ul li::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px; 
+    height: 2px; 
+    width: 0; 
+    background-color: currentColor; 
+    transition: width 0.3s ease, left 0.3s ease; 
+    transform: translateX(0%); 
+}
+
+nav ul li:hover::after {
+    width: calc(100% - 60px); 
+    left: 30px; 
+    text-decoration: underline;
+}
 
 .botao_login {
     font-family: "Roboto", sans-serif;
-    height: 40px;
+    height: 46px;
     width: 150px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #6F4026;
     color: #FEFFFD;
     border: 0px;
-    font-size: 17px;
+    font-size: 20px;
     margin-right: 20px;
+    letter-spacing: 1px;
+    font-weight: 300;
 }
 
 /* FIM NAVBAR */
@@ -65,24 +85,28 @@ nav ul li {
 .home_esquerda p {
     font-weight: 300;
     font-family: "Roboto", sans-serif;
-    color: #6F4026;
+    color: rgba(111, 64, 38, 0.7);
     word-wrap: break-word;
     width: 686px;
     font-size: 25px;
     margin-left: 45px;
+    text-align: left; /* Justificar o texto à esquerda */
 }
 
 .botao_registro {
     font-family: "Roboto", sans-serif;
-    height: 40px;
+    height: 46px;
     width: 150px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #6F4026;
     color: #FEFFFD;
     border: 0px;
-    font-size: 17px;
+    font-weight: 300;
+    font-size: 20px;
     margin-right: 20px;
     margin-left: 45px;
+    margin-top: 41px;
+    letter-spacing: 1px;
 }
 
 .home {
@@ -100,23 +124,19 @@ nav ul li {
 
 .imgPrincipalHome{
     top: 146px;
-    height: 503px;
+    height: 480px;
     width: 545px;
     left: 780px;
-    margin-left: 60px;
+    margin-left: 90px;
+    margin-top: 30px;
 }
 
 /* FIM HOME */
 /* começo grãos */
 
-/* .graos_servicos{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-} */
+.graos_servicos{
+    margin-top: 4%;
+} 
 .graos{
     display: flex;
     justify-content: space-between;
@@ -165,6 +185,10 @@ nav ul li {
     word-wrap: break-word;
     font-weight: 400;
     font-size: 30px;
+}
+
+.graos_meio h3{
+    font-family: "Cinzel", serif;
 }
 
 .cards {
@@ -458,7 +482,7 @@ nav ul li {
 
 .form-container {
     width: 50%;
-    height: 460px;
+    height: auto;
     background: linear-gradient(#BE9B87
     , #BE9B87) padding-box,linear-gradient(145deg, transparent 35%,#32160B, #6F4026    ) border-box;
     border: 2px solid transparent;
@@ -559,7 +583,7 @@ nav ul li {
     background-color: #F4EBE2;
     border-color: #F4EBE2;
   }
-
+  
 
   /* Começo footer */
 
