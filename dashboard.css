@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    background-color: #F4EBE2;
+    margin: 0;
+}
+
+
+.painel{
+    display: flex;
+    background-color: #D4B8A7;
+    width: 30%;
+    flex-direction: column;
+    height: 100%;
+
+}
+.logoPainel{
+    display: flex;
+    justify-content:  center;
+    width: 123px;
+    height: 62px;
+    align-items: center;
+    margin-left: 120px;
+    margin-top: 35px;
+    margin-bottom: 50px;
+}
+
+.painel h2{
+
+    font-family: "Roboto", sans-serif;
+    color: #6F4026;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.home{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.configuracoes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.historico{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 245px;
+}
+
+
+.painelBaixo{
+    display: flex;
+    background-color: #D4B8A7;
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.painelBaixo ul li {
+    display: flex;
+    font-size: 17px;
+    gap: 9px;
+    font-family: "Roboto", sans-serif;
+    color: #6F4026;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 37px;
+}
+
+
+.mainDashboard{
+    display: flex;
+    width: auto;
+}
