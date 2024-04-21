@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="calculadora.css" />
-    <title>COFFEE SENSE</title>
-  </head>
 
-  <body>
-    <!-- COMEÇO NAVBAR -->
-    <nav>
-      <img class="logo" src="assets/Group 47.svg" alt="" />
-      <ul>
-        <li>Home</li>
-        <li>Serviços</li>
-        <li>Sobre Nós</li>
-        <li>Contato</li>
-        <li>Calculadora</li>
-      </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="calculadora.css" />
+  <script src="calculadora.js"></script>
+  <title>COFFEE SENSE</title>
+</head>
 
-      <button class="botao_login">Login</button>
-    </nav>
-    <!-- FIM NAVBAR -->
+<body>
+  <!-- COMEÇO NAVBAR -->
+  <nav>
+    <img class="logo" src="assets/Group 47.svg" alt="" />
+    <ul>
+      <li>Home</li>
+      <li>Serviços</li>
+      <li>Sobre Nós</li>
+      <li>Contato</li>
+      <li>Calculadora</li>
+    </ul>
 
-    <!-- COMEÇO HOME -->
-    <div class="home">
-      <div class="home_esquerda">
-        <img class="calc" src="assets/Group 50.svg" alt="Descrição do SVG" />
-        <h1>Calcule o seu saco hoje de graça!</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in
-          elit vitae metus tincidunt porta auctor eu urna. Mauris eget nisl at
-          quam commodo placerat. Curabituelit. Aliquaquis magna in felis cursus
-          faucibus eget sit amet arcu. Donec eget tellus accumsan, feugiat orci
-          quis, placerat dolor. vinar lacus ex.
-        </p>
-      </div>
-      <div class="home_direita">
-        <label for="texto">Quantidade média de sacas vendidas por ano:</label>
-        <input type="text" />
-        <br /><br />
-        <label for="texto">Valor médio da saca:</label>
-        <input type="text" />
-        <br /><br />
-        <label for="texto">Quão no futuro deseja ver esse calculo:</label>
-        <select id="select_previsao">
-          <option>1 ano</option>
-          <option>2 ano</option>
-          <option>3 ano</option>
-          <option>4 ano</option>
-          <option>5 ano</option>
-          <option>6 ano</option>
-        </select>
-        <button class="botao_submit" onclick="abrirModal()">Calcular</button>
-        <div class="modal-overlay" id="modalOverlay">
-            <div class="modal">
-                <div class="modal-content">
-                    <!-- Conteúdo do modal -->
-                    <p class="modal-text">Você irá economizar</p>
+    <button class="botao_login">Login</button>
+  </nav>
+  <!-- FIM NAVBAR -->
+
+  <!-- COMEÇO HOME -->
+  <div class="home">
+    <div class="home_esquerda">
+      <img class="calc" src="assets/Group 50.svg" alt="Descrição do SVG" />
+      <h1>Calcule o seu saco hoje de graça!</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in
+        elit vitae metus tincidunt porta auctor eu urna. Mauris eget nisl at
+        quam commodo placerat. Curabituelit. Aliquaquis magna in felis cursus
+        faucibus eget sit amet arcu. Donec eget tellus accumsan, feugiat orci
+        quis, placerat dolor. vinar lacus ex.
+      </p>
+    </div>
+    <div class="home_direita">
+      <label for="texto">Qual a quantidade de sacas que você vende por ano?</label>
+      <input id="qtd_sacas_input" type="text" />
+      <br /><br />
+      <label for="texto">Qual o valor médio em reais que você vende uma saca?</label>
+      <input id="valor_medio_reais_input" type="text" />
+      <br /><br />
+      <label for="texto">Você gostaria de estimar seu prejuizo e faturamento em até quantos anos? </label>
+      <select id="previsao">
+        <option id="1">1</option>
+        <option id="2">2</option>
+        <option id="3">3</option>
+        <option id="4">4</option>
+        <option id="5">5</option>
+        <!-- <option>6 </option> -->
+      </select>
+      <button class="botao_submit" onclick="calcular()">Calcular</button>
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+          <div class="modal-content">
+            <p id=resultado></p>
+            <!-- <p class="modal-text">Você irá economizar</p>
                     <p class="modal-amount">R$1 345.17</p> 
-                    <p class="modal-extra">Por mês</p>
-                    <button onclick="fecharModal()">Fechar</button>
-                </div>
-            </div>
+                    <p class="modal-extra">Por mês</p> -->
+            <p><button class="botao_secundario" onclick="fecharModal()">Fechar</button></p>
+          </div>
         </div>
       </div>
+    </div>
 
-      <script>
+    <!-- <script>
        function abrirModal() {
     document.getElementById('modalOverlay').style.display = 'flex'; // exibe o modal
 }
@@ -75,7 +77,8 @@ function fecharModal() {
     document.getElementById('modalOverlay').style.display = 'none'; // oculta o modal
 }
 
-      </script>
-    </div>
-  </body>
+      </script> -->
+  </div>
+</body>
+
 </html>
