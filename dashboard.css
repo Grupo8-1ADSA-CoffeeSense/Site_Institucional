@@ -101,8 +101,8 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 80%;
-    height: 30%;
+    /* width: 80%; */
+    /* height: 30%; */
 
 
 }
@@ -118,16 +118,120 @@ body{
 
 
 .navbar_direita{
-    margin-top: 30px;
-    display: flex;
-    align-items: flex-start;
-    height: 100%;
-    margin-left: 193px;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+margin-top: 25px;
+margin-left: 193px;
+gap: 30px;
 
-    
 }
 
-.icon_pesquisar{
-    width: 50px;
-    height: 50px;
+.indicadores{
+display: flex;
+position: absolute;
+width: 969px;
+height: 174px;
+left: 322px;
+top: 147px;
+
+background: #E8D8D3;
+border-radius: 10px;
+
+}
+
+.indicador_temperatura{
+display: flex;
+flex-direction: row;
+width: 248px;
+height: 174px;
+left: 322px;
+top: 147px;
+background: #D4B8A7;
+border-radius: 10px;
+
+align-items: flex-start;
+justify-content: center;
+gap: 5px;
+}
+
+.temperatura_cima{
+    display: flex;
+    margin-top: 19px;
+    align-items: center;
+    gap: 5px;
+}
+
+.indicador_umidade{
+    display: flex;
+flex-direction: row;
+width: 248px;
+height: 174px;
+left: 322px;
+top: 147px;
+/* background: #D4B8A7; */
+
+border-right: 2px solid #D4B8A7;
+
+/* border-radius: 10px; */
+
+
+}
+
+.indicador_situacao{
+    display: flex;
+    flex-direction: row;
+    width: 248px;
+    height: 174px;
+    left: 322px;
+    top: 147px;
+    /* background: #D4B8A7; */
+    
+    border-right: 2px solid #D4B8A7;
+}
+.umidade_cima{
+    display: flex;
+    margin-top: 19px;
+    align-items: center;
+    gap: 5px;
+    margin-left: 28px;
+}
+
+.indicador_cima{
+    justify-content: center;
+    display: flex;
+    margin-top: 19px;
+    margin-left: 30%;
+}
+.indicador_temperatura img {
+    /* temperature-quarter-svgrepo-com 1 */
+
+
+width: 30px;
+height: 30px;
+left: 333px;
+top: 166px;
+
+
+}
+
+.indicador_umidade{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.indicador_situacao{
+    display: flex;
+}
+
+.legenda_situacao{
+    display: flex;
+}
+
+.legenda_cima{
+    justify-content: center;
+    display: flex;
+    margin-top: 19px;
+    margin-left: 28px;
 }
