@@ -8,6 +8,7 @@
       src="https://kit.fontawesome.com/65879fa723.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
   </head>
   <body>
@@ -72,10 +73,75 @@
           <p>Legenda de situaçoes</p>
         </div>
       </div>
+    </div>
+    <div class="graficos">
+      <div class="grafico_temperatura">
+        <div class="grafico1">
+          <canvas id="temperatura" style="height: 100%; width: 100%; display: flex;"></canvas>
+        </div>
+      </div>
+      <div class="grafico_umidade">
+        <div class="grafico2">
+          <canvas id="umidade" style="height: 100%; width:100%; display: flex;"></canvas>
+        </div>
 
-
-
-
+      </div>
     </div>
   </body>
 </html>
+
+
+<script>
+  const ctx1 = document.getElementById('temperatura');
+  const ctx2 = document.getElementById('umidade'); 
+
+  new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [13, 19, 3, 5, 2, 3],
+        borderWidth: 1,
+
+        
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  });
+
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+      datasets: [{
+        label: 'Umidade',
+        data: [18, 19, 20, 17, 7, 18],
+        borderWidth: 1,
+         borderColor: 'rgba(255, 99, 132, 1)',
+         pointBackgroundColor:'rgba(255, 99, 132, 1)',
+         pointBorderColor: 'rgba(255, 99, 132, 1)',
+        pointHoverBackgroundColor: 'white',
+        pointHoverBorderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 1)'
+
+      }]
+    },
+
+      plugins: {
+      legend: {
+        labels: {
+          // Aqui você define a cor de fundo dos labels
+           backgroundColor: 'rgba(255, 99, 132, 1)' // Por exemplo, branco com 50% de opacidade
+        }
+      }
+    }
+  }
+);
+</script>
