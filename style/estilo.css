@@ -390,6 +390,11 @@ nav ul li:hover::after {
     align-items: flex-start;
 }
 
+.cards_text h1{
+    text-align: left;
+
+}
+
 .cards_text h3{
     font-family: "Roboto", sans-serif;
     color: #6F4026;
@@ -469,10 +474,8 @@ nav ul li:hover::after {
     font-size: 20px;  
     flex: 1;
     margin-right: 20px;
-    /* margin-left: 20px; */
     text-align: justify;
     width: 200px;
-    word-wrap: break-word;
 }
 
 /* CONTATO */
@@ -660,13 +663,10 @@ margin-bottom: -30px;
     font-size: 22px;  
     flex: 1;
     /* margin-left: 20px; */
-    text-align: justify;
+    text-align: left;
     width: 295px;
     word-wrap: break-word;
     margin-bottom: 34px;
-
-    
-    
 }
 .icones{
     display: flex;
