@@ -1,23 +1,30 @@
 function calcular() {
     abrirModal()
+
+    let valor_medio_reais_transformar = valor_medio_reais_input.value.replaceAll(".", "").replaceAll(",", ".")
+    let valor_medio_reais = Number(valor_medio_reais_transformar)
    
-    let valor_medio_reais = Number(valor_medio_reais_input.value)
+    ///let valor_medio_reais = Number(valor_medio_reais_input.value.replace(",", "."))
+    //let valor_medio_reais_formatado = valor_medio_reais.replace(",", ".")
+    //let valor_medio_reais_formatado = valor_medio_reais.
     let qtd_sacas = Number(qtd_sacas_input.value)
     let qdt_anos = Number(previsao.value)
-    let faturamento_ano = valor_medio_reais * qtd_sacas
+
+    let faturamento_ano = qtd_sacas * valor_medio_reais
     let faturamento_total = faturamento_ano
 
-    let desvalorizacao_ano = faturamento_total * 0.3518
+    let desvalorizacao_ano = faturamento_total * 0.46
     let desvalorizacao_total = desvalorizacao_ano
 
     let faturamento_desvalorizado_ano = faturamento_total - desvalorizacao_total
     let faturamento_desvalorizado_total = faturamento_desvalorizado_ano
 
-    resultado.innerHTML = `Produzindo ${qtd_sacas} sacas por ano, com o preço médio de ${valor_medio_reais} sem a ambientização necessária, você:<br><br>`
+    resultado.innerHTML = `Produzindo ${qtd_sacas} sacas por ano, com o preço médio de <b>${valor_medio_reais.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b> sem a ambientização necessária, você:<br><br>`
 
-    for (ano = 1; ano <= qdt_anos; ano += 1) {
-        resultado.innerHTML += `Deixa de faturar R$${faturamento_total.toFixed(2)}, para faturar apenas R$${faturamento_desvalorizado_total.toFixed(2)} em ${ano} ano(s) <br>
-            Pois tem seu cefé desvalorizado em até R$${desvalorizacao_total.toFixed(2)} <br><br>`
+    for (let ano = 1; ano <= qdt_anos; ano += 1) {
+        
+        resultado.innerHTML += `Deixa de faturar <b>${faturamento_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b>, para faturar apenas <b>${faturamento_desvalorizado_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b> em <b>${ano}<b> ano(s) <br>
+            Pois tem seu cefé desvalorizado em até <b>${desvalorizacao_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b> <br>`
         faturamento_total += faturamento_ano
         desvalorizacao_total += desvalorizacao_ano
         faturamento_desvalorizado_total += faturamento_desvalorizado_ano
