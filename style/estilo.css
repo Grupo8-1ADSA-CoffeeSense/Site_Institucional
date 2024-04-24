@@ -25,6 +25,11 @@ nav{
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
+    position: sticky;
+    background-color: #F4EBE2;
+    width: 100%;
+    top: 0;
+    z-index: 100;
 }
 
 ul {
@@ -233,7 +238,7 @@ nav ul li:hover::after {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    z-index: 99px;
+    z-index: 99;
     
     /* border-top: 100px;     */
 }
