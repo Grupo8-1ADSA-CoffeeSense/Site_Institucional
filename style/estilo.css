@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
 
 body{
     background-color: #F4EBE2;
     margin: 0;
+    overflow-x: hidden;
 }
 
 
@@ -34,6 +38,11 @@ nav ul li {
     padding-inline: 30px;
     list-style: none; 
     position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #6F4026;
 }
 
 nav ul li::after {
@@ -467,12 +476,30 @@ nav ul li:hover::after {
 }
 
 /* CONTATO */
+.texto_superior {
+    font-family: "Cinzel", serif;
+    color: #6F4026;
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 40px; 
+    margin-left: 60%;
+    margin-bottom: 30px;
+    position: relative; 
+}
 
+.texto_superior img {
+    position: absolute; 
+    top: 100%; 
+    margin-top: 2%;
+    left: 33%; 
+    transform: translateX(-50%); 
+}
 .mae_contato{
     margin-top: 60px;
     width: 100%;
     display: flex;
     flex-direction: row;
+    margin-bottom: 90px;
 }
 
 .contato_esquerda{
@@ -495,7 +522,8 @@ nav ul li:hover::after {
     gap: 20px;
     box-sizing: border-box;
     margin-right: 20px;
-    border-radius: 16px;
+    justify-content: center; 
+    align-items: center; 
   }
   
   .form-container button:active {
@@ -511,7 +539,7 @@ nav ul li:hover::after {
   .form-container .form-group {
     display: flex;
     flex-direction: row;
-    gap: 19px;
+    gap: 40px;
   }
   
   .form-container .form-group ::placeholder {
@@ -527,28 +555,36 @@ nav ul li:hover::after {
   .form-container .form-group input {
     width: 100%;
     padding: 12px 16px;
-    border-radius: 8px;
-    color: #fff;
+    color:#160B00;
+    font-weight: 400;
     font-family: inherit;
     background-color: transparent;
-    border: 2px solid #211610;
-  }
+    border: 2px solid rgba(111, 64, 38, 0.7);
+    border-radius: 5px;
+    font-size: 21px; 
+}
   
   .form-container .form-group textarea {
     width: 100%;
-    padding: 12px 16px;
-    border-radius: 8px;
-    resize: none;
-    color: black;
-    height: 96px;
-    border: 2px solid #211610;
-    background-color: transparent;
+    padding: 12px 10px;
+    color:#160B00;
+    font-weight: 400;
     font-family: inherit;
+    background-color: transparent;
+    border: 2px solid rgba(111, 64, 38, 0.7);
+    border-radius: 5px;
+    font-size: 17px; 
   }
   
   .form-container .form-group input::placeholder {
-    opacity: 0.5;
-  }
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: rgba(22, 11, 0, 0.8); 
+    font-weight: 400;
+    font-size: 17px;
+    font-family: "Roboto", sans-serif;
+    text-align: left; 
+}
   
   .form-container .form-group input:focus {
     outline: none;
@@ -562,23 +598,24 @@ nav ul li:hover::after {
   
   .form-container .form-submit-btn {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: center; 
     align-self: flex-start;
     font-family: "Roboto", sans-serif;
     color: black;
-    font-weight: 600;
-    width: 100%;
+    font-weight: 400;
+    width: 217px; 
+    height: 60px; 
+    border-radius: 5px;
     background: transparent;
-    border: 2px solid #211610;
+    border: 2px solid rgba(111, 64, 38, 0.7);
     padding: 12px 16px;
-    font-size: inherit;
+    font-size: 21px; 
     gap: 8px;
-    margin-top: 8px;
-    cursor: pointer;
-    border-radius: 6px;
-  }
-  
+    margin-top: 10px;
+    margin-left: auto; 
+}
+
   .form-container .form-submit-btn:hover {
     background-color: #F4EBE2;
     border-color: #F4EBE2;
@@ -587,7 +624,9 @@ nav ul li:hover::after {
 
   /* Começo footer */
 
-
+footer .nav-link {
+    text-decoration: none;
+    color: #FFFFFFB2;}
 
 footer{
     display: flex;
