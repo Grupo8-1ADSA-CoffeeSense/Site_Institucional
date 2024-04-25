@@ -158,7 +158,7 @@ nav ul li:hover::after {
 }
 
 .home_direita select, option{
-    width: 400px;
+    width: 200px;
     height: 48px;
     border-radius: 5px;
     border: 1px solid #6F4439;
@@ -169,7 +169,36 @@ nav ul li:hover::after {
     color: rgba(111, 64, 38, 0.8); 
     opacity: 0.8;
 }
+.fechar-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #6F4026;
+    text-decoration: none;
+    cursor: pointer;
+}
 
+.fechar-modal:hover {
+    color: #4c2a1a;
+}
+
+.botao_secundario {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6F4026;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao_secundario:hover {
+    background-color: #4c2a1a;
+}
 .botao_submit {
     width: 400px; 
     height: 48px;
@@ -194,11 +223,25 @@ nav ul li:hover::after {
     display: none; 
     justify-content: center;
     align-items: center;
-}
-
-.modal {
-    width: 418px;
-    height: 176px;
+    }
+    .modal button {
+        margin-top: 30px; /* Ajuste a margem conforme necessário */
+        display: block; /* Certifique-se de que o botão ocupe toda a largura do modal */
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 18px; /* Tamanho do texto do botão */
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        border-radius: 5px;
+        background-color: #6F4026; /* Cor de fundo do botão */
+        color: #FFFFFF; /* Cor do texto do botão */
+        border: none;
+        cursor: pointer;
+        margin-bottom: 2%;
+    }
+.modal { 
+    width: 650px;
+    height: auto;
     background-color: #EDD9CD;
     border-radius: 10px;
     display: flex;
@@ -216,7 +259,7 @@ nav ul li:hover::after {
 
 .modal-text {
     font-family: Roboto, sans-serif;
-    color: rgba(111, 64, 38, 0.7); 
+    color: rgba(180, 169, 163, 0.7); 
     font-size: 19px; 
     font-weight: 400; 
     margin-bottom: 1px; 
@@ -231,8 +274,18 @@ nav ul li:hover::after {
 
 .modal-extra {
     font-family: Roboto, sans-serif;
-    color: rgba(111, 64, 38, 0.7); 
+    /* color: rgba(209, 105, 50, 0.7); 
+    color: rgba(111, 64, 38, 0.7);  */
     font-size: 17px;
     font-weight: 400;
     margin-bottom: 1px; 
+}
+
+.resposta{
+    font-family: Roboto, sans-serif;
+    color: #6F4439;
+    font-size: 19px; 
+    font-weight: 400; 
+    margin-bottom: 1px; 
+
 }

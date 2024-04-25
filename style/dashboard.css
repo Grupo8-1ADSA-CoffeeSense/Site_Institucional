@@ -28,7 +28,6 @@ body{
     width: 130px;
     height: 62px;
     align-items: center;
-    margin-left: 74px;
     margin-top: 35px;
     margin-bottom: 50px;
 }
@@ -42,12 +41,21 @@ body{
     text-align: center;
 }
 
-.home{
+.menu {
+    margin-bottom: 245px;
+    padding-left: 64px;
+}
+
+.menu-item{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     gap: 8px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 .configuracoes{
@@ -120,11 +128,10 @@ body{
 .navbar_direita{
 display: flex;
 flex-direction: row;
-align-items: flex-start;
-margin-top: 25px;
+align-items: center;
+height: 13vh;
 margin-left: 193px;
 gap: 30px;
-
 }
 
 .indicadores{
@@ -149,9 +156,9 @@ left: 322px;
 top: 147px;
 background: #D4B8A7;
 border-radius: 10px;
-
 align-items: flex-start;
 justify-content: center;
+text-align: center;
 gap: 5px;
 }
 
@@ -170,7 +177,7 @@ height: 174px;
 left: 322px;
 top: 147px;
 /* background: #D4B8A7; */
-
+padding-left: 3%;
 border-right: 2px solid #D4B8A7;
 
 /* border-radius: 10px; */
@@ -194,7 +201,17 @@ border-right: 2px solid #D4B8A7;
     margin-top: 19px;
     align-items: center;
     gap: 5px;
-    margin-left: 28px;
+    margin-left: 40px;
+}
+
+.texto_Umidade{
+    display: flex;
+    margin-top: 10%;
+    font-size: 50px;
+    z-index: 1;
+    margin-left: 40%;
+    font-family: 'Roboto', serif;
+    color: #421C13;
 }
 
 .indicador_cima{
@@ -209,7 +226,7 @@ border-right: 2px solid #D4B8A7;
 
 width: 30px;
 height: 30px;
-left: 333px;
+left: 340px;
 top: 166px;
 
 
