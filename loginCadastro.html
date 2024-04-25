@@ -106,10 +106,14 @@
          const EmailInformado = input_email_cadastrar.value
          let arrobaemail = EmailInformado.indexOf("@")
          let pontoemail = EmailInformado.indexOf(".")
+         let tamanhoemail = EmailInformado.length
 
-         if (arrobaemail == -1 || pontoemail == -1) {
-            span_email.innerHTML = "Email Inválido"
+         if (arrobaemail == -1) {
+            span_email.innerHTML = "Email deve conter '@'"
          } else {
+            span_email.innerHTML = ""
+         }
+         if(tamanhoemail == 0){
             span_email.innerHTML = ""
          }
       }
@@ -125,8 +129,7 @@
          } else if (SenhaInformada.indexOf('@') == -1 && SenhaInformada.indexOf('#') == -1 && SenhaInformada.indexOf('%') == -1 && SenhaInformada.indexOf('!') == -1 && SenhaInformada.indexOf('&') == -1 && SenhaInformada.indexOf('*') == -1 && SenhaInformada.indexOf('+') == -1 && SenhaInformada.indexOf('-') == -1) {
             span_senha.innerHTML = "A Senha precisa de um caracter especial"
          } 
-      
-
+        
           else if (
         SenhaInformada.indexOf('A') == -1 && SenhaInformada.indexOf('B') == -1 && SenhaInformada.indexOf('C') == -1 &&
         SenhaInformada.indexOf('D') == -1 && SenhaInformada.indexOf('E') == -1 && SenhaInformada.indexOf('F') == -1 &&
@@ -152,7 +155,13 @@
     ) {
         span_senha.innerHTML = "A senha deve ter alguma letra minúscula.";
     }
+    
+   
          else {
+            span_senha.innerHTML = ""
+         }
+
+         if(tamanhosenha == 0){
             span_senha.innerHTML = ""
          }
 
@@ -163,12 +172,16 @@ function confirmacasenha(){
    const Senhacomparada = input_senha_cadastro.value
    const confirmasenha = input_confirma_senha.value
 
-
-if(Senhacomparada != confirmacasenha){
+   
+ if(Senhacomparada != confirmacasenha ){
    span_confirmacao.innerHTML = "A senha não bate com a informada";
     }else{
       span_confirmacao.innerHTML = "";
     }
+
+  
+
+
 
 }
 
