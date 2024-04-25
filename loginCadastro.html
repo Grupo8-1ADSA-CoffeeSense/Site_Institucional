@@ -1,97 +1,181 @@
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title>Login & Cadastro</title>
-      <link rel="stylesheet" href="style/loginCadastro.css">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-   <body>
-      <div class="wrapper">
-         <div class="title-text">
-            <div class="title login">
-               Login
-            </div>
-            <div class="title signup">
-              Cadastro
-            </div>
+
+<head>
+   <meta charset="utf-8">
+   <title>Login & Cadastro</title>
+   <link rel="stylesheet" href="style/loginCadastro.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="title-text">
+         <div class="title login">
+            Login
          </div>
-         <div class="form-container">
-            <div class="slide-controls">
-               <input type="radio" name="slide" id="login" checked>
-               <input type="radio" name="slide" id="signup">
-               <label for="login" class="slide login">Login</label>
-               <label for="signup" class="slide signup">Cadastro</label>
-               <div class="slider-tab"></div>
-            </div>
-            <div class="form-inner">
-               <form action="#" class="login">
-                  <div class="field">
-                     <input type="text" placeholder="Insira seu ID" required>
-                  </div>
-                  <div class="field">
-                     <input type="password" placeholder="Insira sua senha" required>
-                  </div>
-                  <div class="pass-link">
-                     <a href="#">Esqueceu a senha?</a>
-                  </div>
-                  <div class="field btn">
-                     <div class="btn-layer"></div>
-                     <input type="submit" value="Login">
-                  </div>
-                  <div class="signup-link">
-                     Ainda não foi registrado? <a href="">Contate a empresa!</a>
-                  </div>
-               </form>
-               <form action="#" class="signup">
-                  <div class="field">
-                     <input type="text" placeholder="Insira seu email" required>
-                  </div>
-                  <div class="field">
-                     <input type="text" placeholder="Insira seu nome" required>
-                  </div>
-                  <div class="field">
-                     <input type="password" placeholder="Insira sua senha" required>
-                  </div>
-                  <div class="field">
-                    <input type="password" placeholder="Confirme sua senha" required>
-                 </div>
-                 <div class="field">
-                    <select required>
-                      <option value="" disabled selected>Selecione sua empresa</option>
-                      <option value="aromatico">Aromático Coffee Co.</option>
-                      <option value="baristabrew">Barista Brews</option>
-                      <option value="caffeinex">Caffeinex</option>
-                      <option value="espressoelite">Espresso Elite</option>
-                    </select>
-                    </div>
-                  <div class="field btn">
-                     <div class="btn-layer"></div>
-                     <input type="submit" value="Cadastre-se">
-                  </div>
-               </form>
-            </div>
+         <div class="title signup">
+            Cadastro
          </div>
       </div>
-      <script>
-         const loginText = document.querySelector(".title-text .login");
-         const loginForm = document.querySelector("form.login");
-         const loginBtn = document.querySelector("label.login");
-         const signupBtn = document.querySelector("label.signup");
-         const signupLink = document.querySelector("form .signup-link a");
-         signupBtn.onclick = (()=>{
-           loginForm.style.marginLeft = "-50%";
-           loginText.style.marginLeft = "-50%";
-         });
-         loginBtn.onclick = (()=>{
-           loginForm.style.marginLeft = "0%";
-           loginText.style.marginLeft = "0%";
-         });
-         signupLink.onclick = (()=>{
-           signupBtn.click();
-           return false;
-         });
-      </script>
-   </body>
+      <div class="form-container">
+         <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <label for="login" class="slide login">Login</label>
+            <label for="signup" class="slide signup">Cadastro</label>
+            <div class="slider-tab"></div>
+         </div>
+         <div class="form-inner">
+            <form action="#" class="login">
+               <div class="field">
+                  <input type="text" placeholder="Insira seu ID" required>
+               </div>
+               <div class="field">
+                  <input type="password" placeholder="Insira sua senha" required>
+               </div>
+               <div class="pass-link">
+                  <a href="#">Esqueceu a senha?</a>
+               </div>
+               <div class="field btn">
+                  <div class="btn-layer"></div>
+                  <input type="submit" value="Login">
+               </div>
+               <div class="signup-link">
+                  Ainda não foi registrado? <a href="">Contate a empresa!</a>
+               </div>
+            </form>
+            <form action="#" class="signup">
+               <div class="field">
+                  <input type="text" id="input_email_cadastrar" placeholder="Insira seu email" onkeyup="verificaemail()"
+                     required>
+                  <span id="span_email"></span>
+               </div>
+               <div class="field">
+                  <input type="text" placeholder="Insira seu nome" required>
+               </div>
+               <div class="field">
+                  <input type="password" id="input_senha_cadastro" onkeyup="verificasenha()"
+                     placeholder="Insira sua senha" required>
+                  <span id="span_senha"></span>
+               </div>
+               <div class="field">
+                  <input type="password" id="input_confirma_senha" placeholder="Confirme sua senha" onkeyup="confirmacasenha()" required>
+                 <span id="span_confirmacao"></span> 
+               </div>
+               <div class="field">
+                  <select required>
+                     <option value="" disabled selected>Selecione sua empresa</option>
+                     <option value="aromatico">Aromático Coffee Co.</option>
+                     <option value="baristabrew">Barista Brews</option>
+                     <option value="caffeinex">Caffeinex</option>
+                     <option value="espressoelite">Espresso Elite</option>
+                  </select>
+               </div>
+               <div class="field btn">
+                  <div class="btn-layer"></div>
+                  <input type="submit" value="Cadastre-se">
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+   <script>
+      const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const signupLink = document.querySelector("form .signup-link a");
+      signupBtn.onclick = (() => {
+         loginForm.style.marginLeft = "-50%";
+         loginText.style.marginLeft = "-50%";
+      });
+      loginBtn.onclick = (() => {
+         loginForm.style.marginLeft = "0%";
+         loginText.style.marginLeft = "0%";
+      });
+      signupLink.onclick = (() => {
+         signupBtn.click();
+         return false;
+      });
+
+
+
+      function verificaemail() {
+         const EmailInformado = input_email_cadastrar.value
+         let arrobaemail = EmailInformado.indexOf("@")
+         let pontoemail = EmailInformado.indexOf(".")
+
+         if (arrobaemail == -1 || pontoemail == -1) {
+            span_email.innerHTML = "emai invalido"
+         } else {
+            span_email.innerHTML = ""
+         }
+      }
+
+      function verificasenha() {
+         const SenhaInformada = input_senha_cadastro.value
+         let tamanhosenha = SenhaInformada.length
+
+
+
+         if (tamanhosenha < 5) {
+            span_senha.innerHTML = "A senha precisa ter pelo menos 6 digitos"
+         } else if (SenhaInformada.indexOf('@') == -1 && SenhaInformada.indexOf('#') == -1 && SenhaInformada.indexOf('%') == -1 && SenhaInformada.indexOf('!') == -1 && SenhaInformada.indexOf('&') == -1 && SenhaInformada.indexOf('*') == -1 && SenhaInformada.indexOf('+') == -1 && SenhaInformada.indexOf('-') == -1) {
+            span_senha.innerHTML = "A senha precisa de um caractere especial"
+         } 
+      
+
+          else if (
+        SenhaInformada.indexOf('A') == -1 && SenhaInformada.indexOf('B') == -1 && SenhaInformada.indexOf('C') == -1 &&
+        SenhaInformada.indexOf('D') == -1 && SenhaInformada.indexOf('E') == -1 && SenhaInformada.indexOf('F') == -1 &&
+        SenhaInformada.indexOf('G') == -1 && SenhaInformada.indexOf('H') == -1 && SenhaInformada.indexOf('I') == -1 &&
+        SenhaInformada.indexOf('J') == -1 && SenhaInformada.indexOf('K') == -1 && SenhaInformada.indexOf('L') == -1 &&
+        SenhaInformada.indexOf('M') == -1 && SenhaInformada.indexOf('N') == -1 && SenhaInformada.indexOf('O') == -1 &&
+        SenhaInformada.indexOf('P') == -1 && SenhaInformada.indexOf('Q') == -1 && SenhaInformada.indexOf('R') == -1 &&
+        SenhaInformada.indexOf('S') == -1 && SenhaInformada.indexOf('T') == -1 && SenhaInformada.indexOf('U') == -1 &&
+        SenhaInformada.indexOf('V') == -1 && SenhaInformada.indexOf('W') == -1 && SenhaInformada.indexOf('X') == -1 &&
+        SenhaInformada.indexOf('Y') == -1 && SenhaInformada.indexOf('Z') == -1
+    ) {
+        span_senha.innerHTML = "A senha deve ter alguma letra maiúscula.";
+    }else if (
+        SenhaInformada.indexOf('a') == -1 && SenhaInformada.indexOf('b') == -1 && SenhaInformada.indexOf('c') == -1 &&
+        SenhaInformada.indexOf('d') == -1 && SenhaInformada.indexOf('e') == -1 && SenhaInformada.indexOf('f') == -1 &&
+        SenhaInformada.indexOf('g') == -1 && SenhaInformada.indexOf('h') == -1 && SenhaInformada.indexOf('i') == -1 &&
+        SenhaInformada.indexOf('j') == -1 && SenhaInformada.indexOf('k') == -1 && SenhaInformada.indexOf('l') == -1 &&
+        SenhaInformada.indexOf('m') == -1 && SenhaInformada.indexOf('n') == -1 && SenhaInformada.indexOf('o') == -1 &&
+        SenhaInformada.indexOf('p') == -1 && SenhaInformada.indexOf('q') == -1 && SenhaInformada.indexOf('r') == -1 &&
+        SenhaInformada.indexOf('s') == -1 && SenhaInformada.indexOf('t') == -1 && SenhaInformada.indexOf('u') == -1 &&
+        SenhaInformada.indexOf('v') == -1 && SenhaInformada.indexOf('w') == -1 && SenhaInformada.indexOf('x') == -1 &&
+        SenhaInformada.indexOf('y') == -1 && SenhaInformada.indexOf('z') == -1
+    ) {
+        span_senha.innerHTML = "A senha deve ter alguma letra minúscula.";
+    }
+         else {
+            span_senha.innerHTML = ""
+         }
+
+
+      }
+
+function confirmacasenha(){
+   const Senhacomparada = input_senha_cadastro.value
+   const confirmasenha = input_confirma_senha.value
+
+
+if(Senhacomparada != confirmacasenha){
+   span_confirmacao.innerHTML = "A senha não bate com a informada";
+    }else{
+      span_confirmacao.innerHTML = "";
+    }
+
+}
+
+
+
+
+   </script>
+</body>
+
 </html>
