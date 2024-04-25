@@ -16,7 +16,7 @@ body{
 
 .painel{
     display: flex;
-    background-color: #D4B8A7;
+    background-color: #B8937D;
     width: 20%;
     flex-direction: column;
     height: 100%;
@@ -33,9 +33,8 @@ body{
 }
 
 .painel h2{
-
     font-family: "Roboto", sans-serif;
-    color: #6F4026;
+    color: #421C13;
     font-size: 17px;
     font-weight: 400;
     text-align: center;
@@ -78,8 +77,9 @@ ul {
 
 .painelBaixo{
     display: flex;
-    background-color: #D4B8A7;
+    background-color: #B8937D;
     width: auto;
+    height: auto;
     flex-direction: column;
     align-items: center;
 }
@@ -89,7 +89,7 @@ ul {
     font-size: 17px;
     gap: 9px;
     font-family: "Roboto", sans-serif;
-    color: #6F4026;
+    color: #421C13;
     font-size: 17px;
     font-weight: 400;
     text-align: center;
@@ -115,12 +115,14 @@ ul {
 
 }
 
-
 .texto{
+    text-decoration: none;
     display: flex;
+    color: #421C13;
+    font-weight: 500;
     flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 58px;
+    margin-left: 60px;
+    font-family: 'Cinzel', serif;
 }
 
 
@@ -131,7 +133,11 @@ flex-direction: row;
 align-items: center;
 height: 13vh;
 margin-left: 193px;
-gap: 30px;
+gap: 25px;
+}
+
+.navbar_direita span{
+    font-family: 'Roboto', sans-serif;
 }
 
 .indicadores{
@@ -142,59 +148,65 @@ height: 174px;
 left: 322px;
 top: 147px;
 
-background: #E8D8D3;
+background: #D2BBB4;
 border-radius: 10px;
 
 }
 
 .indicador_temperatura{
 display: flex;
-flex-direction: row;
+flex-direction: column;
 width: 248px;
 height: 174px;
 left: 322px;
 top: 147px;
-background: #D4B8A7;
+font-family: 'Roboto', serif;
+background: #B8937D;
 border-radius: 10px;
-align-items: flex-start;
+align-items: center;
 justify-content: center;
 text-align: center;
 gap: 5px;
 }
 
+.temperatura_media{
+height: 50%;
+}
+
 .temperatura_cima{
     display: flex;
-    margin-top: 19px;
+    justify-content: center;
     align-items: center;
     gap: 5px;
+    color:rgba(66, 28, 19, 0.8);
 }
 
 .indicador_umidade{
-    display: flex;
+display: flex;
 flex-direction: row;
 width: 248px;
 height: 174px;
 left: 322px;
 top: 147px;
+color:rgba(66, 28, 19, 0.8);
+font-family: 'Roboto', serif;
 /* background: #D4B8A7; */
 padding-left: 3%;
-border-right: 2px solid #D4B8A7;
-
-/* border-radius: 10px; */
-
-
+border-right: 1px solid #8E674F;
 }
-
+.fa-solid fa-gear{
+    color:rgba(66, 28, 19, 0.8);
+}
 .indicador_situacao{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 248px;
     height: 174px;
     left: 322px;
-    top: 147px;
-    /* background: #D4B8A7; */
-    
-    border-right: 2px solid #D4B8A7;
+    top: 150px;
+    color:rgba(66, 28, 19, 0.8);
+    font-family: 'Roboto', serif;
+    border-right: 1px solid #8E674F;
 }
 .umidade_cima{
     display: flex;
@@ -204,32 +216,18 @@ border-right: 2px solid #D4B8A7;
     margin-left: 40px;
 }
 
-.texto_Umidade{
-    display: flex;
-    margin-top: 10%;
-    font-size: 50px;
-    z-index: 1;
-    margin-left: 40%;
-    font-family: 'Roboto', serif;
-    color: #421C13;
-}
-
 .indicador_cima{
     justify-content: center;
     display: flex;
-    margin-top: 19px;
-    margin-left: 30%;
+    align-items: center;
+    margin-top: 7%;
+    justify-content: center;
+    flex-direction: column;
 }
+
 .indicador_temperatura img {
-    /* temperature-quarter-svgrepo-com 1 */
-
-
-width: 30px;
-height: 30px;
 left: 340px;
 top: 166px;
-
-
 }
 
 .indicador_umidade{
@@ -237,20 +235,38 @@ top: 166px;
     flex-direction: column;
 }
 
+.media_umidade{
+    margin-top: 5%;
+    height: 40%;
+}
 
+.situacao{
+    height: 80%;
+}
 .indicador_situacao{
     display: flex;
 }
-
+.temperatura_media{
+    margin-top: 5%;
+    height: 40%;
+}
 .legenda_situacao{
+    margin-bottom: 1%;
     display: flex;
 }
 
+.legendaSitu{
+    height: 40%;
+}
 .legenda_cima{
     justify-content: center;
     display: flex;
-    margin-top: 19px;
-    margin-left: 28px;
+    flex-direction: column;
+    font-weight: 400;
+    margin-top: -12px;
+    margin-left: 20px;
+    color:rgba(66, 28, 19, 0.8);
+    font-family: 'Roboto', serif;
 }
 
 .graficos{

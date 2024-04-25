@@ -22,10 +22,6 @@ nav{
     justify-content: space-between;
     padding: 20px;
 }
-.nav-link {
-    text-decoration: none;
-    color: #6F4026;
-}
 
 ul {
     display: flex;
@@ -181,6 +177,7 @@ nav ul li:hover::after {
     color: #6F4026;
     text-decoration: none;
     cursor: pointer;
+    transform: translate(-1660%, 640%);
 }
 
 .fechar-modal:hover {

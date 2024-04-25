@@ -18,7 +18,7 @@
           <img class="logoPainel" src="assets/Group 47.svg" alt="" />
           <span class="menu-item">
             <i id="icon_home" class="fa-solid fa-house"></i>
-            <h2>HOME</h2>
+            <h2>Home</h2>
           </span>
           <span class="menu-item">
             <i id="icon_configuracoes" class="fa-solid fa-gear"></i>
@@ -40,7 +40,7 @@
       <div class="mainDashboard">
         <div class="nav_bar">
           <div class="texto">
-          <h1>Bem vindo (a) de volta, Caramico</h1>
+          <h2>Bem vindo (a) de volta, Fernanda</h2>
           <p>Aqui estão as capturas de hoje:</p>
         </div>
           <div class="navbar_direita">
@@ -56,27 +56,26 @@
           <div class="temperatura_cima">
           <img src="assets/icon_temperatura.svg" alt="">
           <p>Temperatura Média</p>
-        
-         
         </div>
+        <img src="img/Group 30.svg" class="temperatura_media" alt="">
       </div>
       <div class="indicador_umidade">
         <div class="umidade_cima">
           <img src="assets/icon_umidade.svg" alt="">
           <p>Umidade Média</p>
         </div>
-        <div class="texto_Umidade">
-          10ºC
-        </div>
+        <img src="img/Group 32.svg" class="media_umidade" alt="">
       </div>
       <div class="indicador_situacao">
         <div class="indicador_cima">
           <p>Situação Atual</p>
+          <img src="img/Ellipse 10.svg" class="situacao" alt="">
         </div>
       </div>
       <div class="legenda_situacao">
         <div class="legenda_cima">
-          <p>Legenda de situaçoes</p>
+          <p>Legenda de situações</p>
+         <img src="img/Group 51.svg" class="legendaSitu" alt="">
         </div>
       </div>
     </div>
@@ -99,55 +98,84 @@
 
 <script>
   const ctx1 = document.getElementById('temperatura');
-  const ctx2 = document.getElementById('umidade'); 
+const ctx2 = document.getElementById('umidade');
+let temMaxima = Number(30);
+let temMin = Number(1);
+let umiMaxima = Number(60);
+let umiMin = Number(10);
 
-  new Chart(ctx1, {
-    type: 'line',
-    data: {
-      labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
-      datasets: [{
-        label: 'Temperatura',
-        data: [13, 19, 3, 5, 2, 3],
-        borderWidth: 1,
-
-        
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: false
-        }
-      }
-    }
-  });
-
-  new Chart(ctx2, {
-    type: 'line',
-    data: {
-      labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
-      datasets: [{
-        label: 'Umidade',
-        data: [18, 19, 20, 17, 7, 18],
-        borderWidth: 1,
-         borderColor: 'rgba(255, 99, 132, 1)',
-         pointBackgroundColor:'rgba(255, 99, 132, 1)',
-         pointBorderColor: 'rgba(255, 99, 132, 1)',
-        pointHoverBackgroundColor: 'white',
-        pointHoverBorderColor: 'rgba(255, 99, 132, 1)',
-        backgroundColor: 'rgba(255, 99, 132, 1)'
-
-      }]
-    },
-
-      plugins: {
-      legend: {
-        labels: {
-          // Aqui você define a cor de fundo dos labels
-           backgroundColor: 'rgba(255, 99, 132, 1)' // Por exemplo, branco com 50% de opacidade
-        }
+const chartTemperatura = new Chart(ctx1, {
+  type: 'line',
+  data: {
+    labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+    datasets: [{
+      label: 'Temperatura',
+      data: [],
+      borderWidth: 4,
+      borderWidth: 4,
+      borderColor: 'rgb(143, 0, 0)',
+      pointBackgroundColor: 'rgb(143, 0, 0)',
+      pointBorderColor: 'rgb(143, 0, 0)',
+      pointHoverBackgroundColor: 'white',
+      pointHoverBorderColor: 'rgb(143, 0, 0)',
+      backgroundColor: 'rgb(143, 0, 0)'
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: false
       }
     }
   }
-);
+});
+
+const chartUmidade = new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+    datasets: [{
+      label: 'Umidade',
+      data: [],
+      borderWidth: 4,
+      borderColor: '#33a6e8',
+      pointBackgroundColor: '#33a6e8',
+      pointBorderColor: '#33a6e8',
+      pointHoverBackgroundColor: 'white',
+      pointHoverBorderColor: '#33a6e8',
+      backgroundColor: '#33a6e8'
+    }]
+  },
+  plugins: {
+    legend: {
+      labels: {
+        backgroundColor: '#33a6e8'
+      }
+    }
+  }
+});
+
+for(let contador = 0 ; contador <=5; contador++ ){
+  chartTemperatura.data.datasets[0].data.push(Math.floor((Math.random() * (1 + temMaxima - temMin)) + temMin));
+  chartUmidade.data.datasets[0].data.push(Math.floor((Math.random() * (1 + umiMaxima - umiMin)) + temMin));
+}
+
+setInterval(function () {
+let novaTemperatura = Math.floor((Math.random() * (1 + temMaxima - temMin)) + temMin);
+let novaUmidade = Math.floor((Math.random() * (1 + umiMaxima - umiMin)) + temMin);
+chartTemperatura.data.datasets[0].data.shift();
+chartTemperatura.data.datasets[0].data.push(novaTemperatura);
+chartUmidade.data.datasets[0].data.shift();
+  chartUmidade.data.datasets[0].data.push(novaUmidade);
+
+  
+  const maxDataPoints = 10;
+  if (chartTemperatura.data.datasets[0].data.length > maxDataPoints) {
+  }
+  if (chartUmidade.data.datasets[0].data.length > maxDataPoints) {
+  }
+
+  chartTemperatura.update('active');
+  chartUmidade.update('active');
+}, 1000);
 </script>
