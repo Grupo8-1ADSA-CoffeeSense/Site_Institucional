@@ -400,7 +400,7 @@ nav ul li:hover::after {
     width: 686px;
     font-size: 25px;
     /* margin-left: 45px; */
-    align-items: flex-start;
+    /* align-items: flex-start; */
 }
 
 .cards_text h1{
