@@ -14,14 +14,14 @@
   <nav>
     <img class="logo" src="assets/Group 47.svg" alt="" />
     <ul>
-      <li>Home</li>
-      <li>Serviços</li>
-      <li>Sobre Nós</li>
-      <li>Contato</li>
+      <li><a  class="nav-link" href="../Site_Institucional/index.html">Home</a></li>
+      <li><a  class="nav-link" href="../Site_Institucional/index.html">Serviços</a></li>
+      <li><a  class="nav-link" href="../Site_Institucional/index.html">Sobre Nós</a></li>
+      <li><a  class="nav-link" href="../Site_Institucional/index.html">Contato</a></li>
       <li>Calculadora</li>
     </ul>
 
-    <button class="botao_login">Login</button>
+    <button onclick="botao_login()" class="botao_login">Login</button>
   </nav>
   <!-- FIM NAVBAR -->
 
@@ -80,3 +80,8 @@ function fecharModal() {
 </body>
 
 </html>
+ <script>
+    function botao_login(){
+        window.location.href="../Site_Institucional/loginCadastro.html"
+    }
+ </script>

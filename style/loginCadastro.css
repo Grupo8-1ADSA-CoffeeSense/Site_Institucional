@@ -247,4 +247,9 @@ form .btn input[type="submit"]{
   .wrapper .form-inner form .field select:focus::placeholder {
     color: #b3b3b3;
   }
+
+  .span-verificacao{
+    color: red;
+    padding-top: 10px;
+  }
   

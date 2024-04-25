@@ -25,6 +25,10 @@ nav{
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
+    top: 0;
+    position: sticky;
+    background-color: #F4EBE2;
+    z-index: 100;
 }
 
 ul {
@@ -38,6 +42,11 @@ nav ul li {
     padding-inline: 30px;
     list-style: none; 
     position: relative;
+}
+
+.nav-calculadora{
+    text-decoration: none;
+    color: #6F4026;
 }
 
 .nav-link {
@@ -172,6 +181,7 @@ nav ul li:hover::after {
     align-items: center;
     display: flex;
     margin-top: 25px;
+    text-align: center;
     
 }
 
@@ -233,7 +243,7 @@ nav ul li:hover::after {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    z-index: 99px;
+    z-index: 99;
     
     /* border-top: 100px;     */
 }
@@ -377,7 +387,10 @@ nav ul li:hover::after {
     align-items: flex-start;
     flex-direction: column;
     height: 70px;
+    
 }
+
+
 
 .span_text {
     font-weight: 300;
@@ -541,8 +554,20 @@ nav ul li:hover::after {
   
   .form-container .form-group {
     display: flex;
-    flex-direction: row;
-    gap: 40px;
+    flex-direction: column;
+    /* gap: 40px; */
+  }
+
+  .form-group p {
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    color: #F4EBE2;
+    word-wrap: break-word;
+    font-size: 20px;  
+    flex: 1;
+    margin-right: 20px;
+    text-align: justify;
+    width: 200px;
   }
   
   .form-container .form-group ::placeholder {
@@ -587,6 +612,7 @@ nav ul li:hover::after {
     font-size: 17px;
     font-family: "Roboto", sans-serif;
     text-align: left; 
+    opacity: 50%;
 }
   
   .form-container .form-group input:focus {
@@ -605,7 +631,7 @@ nav ul li:hover::after {
     justify-content: center; 
     align-self: flex-start;
     font-family: "Roboto", sans-serif;
-    color: black;
+    color: #F4EBE2;
     font-weight: 400;
     width: 217px; 
     height: 60px; 
@@ -622,6 +648,8 @@ nav ul li:hover::after {
   .form-container .form-submit-btn:hover {
     background-color: #F4EBE2;
     border-color: #F4EBE2;
+    color: #6F4026;
+    border: 2px solid #6F4026
   }
   
 
@@ -630,6 +658,11 @@ nav ul li:hover::after {
 footer .nav-link {
     text-decoration: none;
     color: #FFFFFFB2;}
+
+.nav-footer{
+    text-decoration: none;
+    color: #FFFFFFB2;
+}
 
 footer{
     display: flex;

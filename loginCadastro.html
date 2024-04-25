@@ -50,7 +50,7 @@
                <div class="field">
                   <input type="text" id="input_email_cadastrar" placeholder="Insira seu email" onkeyup="verificaemail()"
                      required>
-                  <span id="span_email"></span>
+                  <span class="span-verificacao"  id="span_email"></span>
                </div>
                <div class="field">
                   <input type="text" placeholder="Insira seu nome" required>
@@ -58,11 +58,11 @@
                <div class="field">
                   <input type="password" id="input_senha_cadastro" onkeyup="verificasenha()"
                      placeholder="Insira sua senha" required>
-                  <span id="span_senha"></span>
+                  <span class="span-verificacao"  id="span_senha"></span>
                </div>
                <div class="field">
                   <input type="password" id="input_confirma_senha" placeholder="Confirme sua senha" onkeyup="confirmacasenha()" required>
-                 <span id="span_confirmacao"></span> 
+                 <span class="span-verificacao" id="span_confirmacao"></span> 
                </div>
                <div class="field">
                   <select required>
@@ -108,7 +108,7 @@
          let pontoemail = EmailInformado.indexOf(".")
 
          if (arrobaemail == -1 || pontoemail == -1) {
-            span_email.innerHTML = "emai invalido"
+            span_email.innerHTML = "Email Inválido"
          } else {
             span_email.innerHTML = ""
          }
@@ -121,9 +121,9 @@
 
 
          if (tamanhosenha < 5) {
-            span_senha.innerHTML = "A senha precisa ter pelo menos 6 digitos"
+            span_senha.innerHTML = "A senha precisa ter pelo menos 6 digítos"
          } else if (SenhaInformada.indexOf('@') == -1 && SenhaInformada.indexOf('#') == -1 && SenhaInformada.indexOf('%') == -1 && SenhaInformada.indexOf('!') == -1 && SenhaInformada.indexOf('&') == -1 && SenhaInformada.indexOf('*') == -1 && SenhaInformada.indexOf('+') == -1 && SenhaInformada.indexOf('-') == -1) {
-            span_senha.innerHTML = "A senha precisa de um caractere especial"
+            span_senha.innerHTML = "A Senha precisa de um caracter especial"
          } 
       
 
