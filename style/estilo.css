@@ -311,7 +311,7 @@ nav ul li:hover::after {
     justify-content: flex-start;
     align-items: center;
     display: flex;
-    margin-top: 25px;
+    margin-top: 175px;
 }
 
 .servicos h1 {
@@ -321,7 +321,7 @@ nav ul li:hover::after {
     font-weight: 400;
     font-size: 30px;
     text-align: center;
-    margin-top: 150px;
+    /* margin-top: 150px; */
 }
 
 .servicos img {
@@ -374,6 +374,12 @@ nav ul li:hover::after {
 }  
 
 
+.gif_wifi {
+    width: 100%;
+    margin-top: 25px;
+    margin-left: 125px;
+    transform: rotate(90deg);
+}
 
 .cards_picture{
     height: 45%;
@@ -383,7 +389,7 @@ nav ul li:hover::after {
 
 .cards_text{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: flex-start;
     flex-direction: column;
     height: 70px;
@@ -398,22 +404,24 @@ nav ul li:hover::after {
     color: #6F4026;
     word-wrap: break-word;
     width: 686px;
-    font-size: 25px;
+    font-size: 20px;
     /* margin-left: 45px; */
-    /* align-items: flex-start; */
+    align-items: center;
+    /* justify-content: center; */
+    
 }
 
 .cards_text h1{
     text-align: left;
-
+    font-size: 20px;
 }
 
 .cards_text h3{
     font-family: "Roboto", sans-serif;
     color: #6F4026;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
-    text-align: center;
+    /* text-align: center; */
 }
 
 /* COMEÇO SOBRE */
