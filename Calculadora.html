@@ -14,14 +14,14 @@
   <nav>
     <img class="logo" src="assets/Group 47.svg" alt="" />
     <ul>
-      <li>Home</li>
-      <li>Serviços</li>
-      <li>Sobre Nós</li>
-      <li>Contato</li>
-      <li>Calculadora</li>
+      <li><a class="nav-calculadora" href="../Site_Institucional/index.html">Home</a></li>
+      <li><a class="nav-calculadora" href="../Site_Institucional/index.html">Serviços</a></li>
+      <li><a class="nav-calculadora" href="../Site_Institucional/index.html">Sobre Nós</a></li>
+      <li><a class="nav-calculadora" href="../Site_Institucional/index.html">Contato</a></li>
+
     </ul>
 
-    <button class="botao_login">Login</button>
+    <button onclick="botao_login()" class="botao_login">Login</button>
   </nav>
   <!-- FIM NAVBAR -->
 
@@ -29,13 +29,11 @@
   <div class="home">
     <div class="home_esquerda">
       <img class="calc" src="assets/Group 50.svg" alt="Descrição do SVG" />
-      <h1>Calcule a possivel queda do seu faturamento hoje de graça!</h1>
+      <h1>A desvalorização do café pode impactar seus ganhos...</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in
-        elit vitae metus tincidunt porta auctor eu urna. Mauris eget nisl at
-        quam commodo placerat. Curabituelit. Aliquaquis magna in felis cursus
-        faucibus eget sit amet arcu. Donec eget tellus accumsan, feugiat orci
-        quis, placerat dolor. vinar lacus ex.
+        Você já parou para pensar quanto poderia perder devido ás mudanças no mercado?
+        Uma análise detalhada revelou que até 46% do seu faturamento total anual pode ser prejudicado devido a um ambiente incorreto de armazenamento.
+        Experimente agora e descubra o quanto você está perdendo, para que assim, possa planejar seus lucros e alcançar sucesso total!
       </p>
     </div>
     <div class="home_direita">
@@ -60,7 +58,7 @@
           <div class="modal-content">
             <p class="resposta" id="resultado"></p>
                     <a onclick="fecharModal()" class="fechar-modal ">&#10006;</a>
-                    <button href="./loginCadastro.html" class="botao_secundario" >Nos contate para resolver o seu problema</button>
+                    <button  onclick="cadastro()" class="botao_secundario" >Nos contate para resolver o seu problema</button>
                   </div>
         </div>
       </div>
@@ -80,3 +78,12 @@ function fecharModal() {
 </body>
 
 </html>
+<script>
+   function botao_login(){
+        window.location.href="../Site_Institucional/loginCadastro.html"
+    }
+
+    function cadastro(){
+      window.location.href="../Site_Institucional/loginCadastro.html"
+    }
+</script>

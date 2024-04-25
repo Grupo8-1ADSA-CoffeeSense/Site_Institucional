@@ -184,6 +184,11 @@ nav ul li:hover::after {
     color: #4c2a1a;
 }
 
+.nav-calculadora{
+    text-decoration: none;
+    color: #6F4026;
+}
+
 .botao_secundario {
     display: block;
     margin-top: 20px;
