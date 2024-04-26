@@ -171,15 +171,19 @@
 function confirmacasenha(){
    const Senhacomparada = input_senha_cadastro.value
    const confirmasenha = input_confirma_senha.value
+   let tamanhoconfirma = input_confirma_senha.length
 
    
- if(Senhacomparada != confirmacasenha ){
-   span_confirmacao.innerHTML = "A senha não bate com a informada";
-    }else{
+   if(Senhacomparada != confirmasenha){
+      span_confirmacao.innerHTML = "A senha não bate com a informada";
+   } 
+   else{
       span_confirmacao.innerHTML = "";
-    }
-
+   }
   
+   if(tamanhoconfirma == 0){
+      span_confirmacao.innerHTML = "";
+   }
 
 
 
