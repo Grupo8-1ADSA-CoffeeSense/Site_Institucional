@@ -30,17 +30,18 @@
          <div class="form-inner">
             <form action="#" class="login">
                <div class="field">
-                  <input type="text" placeholder="Insira seu ID" required>
+                  <input type="text" id="input_id_login" placeholder="Insira seu ID" required>
                </div>
                <div class="field">
-                  <input type="password" placeholder="Insira sua senha" required>
+                  <input type="password" id="input_senha_login" placeholder="Insira sua senha" required>
                </div>
                <div class="pass-link">
+                  <span id="span_invalido"></span>
                   <a href="#">Esqueceu a senha?</a>
                </div>
                <div class="field btn">
                   <div class="btn-layer"></div>
-                  <input type="submit" value="Login">
+                  <input type="submit" value="Login" onclick="Loginvalido()">
                </div>
                <div class="signup-link">
                   Ainda não foi registrado? <a href="">Contate a empresa!</a>
@@ -190,7 +191,15 @@ function confirmacasenha(){
 }
 
 
+function Loginvalido(){
+const idinformado = input_id_login.value
+const senhainformada = input_senha_login.value
+let mudapagina = window.location.href="../Site_Institucional/dashboard.html"
 
+mudapagina
+   
+   
+      }
 
    </script>
 </body>
