@@ -578,7 +578,7 @@ nav ul li:hover::after {
     width: 200px;
   }
   
-  .form-container .form-group ::placeholder {
+  .form-container .form-group  ::placeholder {
     display: block;
     margin-right: 10px;
     margin-bottom: 5px;
@@ -611,6 +611,9 @@ nav ul li:hover::after {
     border-radius: 5px;
     font-size: 17px; 
   }
+
+ 
+
   
   .form-container .form-group input::placeholder {
     margin-right: 10px;
