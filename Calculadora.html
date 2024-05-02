@@ -29,11 +29,15 @@
   <div class="home">
     <div class="home_esquerda">
       <img class="calc" src="assets/Group 50.svg" alt="Descrição do SVG" />
-      <h1>A desvalorização do café pode impactar seus ganhos...</h1>
+      <div class="box">
+        <h1>A desvalorização do café pode impactar seus ganhos...</h1>
+      </div>
       <p>
         Você já parou para pensar quanto poderia perder devido ás mudanças no mercado?
-        Uma análise detalhada revelou que até 46% do seu faturamento total anual pode ser prejudicado devido a um ambiente incorreto de armazenamento.
-        Experimente agora e descubra o quanto você está perdendo, para que assim, possa planejar seus lucros e alcançar sucesso total!
+        Uma análise detalhada revelou que até 46% do seu faturamento total anual pode ser prejudicado devido a um
+        ambiente incorreto de armazenamento.
+        Experimente agora e descubra o quanto você está perdendo, para que assim, possa planejar seus lucros e alcançar
+        sucesso total!
       </p>
     </div>
     <div class="home_direita">
@@ -52,14 +56,15 @@
         <option id="5">5</option>
         <!-- <option>6 </option> -->
       </select>
-      <button class="botao_submit" onclick="calcular()">Calcular</button>
+      <button class="botao_submit"  onclick="calcular()">Calcular</button>
       <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
           <div class="modal-content">
             <p class="resposta" id="resultado"></p>
-                    <a onclick="fecharModal()" class="fechar-modal ">&#10006;</a>
-                    <button  onclick="cadastro()" class="botao_secundario" >Nos contate para resolver o seu problema</button>
-                  </div>
+
+            <button onclick="cadastro()" class="botao_primario">Contate-nos para resolver o seu problema</button>
+            <button onclick="fecharModal()" class="botao_secundario">Fechar</button>
+          </div>
         </div>
       </div>
     </div>
@@ -79,11 +84,11 @@ function fecharModal() {
 
 </html>
 <script>
-   function botao_login(){
-        window.location.href="../Site_Institucional/loginCadastro.html"
-    }
+  function botao_login() {
+    window.location.href = "../Site_Institucional/loginCadastro.html"
+  }
 
-    function cadastro(){
-      window.location.href="../Site_Institucional/loginCadastro.html"
-    }
+  function cadastro() {
+    window.location.href = "../Site_Institucional/loginCadastro.html"
+  }
 </script>

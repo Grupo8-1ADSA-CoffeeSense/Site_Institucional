@@ -2,21 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
-body{
+body {
     background-color: #F4EBE2;
     margin: 0;
 }
 
 
-.logo{
+.logo {
     margin-left: 20px;
     height: 60px;
 }
 
 /* mexendo na navbar */
-nav{
+nav {
     font-family: "Roboto", sans-serif;
-    align-items: center ;
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -32,7 +32,7 @@ nav ul li {
     font-size: 18px;
     display: flex;
     padding-inline: 30px;
-    list-style: none; 
+    list-style: none;
     position: relative;
 }
 
@@ -40,17 +40,17 @@ nav ul li::after {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -5px; 
-    height: 2px; 
-    width: 0; 
-    background-color: currentColor; 
-    transition: width 0.3s ease, left 0.3s ease; 
-    transform: translateX(0%); 
+    bottom: -5px;
+    height: 2px;
+    width: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(0%);
 }
 
 nav ul li:hover::after {
-    width: calc(100% - 60px); 
-    left: 30px; 
+    width: calc(100% - 60px);
+    left: 30px;
 }
 
 .botao_login {
@@ -70,13 +70,14 @@ nav ul li:hover::after {
 /* FIM NAVBAR */
 
 /* Inicio HOME */
-.home_esquerda{
+.home_esquerda {
     margin-top: 3%;
 }
+
 .home_esquerda h1 {
     font-size: 45px;
     font-family: "Cinzel", serif;
-    color: #6F4026;
+    color: #fcfcfc;
     word-wrap: break-word;
     width: 531px;
     font-weight: normal;
@@ -92,7 +93,7 @@ nav ul li:hover::after {
     width: 686px;
     font-size: 25px;
     margin-left: 45px;
-    text-align: left; 
+    text-align: left;
 }
 
 .botao_registro {
@@ -116,27 +117,28 @@ nav ul li:hover::after {
     justify-content: space-between;
 }
 
-.home_esquerda{
+.home_esquerda {
     width: 50%;
 }
 
-.home_direita{
+.home_direita {
     width: 50%;
 }
 
-.home_esquerda .calc{
+.home_esquerda .calc {
     margin-left: 45px;
 }
 
 .home_direita {
     display: flex;
-    flex-direction: column; 
-    justify-content: flex-start; 
-    align-items: center; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 5%;
 }
 
 .home_direita label {
+    font-weight: bold;
     font-size: 18px;
     font-family: Roboto, sans-serif;
     color: rgba(111, 64, 38, 0.8);
@@ -150,47 +152,51 @@ nav ul li:hover::after {
     border-radius: 5px;
     border: 1px solid #6F4439;
     background-color: #FFFFFF;
-    margin-top: 20px; 
-    padding-left: 10px; 
-    font-size: 18px; 
-    color: rgba(111, 64, 38, 0.8); 
+    margin-top: 20px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: rgba(111, 64, 38, 0.8);
     opacity: 0.8;
 }
 
-.home_direita select, option{
+.home_direita select,
+option {
     width: 200px;
     height: 48px;
     border-radius: 5px;
     border: 1px solid #6F4439;
     background-color: #FFFFFF;
     margin-top: 20px;
-    padding-left: 10px; 
-    font-size: 18px; 
-    color: rgba(111, 64, 38, 0.8); 
+    padding-left: 10px;
+    font-size: 18px;
+    color: rgba(111, 64, 38, 0.8);
     opacity: 0.8;
 }
+
 .fechar-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    color: #6F4026;
+    background-color: aquamarine;
+
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-width: 10cap;
+    border-radius: 5px;
+    font-size: 16px;
     text-decoration: none;
     cursor: pointer;
-    transform: translate(-1660%, 640%);
 }
 
 .fechar-modal:hover {
-    color: #4c2a1a;
+    color: #321406;
 }
 
-.nav-calculadora{
+.nav-calculadora {
     text-decoration: none;
     color: #6F4026;
 }
 
-.botao_secundario {
-    display: block;
+.botao_primario {
+    display: flex;
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #6F4026;
@@ -202,11 +208,27 @@ nav ul li:hover::after {
     cursor: pointer;
 }
 
-.botao_secundario:hover {
+.botao_secundario {
+    display: flex;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: black;
+    background: transparent;
+    border: 2px solid rgba(111, 64, 38, 0.7);
+}
+
+
+.botao_primario:hover {
     background-color: #4c2a1a;
 }
+
 .botao_submit {
-    width: 400px; 
+    width: 400px;
     height: 48px;
     border-radius: 5px;
     background-color: #6F4439;
@@ -216,37 +238,47 @@ nav ul li:hover::after {
     font-family: Roboto, sans-serif;
     text-align: center;
     letter-spacing: 1px;
-    margin-top: 30px; 
+    margin-top: 30px;
     appearance: none;
 }
+
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    display: none; 
+    background-color: #cba9919b;
+    display: none;
     justify-content: center;
     align-items: center;
-    }
-    .modal button {
-        margin-top: 30px; /* Ajuste a margem conforme necessário */
-        display: block; /* Certifique-se de que o botão ocupe toda a largura do modal */
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        font-size: 18px; /* Tamanho do texto do botão */
-        padding: 10px 20px; /* Espaçamento interno do botão */
-        border-radius: 5px;
-        background-color: #6F4026; /* Cor de fundo do botão */
-        color: #FFFFFF; /* Cor do texto do botão */
-        border: none;
-        cursor: pointer;
-        margin-bottom: 2%;
-    }
-.modal { 
-    width: 650px;
+}
+/* 
+.modal button {
+    margin-top: 30px;
+    Ajuste a margem conforme necessário
+    display: block;
+    Certifique-se de que o botão ocupe toda a largura do modal
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 18px;
+    Tamanho do texto do botão
+    padding: 10px 20px;
+     Espaçamento interno do botão
+    border-radius: 5px;
+    background-color: #6F4026;
+    Cor de fundo do botão 
+    color: #FFFFFF;
+     Cor do texto do botão
+    border: none;
+    cursor: pointer;
+    margin-bottom: 2%;
+} */
+
+.modal {
+    display: flex;
+    width: 1000px;
     height: auto;
     background-color: #EDD9CD;
     border-radius: 10px;
@@ -257,25 +289,27 @@ nav ul li:hover::after {
 
 .modal-content {
     text-align: center;
+    justify-items: center;
+    justify-content: center;
 }
 
-.modal button {
+/* .modal button {
     margin-top: 10px;
-}
+} */
 
 .modal-text {
     font-family: Roboto, sans-serif;
-    color: rgba(180, 169, 163, 0.7); 
-    font-size: 19px; 
-    font-weight: 400; 
-    margin-bottom: 1px; 
+    color: rgba(180, 169, 163, 0.7);
+    font-size: 19px;
+    font-weight: 400;
+    margin-bottom: 1px;
 }
 
 .modal-amount {
     color: #6F4026;
     font-size: 30px;
-    font-weight: 600; 
-    margin-bottom: 1px; 
+    font-weight: 600;
+    margin-bottom: 1px;
 }
 
 .modal-extra {
@@ -284,14 +318,23 @@ nav ul li:hover::after {
     color: rgba(111, 64, 38, 0.7);  */
     font-size: 17px;
     font-weight: 400;
-    margin-bottom: 1px; 
+    margin-bottom: 1px;
 }
 
-.resposta{
+.resposta {
     font-family: Roboto, sans-serif;
     color: #6F4439;
-    font-size: 19px; 
-    font-weight: 400; 
-    margin-bottom: 1px; 
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 1px;
+
+}
+
+.box {
+    background-color: #6F4439;
+    opacity: 80%;
+    height: 200px;
+    width: 90%;
+    border-radius: 10px;
 
 }
