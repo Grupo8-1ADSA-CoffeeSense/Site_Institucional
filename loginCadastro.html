@@ -48,20 +48,23 @@
                </div>
             </form>
             <form action="#" class="signup">
-               <div class="field">
+               <div class="field"><label class="legenda_cadastro">informe o seu email    </label>
                   <input type="text" id="input_email_cadastrar" placeholder="Insira seu email" onkeyup="verificaemail()"
                      required>
                   <span class="span-verificacao"  id="span_email"></span>
+           
                </div>
-               <div class="field">
+               <div class="field"><label class="legenda_cadastro">Nome:  </label>
                   <input type="text" placeholder="Insira seu nome" required>
+             
                </div>
-               <div class="field">
+               <div class="field"><label class="legenda_cadastro">Senha</label>
                   <input type="password" id="input_senha_cadastro" onkeyup="verificasenha()"
                      placeholder="Insira sua senha" required>
                   <span class="span-verificacao"  id="span_senha"></span>
+               
                </div>
-               <div class="field">
+               <div class="field"><label class="legenda_cadastro">Confirme a senha</label>
                   <input type="password" id="input_confirma_senha" placeholder="Confirme sua senha" onkeyup="confirmacasenha()" required>
                  <span class="span-verificacao" id="span_confirmacao"></span> 
                </div>
@@ -126,7 +129,7 @@
 
 
          if (tamanhosenha < 5) {
-            span_senha.innerHTML = "A senha precisa ter pelo menos 6 digítos"
+            span_senha.innerHTML = "a senha precisa ter 6 digitos e 1 caractere especial"
          } else if (SenhaInformada.indexOf('@') == -1 && SenhaInformada.indexOf('#') == -1 && SenhaInformada.indexOf('%') == -1 && SenhaInformada.indexOf('!') == -1 && SenhaInformada.indexOf('&') == -1 && SenhaInformada.indexOf('*') == -1 && SenhaInformada.indexOf('+') == -1 && SenhaInformada.indexOf('-') == -1) {
             span_senha.innerHTML = "A Senha precisa de um caracter especial"
          } 
@@ -176,7 +179,7 @@ function confirmacasenha(){
 
    
    if(Senhacomparada != confirmasenha){
-      span_confirmacao.innerHTML = "A senha não bate com a informada";
+      span_confirmacao.innerHTML = "As senhas não correspondem";
    } 
    else{
       span_confirmacao.innerHTML = "";
