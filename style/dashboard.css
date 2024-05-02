@@ -176,13 +176,43 @@ border-radius: 10px;
     border-radius: 15px;
 
 }
+
+
+.painel_ideal p {
+font-family: 'Roboto', sans-serif;
+font-size: 20px;
+font-weight: 400;
+text-align: center;
+}
+
+.painel_ideal h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    text-align: center;
+
+}
+.painel_media p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    }
+    
+    .painel_media h1{
+        font-family: 'Roboto', sans-serif;
+        font-size: 30px;
+        text-align: center;
+    
+    }
 .temperatura_ideal{
     display: flex;
     flex-direction: column;
-    border-right: 2px  solid black;
+    border-right:  2px solid black;
     height: 100%;
     width: 50%;
     align-items: center;
+
+    
 }
 .umidade_ideal{
     display: flex;
@@ -191,8 +221,134 @@ border-radius: 10px;
     width: 50%;
     align-items: center;
 }
+.painel_media{
+
+display: flex;
+position: absolute;
+width: 494px;
+height: 200px;
+left: 322px;
+top: 307px;
+
+background: #D2BBB4;
+border-radius: 15px;
+z-index: 1;
+
+
+}
+.temperatura_media{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #B8937D;
+    /* border-right:  2px solid black; */
+    border-radius: 15px;
+    width: 50%;
+    height: 100%;
+
+
+}
+.umidade_media{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+}
+.indicador_direita{
+    display: flex;
+    position: absolute;
+    width: 445px;
+    height: 368px;
+    left: 844px;
+    top: 138px;
+
+background: #D2BBB4;
+border-radius: 10px;
+
+}
+.legenda_coluna {
+display: flex;
+/* width: 100%; */
+/* height: 100%; */
+/* justify-content: center; */
+flex-direction: column;
+width: 400px;
+
+
+}
+.legenda_coluna p{
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+}
+.legenda_coluna h1{
+    font-size: 20px;
+    text-align: center;
+    width: 80%;
+    margin-left: 10px;
+}
+
+.legenda_boa{
+    background-color: #619B63;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    margin-left: 15px;
+    margin-top:25px;
+}
+.linha_legenda{
+    display: flex;
+    flex-direction: row;
+    font-size: 5px;
     
 
+}
+.legenda_amarela{
+    background-color: #CEBD21;
+    ;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.legenda_vermelha{
+    background-color:#A02121;
+    ;
+    ;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    margin-left: 15px;
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+.legenda_mae{
+    width: 300px;
+    margin-left: 50px;
+}
+.legenda_bolinha{
+    display: flex;
+    flex-direction: row;
+align-items: center;
+text-align: center;
+}
+.legenda_final{
+    display: flex;
+    align-items: center;
+}
+.legenda_boa{
+    text-align: center;
+    align-items: center;
+}
+.legenda_bolinhaAmarela{
+    display: flex;
+    flex-direction: row;
+align-items: center;
+text-align: center;
+}
 
 .graficos {
     display: flex;
@@ -210,6 +366,7 @@ border-radius: 10px;
 
     background: #FDF7F5;
     border-radius: 10px;
+    margin-top: 500px;
 
 }
 
@@ -224,7 +381,7 @@ border-radius: 10px;
 
     background: #FDF7F5;
     border-radius: 10px;
-
+    margin-top: 500px;
 }
 
 
@@ -249,3 +406,4 @@ border-radius: 10px;
     width: 100%;
     height: 100%;
 }
+

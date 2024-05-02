@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/dashboard.css" />
-    <script
-      src="https://kit.fontawesome.com/65879fa723.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Dashboard</title>
-  </head>
-  <body>
-    <div class="total">
-      <div class="painel">
-        <div class="menu">
-          <img class="logoPainel" src="assets/Group 47.svg" alt="" />
-          <span class="menu-item">
-            <i id="icon_home" class="fa-solid fa-house"></i>
-            <h2>Home</h2>
-          </span>
-          <span class="menu-item">
-            <i id="icon_configuracoes" class="fa-solid fa-gear"></i>
-            <h2>Configurações</h2>
-          </span>
-          <span class="menu-item">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <h2>Historico</h2>
-          </span>
-        </div>
-        <div class="painelBaixo">
-          <ul>
-            <li><i class="fa-regular fa-circle-question"></i>Ajuda</li>
-            <li><i class="fa-solid fa-phone"></i>Nos contate</li>
-            <li><i class="fa-solid fa-right-to-bracket"></i> Sair</li>
-          </ul>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style/dashboard.css" />
+  <script src="https://kit.fontawesome.com/65879fa723.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <div class="total">
+    <div class="painel">
+      <div class="menu">
+        <img class="logoPainel" src="assets/Group 47.svg" alt="" />
+        <span class="menu-item">
+          <i id="icon_home" class="fa-solid fa-house"></i>
+          <h2>Home</h2>
+        </span>
+        <span class="menu-item">
+          <i id="icon_configuracoes" class="fa-solid fa-gear"></i>
+          <h2>Configurações</h2>
+        </span>
+        <span class="menu-item">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h2>Historico</h2>
+        </span>
       </div>
-      <div class="mainDashboard">
-        <div class="nav_bar">
-          <div class="texto">
+      <div class="painelBaixo">
+        <ul>
+          <li><i class="fa-regular fa-circle-question"></i>Ajuda</li>
+          <li><i class="fa-solid fa-phone"></i>Nos contate</li>
+          <li><i class="fa-solid fa-right-to-bracket"></i> Sair</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mainDashboard">
+      <div class="nav_bar">
+        <div class="texto">
           <h2>Bem vindo (a) de volta, Fernanda</h2>
           <p>Aqui estão as capturas de hoje:</p>
         </div>
-          <div class="navbar_direita">
-            <img src="assets/icons8-search 1.svg" alt="">
-            <img src="assets/icon8-bell.svg" alt="">
-            <span>Fernanda C.</span>
-            <img src="assets/image 9.svg" alt="">
-            <img src="assets/icons8-seta-para-expandir-16 1.svg" alt="">
+        <div class="navbar_direita">
+          <img src="assets/icons8-search 1.svg" alt="">
+          <img src="assets/icon8-bell.svg" alt="">
+          <span>Fernanda C.</span>
+          <img src="assets/image 9.svg" alt="">
+          <img src="assets/icons8-seta-para-expandir-16 1.svg" alt="">
         </div>
       </div>
-      <div class="indicadores"> 
+      <div class="indicadores">
         <div class="indicador_esquerda">
           <div class="painel_ideal">
             <div class="temperatura_ideal">
@@ -60,118 +59,158 @@
 
             </div>
             <div class="umidade_ideal">
-            <p>Umidde Ideal</p>
-            <h1>11% á 12%</h1>
+              <p>Umidade Ideal</p>
+              <h1>11% á 12%</h1>
             </div>
-          
+
           </div>
 
-          <div class="painel_media"></div>
-          
+          <div class="painel_media">
+            <div class="temperatura_media">
+              <p>Temperatura Média</p>
+              <h1>20°C</h1>
+
+            </div>
+            <div class="umidade_media">
+              <p>Umidade Média</p>
+              <h1>11%</h1>
+            </div>
+
+          </div>
+
 
         </div>
         <div class="indicador_direita">
+          <div class="legenda_coluna">
+            <p>Legenda Situações</p>
+            <div class="legenda_mae">
+              <div class="linha_legenda">
+                <div class="legenda_boa"></div>
+                <h1>Temperatura de 20ºC e Umidade de 11% á 12%</h1>
+              </div>
+              <div class="linha_legenda">
+                <div class="legenda_amarela">
+
+                </div>
+
+                <h1>Temperatura de 21ºC</h1>
+              </div>
+              <div class="linha_legenda"><div class="legenda_vermelha"></div>
+                <h1>Temperatura acima de 21ºC e Umidade acima de 12%</h1>
+              </div>
+            </div>
+            <div class="legenda_final">
+              <div class="legenda_bolinha">
+                <div class="legenda_boa"></div>Boa
+              </div>
+              <div class="legenda_amarela"></div>Mediana
+            </div>
+            
+          </div>
+          <div class="legenda_linha"></div>
+
 
         </div>
 
-    </div>
-    <div class="graficos">
-      <div class="grafico_temperatura">
-        <div class="grafico1">
-          <canvas id="temperatura" style="height: 100%; width: 100%; display: flex;"></canvas>
+      </div>
+      <div class="graficos">
+        <div class="grafico_temperatura">
+          <div class="grafico1">
+            <canvas id="temperatura" style="height: 100%; width: 100%; display: flex;"></canvas>
+          </div>
+        </div>
+        <div class="grafico_umidade">
+          <div class="grafico2">
+            <canvas id="umidade" style="height: 100%; width:100%; display: flex;"></canvas>
+          </div>
+
         </div>
       </div>
-      <div class="grafico_umidade">
-        <div class="grafico2">
-          <canvas id="umidade" style="height: 100%; width:100%; display: flex;"></canvas>
-        </div>
+</body>
 
-      </div>
-    </div>
-  </body>
 </html>
 
 
 <script>
   const ctx1 = document.getElementById('temperatura');
-const ctx2 = document.getElementById('umidade');
-let temMaxima = Number(30);
-let temMin = Number(1);
-let umiMaxima = Number(60);
-let umiMin = Number(10);
+  const ctx2 = document.getElementById('umidade');
+  let temMaxima = Number(30);
+  let temMin = Number(1);
+  let umiMaxima = Number(60);
+  let umiMin = Number(10);
 
-const chartTemperatura = new Chart(ctx1, {
-  type: 'line',
-  data: {
-    labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
-    datasets: [{
-      label: 'Temperatura',
-      data: [],
-      borderWidth: 4,
-      borderWidth: 4,
-      borderColor: 'rgb(143, 0, 0)',
-      pointBackgroundColor: 'rgb(143, 0, 0)',
-      pointBorderColor: 'rgb(143, 0, 0)',
-      pointHoverBackgroundColor: 'white',
-      pointHoverBorderColor: 'rgb(143, 0, 0)',
-      backgroundColor: 'rgb(143, 0, 0)'
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: false
+  const chartTemperatura = new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [],
+        borderWidth: 4,
+        borderWidth: 4,
+        borderColor: 'rgb(143, 0, 0)',
+        pointBackgroundColor: 'rgb(143, 0, 0)',
+        pointBorderColor: 'rgb(143, 0, 0)',
+        pointHoverBackgroundColor: 'white',
+        pointHoverBorderColor: 'rgb(143, 0, 0)',
+        backgroundColor: 'rgb(143, 0, 0)'
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
       }
     }
-  }
-});
+  });
 
-const chartUmidade = new Chart(ctx2, {
-  type: 'line',
-  data: {
-    labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
-    datasets: [{
-      label: 'Umidade',
-      data: [],
-      borderWidth: 4,
-      borderColor: '#33a6e8',
-      pointBackgroundColor: '#33a6e8',
-      pointBorderColor: '#33a6e8',
-      pointHoverBackgroundColor: 'white',
-      pointHoverBorderColor: '#33a6e8',
-      backgroundColor: '#33a6e8'
-    }]
-  },
-  plugins: {
-    legend: {
-      labels: {
+  const chartUmidade = new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+      datasets: [{
+        label: 'Umidade',
+        data: [],
+        borderWidth: 4,
+        borderColor: '#33a6e8',
+        pointBackgroundColor: '#33a6e8',
+        pointBorderColor: '#33a6e8',
+        pointHoverBackgroundColor: 'white',
+        pointHoverBorderColor: '#33a6e8',
         backgroundColor: '#33a6e8'
+      }]
+    },
+    plugins: {
+      legend: {
+        labels: {
+          backgroundColor: '#33a6e8'
+        }
       }
     }
-  }
-});
+  });
 
-for(let contador = 0 ; contador <=5; contador++ ){
-  chartTemperatura.data.datasets[0].data.push(Math.floor((Math.random() * (1 + temMaxima - temMin)) + temMin));
-  chartUmidade.data.datasets[0].data.push(Math.floor((Math.random() * (1 + umiMaxima - umiMin)) + temMin));
-}
-
-setInterval(function () {
-let novaTemperatura = Math.floor((Math.random() * (1 + temMaxima - temMin)) + temMin);
-let novaUmidade = Math.floor((Math.random() * (1 + umiMaxima - umiMin)) + temMin);
-chartTemperatura.data.datasets[0].data.shift();
-chartTemperatura.data.datasets[0].data.push(novaTemperatura);
-chartUmidade.data.datasets[0].data.shift();
-  chartUmidade.data.datasets[0].data.push(novaUmidade);
-
-  
-  const maxDataPoints = 10;
-  if (chartTemperatura.data.datasets[0].data.length > maxDataPoints) {
-  }
-  if (chartUmidade.data.datasets[0].data.length > maxDataPoints) {
+  for (let contador = 0; contador <= 5; contador++) {
+    chartTemperatura.data.datasets[0].data.push(Math.floor((Math.random() * (1 + temMaxima - temMin)) + temMin));
+    chartUmidade.data.datasets[0].data.push(Math.floor((Math.random() * (1 + umiMaxima - umiMin)) + temMin));
   }
 
-  chartTemperatura.update('active');
-  chartUmidade.update('active');
-}, 1000);
+  setInterval(function () {
+    let novaTemperatura = Math.floor((Math.random() * (1 + temMaxima - temMin)) + temMin);
+    let novaUmidade = Math.floor((Math.random() * (1 + umiMaxima - umiMin)) + temMin);
+    chartTemperatura.data.datasets[0].data.shift();
+    chartTemperatura.data.datasets[0].data.push(novaTemperatura);
+    chartUmidade.data.datasets[0].data.shift();
+    chartUmidade.data.datasets[0].data.push(novaUmidade);
+
+
+    const maxDataPoints = 10;
+    if (chartTemperatura.data.datasets[0].data.length > maxDataPoints) {
+    }
+    if (chartUmidade.data.datasets[0].data.length > maxDataPoints) {
+    }
+
+    chartTemperatura.update('active');
+    chartUmidade.update('active');
+  }, 1000);
 </script>
