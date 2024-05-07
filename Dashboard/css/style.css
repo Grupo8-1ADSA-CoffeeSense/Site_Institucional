@@ -1,0 +1,252 @@
+/********** Template CSS **********/
+:root {
+    --primary: #EB1616;
+    --secondary: #191C24;
+    --light: #6C7293;
+    --dark: #000000;
+}
+.bg-secondary.rounded.d-flex.align-items-center.justify-content-between.p-4 p {
+    color: #421C13 !important;
+    font-size: 20px;
+}
+.bg-secondary.rounded.d-flex.align-items-center.justify-content-between.p-4 h4 {
+    color: rgba(66, 28, 19, 0.9) !important;
+}
+.content .navbar {
+    background-color: #B8937D;
+}
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+.navbar-nav .nav-link {
+    color: #421C13 !important;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+.text-white{
+    color: #421C13 !important; 
+}
+td{
+    color: rgb(22, 5, 1) !important; 
+}
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+.bg-custom.bg-secondary h6 {
+    color: #421C13 !important; 
+}
+.bg-custom {
+    background-color: #FDF7F5 !important;
+}
+/*** Button ***/
+.btn {
+    transition: .5s;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+
+/*** Layout ***/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+    background: #B8937D;
+    transition: 0.5s;
+    z-index: 999;
+}
+/* cor da sidebar  */
+
+.content {
+    margin-left: 250px;
+    min-height: 100vh;
+    background: #F4EBE2;
+    transition: 0.5s;
+}
+/* cor do fundo da tela */
+
+@media (min-width: 992px) {
+    .sidebar {
+        margin-left: 0;
+    }
+
+    .sidebar.open {
+        margin-left: -250px;
+    }
+
+    .content {
+        width: calc(100% - 250px);
+    }
+
+    .content.open {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        margin-left: -250px;
+    }
+
+    .sidebar.open {
+        margin-left: 0;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/*** Navbar ***/
+.sidebar .navbar .navbar-nav .nav-link {
+    padding: 7px 20px;
+    color: #B8937D;
+    font-weight: 500;
+    border-left: 3px solid #B8937D;
+    border-radius: 0 30px 30px 0;
+    outline: none;
+}
+.sidebar .navbar {
+    background-color: #B8937D !important;
+}
+/* fundo da sidebar */
+.sidebar .navbar .navbar-nav .nav-link:hover,
+.sidebar .navbar .navbar-nav .nav-link.active {
+    color: #B8937D;
+    background: var(--dark);
+    border-color:#B8937D;
+    /*cor da fonte da side bar e dos icones e do cosinho que fica no lado*/
+}
+.navbar-expand.bg-secondary.navbar-dark.sticky-top.px-4.py-0 {
+    background-color: #B8937D !important;
+}
+/* cor de fundo da navbar */
+.bg-secondary.rounded.d-flex.align-items-center.justify-content-between.p-4 {
+    background-color: #D2BBB4 !important;
+}
+/* fundo da cor dos card de temeperatura */
+.sidebar .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ebe5e2;/*cor de fundo dos icones da sidebar*/
+    border-radius: 40px;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover i,
+.sidebar .navbar .navbar-nav .nav-link.active i {
+    background: #ebe5e2; /*fundo do icone da página selecionada*/
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.sidebar .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+
+.content .navbar .navbar-nav .nav-link {
+    margin-left: 25px;
+    padding: 12px 0;
+    color: #B8937D; 
+    outline: none;
+}
+/*cor da fonte e icones da navbar */
+
+.content .navbar .sidebar-toggler,
+.content .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background:#ebe5e2;
+    border-radius: 40px;
+}
+/* fundo dos icones da navbar */
+.content .navbar .dropdown-item {
+    color: #FDF7F5;
+}
+/* cor da fonte dos dropdown da navbar */
+.content .navbar .dropdown-item:hover,
+.content .navbar .dropdown-item.active {
+    background:#8a4d3f;
+}
+/* cor do hoover da navbar */
+
+.content .navbar .dropdown-toggle::after {
+    margin-left: 6px;
+    vertical-align: middle;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.content .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+@media (max-width: 575.98px) {
+    .content .navbar .navbar-nav .nav-link {
+        margin-left: 15px;
+    }
+}
