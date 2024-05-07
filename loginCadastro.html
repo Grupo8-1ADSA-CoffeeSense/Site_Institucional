@@ -52,27 +52,28 @@
             <form action="#" class="signup">
                <div class="field">
                   <label class="legenda_cadastro">informe o seu email:</label>
-                  <input type="text" id="input_email_cadastrar" placeholder="Insira seu email" onkeyup="verificaemail()"
+                  <input type="text" id="input_email_cadastrar" placeholder="Insira seu email" onkeyup="verificaCampos()"
                      required>
-                  <span class="span-verificacao"  id="span_email"></span>
-           
+                  <span class="span-verificacao" id="span_email"></span>
+
                </div>
                <div class="field">
                   <label class="legenda_cadastro">Nome:</label>
                   <input type="text" placeholder="Insira seu nome" required>
-             
+
                </div>
                <div class="field">
                   <label class="legenda_cadastro">Senha</label>
-                  <input type="password" id="input_senha_cadastro" onkeyup="verificasenha()"
+                  <input type="password" id="input_senha_cadastro" onkeyup="verificaCampos()"
                      placeholder="Insira sua senha" required>
-                  <span class="span-verificacao"  id="span_senha"></span>
-               
+                  <span class="span-verificacao" id="span_senha"></span>
+
                </div>
                <div class="field">
                   <label class="legenda_cadastro">Confirme a senha</label>
-                  <input type="password" id="input_confirma_senha" placeholder="Confirme sua senha" onkeyup="confirmacasenha()" required>
-                 <span class="span-verificacao" id="span_confirmacao"></span> 
+                  <input type="password" id="input_confirma_senha" placeholder="Confirme sua senha"
+                     onkeyup="verificaCampos()" required>
+                  <span class="span-verificacao" id="span_confirmacao"></span>
                </div>
                <div class="field">
                   <select required>
@@ -112,99 +113,50 @@
 
 
 
-      function verificaemail() {
+      function verificaCampos() {
          const EmailInformado = input_email_cadastrar.value
          let arrobaemail = EmailInformado.indexOf("@")
-         let pontoemail = EmailInformado.indexOf(".")
          let tamanhoemail = EmailInformado.length
+         const SenhaInformada = input_senha_cadastro.value
+         let tamanhosenha = SenhaInformada.length
+         const Senhacomparada = input_senha_cadastro.value
+         const confirmasenha = input_confirma_senha.value
+         let tamanhoconfirma = confirmasenha.length
 
          if (arrobaemail == -1) {
             span_email.innerHTML = "Email deve conter '@'"
          } else {
             span_email.innerHTML = ""
          }
-         if(tamanhoemail == 0){
+         if (tamanhoemail == 0) {
             span_email.innerHTML = ""
          }
-      }
-
-      function verificasenha() {
-         const SenhaInformada = input_senha_cadastro.value
-         let tamanhosenha = SenhaInformada.length
-
-
-
-        
-         if (tamanhosenha <=5 || SenhaInformada.indexOf('@') == -1 && SenhaInformada.indexOf('#') == -1 && SenhaInformada.indexOf('%') == -1 && SenhaInformada.indexOf('!') == -1 && SenhaInformada.indexOf('&') == -1 && SenhaInformada.indexOf('*') == -1 && SenhaInformada.indexOf('+') == -1 && SenhaInformada.indexOf('-') == -1) {
+         if (tamanhosenha <= 5 || SenhaInformada.indexOf('@') == -1 && SenhaInformada.indexOf('#') == -1 && SenhaInformada.indexOf('%') == -1 && SenhaInformada.indexOf('!') == -1 && SenhaInformada.indexOf('&') == -1 && SenhaInformada.indexOf('*') == -1 && SenhaInformada.indexOf('+') == -1 && SenhaInformada.indexOf('-') == -1) {
             span_senha.innerHTML = "a senha precisa ter 6 digitos e 1 caractere especial"
-         } 
-        
-   //        else if (
-   //      SenhaInformada.indexOf('A') == -1 && SenhaInformada.indexOf('B') == -1 && SenhaInformada.indexOf('C') == -1 &&
-   //      SenhaInformada.indexOf('D') == -1 && SenhaInformada.indexOf('E') == -1 && SenhaInformada.indexOf('F') == -1 &&
-   //      SenhaInformada.indexOf('G') == -1 && SenhaInformada.indexOf('H') == -1 && SenhaInformada.indexOf('I') == -1 &&
-   //      SenhaInformada.indexOf('J') == -1 && SenhaInformada.indexOf('K') == -1 && SenhaInformada.indexOf('L') == -1 &&
-   //      SenhaInformada.indexOf('M') == -1 && SenhaInformada.indexOf('N') == -1 && SenhaInformada.indexOf('O') == -1 &&
-   //      SenhaInformada.indexOf('P') == -1 && SenhaInformada.indexOf('Q') == -1 && SenhaInformada.indexOf('R') == -1 &&
-   //      SenhaInformada.indexOf('S') == -1 && SenhaInformada.indexOf('T') == -1 && SenhaInformada.indexOf('U') == -1 &&
-   //      SenhaInformada.indexOf('V') == -1 && SenhaInformada.indexOf('W') == -1 && SenhaInformada.indexOf('X') == -1 &&
-   //      SenhaInformada.indexOf('Y') == -1 && SenhaInformada.indexOf('Z') == -1
-   //  ) {
-   //      span_senha.innerHTML = "A senha deve ter alguma letra maiúscula.";
-   //  }else if (
-   //      SenhaInformada.indexOf('a') == -1 && SenhaInformada.indexOf('b') == -1 && SenhaInformada.indexOf('c') == -1 &&
-   //      SenhaInformada.indexOf('d') == -1 && SenhaInformada.indexOf('e') == -1 && SenhaInformada.indexOf('f') == -1 &&
-   //      SenhaInformada.indexOf('g') == -1 && SenhaInformada.indexOf('h') == -1 && SenhaInformada.indexOf('i') == -1 &&
-   //      SenhaInformada.indexOf('j') == -1 && SenhaInformada.indexOf('k') == -1 && SenhaInformada.indexOf('l') == -1 &&
-   //      SenhaInformada.indexOf('m') == -1 && SenhaInformada.indexOf('n') == -1 && SenhaInformada.indexOf('o') == -1 &&
-   //      SenhaInformada.indexOf('p') == -1 && SenhaInformada.indexOf('q') == -1 && SenhaInformada.indexOf('r') == -1 &&
-   //      SenhaInformada.indexOf('s') == -1 && SenhaInformada.indexOf('t') == -1 && SenhaInformada.indexOf('u') == -1 &&
-   //      SenhaInformada.indexOf('v') == -1 && SenhaInformada.indexOf('w') == -1 && SenhaInformada.indexOf('x') == -1 &&
-   //      SenhaInformada.indexOf('y') == -1 && SenhaInformada.indexOf('z') == -1
-   //  ) {
-   //      span_senha.innerHTML = "A senha deve ter alguma letra minúscula.";
-   //  }
-    
-   
+         } else {
+            span_senha.innerHTML = ""
+         }
+         if (tamanhosenha == 0) {
+            span_senha.innerHTML = ""
+         }
+
+         if (Senhacomparada != confirmasenha) {
+            span_confirmacao.innerHTML = "As senhas não correspondem";
+         }
          else {
-            span_senha.innerHTML = ""
+            span_confirmacao.innerHTML = "";
          }
-
-         if(tamanhosenha == 0){
-            span_senha.innerHTML = ""
+         if (tamanhoconfirma == 0) {
+            span_confirmacao.innerHTML = "";
          }
-
-
+         
       }
 
-function confirmacasenha(){
-   const Senhacomparada = input_senha_cadastro.value
-   const confirmasenha = input_confirma_senha.value
-   let tamanhoconfirma = input_confirma_senha.length
-
-   
-   if(Senhacomparada != confirmasenha){
-      span_confirmacao.innerHTML = "As senhas não correspondem";
-   } 
-   else{
-      span_confirmacao.innerHTML = "";
-   }
-  
-   if(tamanhoconfirma == 0){
-      span_confirmacao.innerHTML = "";
-   }
-
-
-
-}
-
-
-function Loginvalido(){
+      function Loginvalido(){
 const idinformado = input_id_login.value
 const senhainformada = input_senha_login.value
 let mudapagina = window.location.href="../Site_Institucional/dashboard.html" 
       }
-
    </script>
 </body>
 
