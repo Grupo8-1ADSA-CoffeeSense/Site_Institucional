@@ -1,20 +1,70 @@
 /********** Template CSS **********/
 :root {
-    --primary: #EB1616;
+    --primary: #ff0000;
     --secondary: #191C24;
     --light: #6C7293;
     --dark: #000000;
 }
-.bg-secondary.rounded.d-flex.align-items-center.justify-content-between.p-4 p {
+.ms-3 p{
     color: #421C13 !important;
+font-size: 20px;  
+}
+.dropdown-menu h6 {
+    color: #421C13 !important;
+
+}
+.bg-secondary {
+    background: #F4EBE2 !important;
+}
+.ms-3 h6 {
+    color: #421C13 !important;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.border-0 {
+    border: #421C13 0 !important;
+
+}
+
+.bg-dark {
+    background-color: #FDF7F5 !important;
+}
+
+.bi bi-arrow-up {
+    color: #FDF7F5;
+}
+
+.text-primary {
+    color: #421C13 !important;
+}
+
+.btn-primary {
+
+    background-color: rgba(66, 28, 19, 0.9) !important;
+    border-color: rgba(66, 28, 19, 0.9) !important;
+}
+
+.bg-secondary a {
+    color: #421C13 !important;
+}
+
+.fa fa-chart-line fa-3x text-primary .bg-secondary.rounded.d-flex.align-items-center.justify-content-between.p-4 p {
+    color: rgba(66, 28, 19, 0.9);
     font-size: 20px;
 }
+
 .bg-secondary.rounded.d-flex.align-items-center.justify-content-between.p-4 h4 {
     color: rgba(66, 28, 19, 0.9) !important;
 }
+
 .content .navbar {
     background-color: #B8937D;
 }
+
 .back-to-top {
     position: fixed;
     display: none;
@@ -22,6 +72,7 @@
     bottom: 45px;
     z-index: 99;
 }
+
 .navbar-nav .nav-link {
     color: #421C13 !important;
 }
@@ -29,6 +80,7 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -36,23 +88,29 @@ body {
     transition: opacity .5s ease-out, visibility 0s linear .5s;
     z-index: 99999;
 }
-.text-white{
-    color: #421C13 !important; 
+
+.text-white {
+    color: #421C13 !important;
 }
-td{
-    color: rgb(22, 5, 1) !important; 
+
+td {
+    color: rgb(22, 5, 1) !important;
 }
+
 #spinner.show {
     transition: opacity .5s ease-out, visibility 0s linear 0s;
     visibility: visible;
     opacity: 1;
 }
+
 .bg-custom.bg-secondary h6 {
-    color: #421C13 !important; 
+    color: #421C13 !important;
 }
+
 .bg-custom {
     background-color: #FDF7F5 !important;
 }
+
 /*** Button ***/
 .btn {
     transition: .5s;
@@ -98,6 +156,7 @@ td{
     transition: 0.5s;
     z-index: 999;
 }
+
 /* cor da sidebar  */
 
 .content {
@@ -106,6 +165,7 @@ td{
     background: #F4EBE2;
     transition: 0.5s;
 }
+
 /* cor do fundo da tela */
 
 @media (min-width: 992px) {
@@ -152,24 +212,29 @@ td{
     border-radius: 0 30px 30px 0;
     outline: none;
 }
+
 .sidebar .navbar {
     background-color: #B8937D !important;
 }
+
 /* fundo da sidebar */
 .sidebar .navbar .navbar-nav .nav-link:hover,
 .sidebar .navbar .navbar-nav .nav-link.active {
     color: #B8937D;
-    background: var(--dark);
-    border-color:#B8937D;
+    background: #9a6851;
+    border-color: #B8937D;
     /*cor da fonte da side bar e dos icones e do cosinho que fica no lado*/
 }
+
 .navbar-expand.bg-secondary.navbar-dark.sticky-top.px-4.py-0 {
     background-color: #B8937D !important;
 }
+
 /* cor de fundo da navbar */
 .bg-secondary.rounded.d-flex.align-items-center.justify-content-between.p-4 {
     background-color: #D2BBB4 !important;
 }
+
 /* fundo da cor dos card de temeperatura */
 .sidebar .navbar .navbar-nav .nav-link i {
     width: 40px;
@@ -177,13 +242,15 @@ td{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #ebe5e2;/*cor de fundo dos icones da sidebar*/
+    background: #ebe5e2;
+    /*cor de fundo dos icones da sidebar*/
     border-radius: 40px;
 }
 
 .sidebar .navbar .navbar-nav .nav-link:hover i,
 .sidebar .navbar .navbar-nav .nav-link.active i {
-    background: #ebe5e2; /*fundo do icone da página selecionada*/
+    background: #ebe5e2;
+    /*fundo do icone da página selecionada*/
 }
 
 .sidebar .navbar .dropdown-toggle::after {
@@ -205,9 +272,10 @@ td{
 .content .navbar .navbar-nav .nav-link {
     margin-left: 25px;
     padding: 12px 0;
-    color: #B8937D; 
+    color: #B8937D;
     outline: none;
 }
+
 /*cor da fonte e icones da navbar */
 
 .content .navbar .sidebar-toggler,
@@ -217,18 +285,21 @@ td{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background:#ebe5e2;
+    background: #ebe5e2;
     border-radius: 40px;
 }
+
 /* fundo dos icones da navbar */
 .content .navbar .dropdown-item {
     color: #FDF7F5;
 }
+
 /* cor da fonte dos dropdown da navbar */
 .content .navbar .dropdown-item:hover,
 .content .navbar .dropdown-item.active {
-    background:#8a4d3f;
+    background: #8a4d3f;
 }
+
 /* cor do hoover da navbar */
 
 .content .navbar .dropdown-toggle::after {

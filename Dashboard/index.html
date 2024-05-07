@@ -43,8 +43,10 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">CoffeeSense</h3>
-                </a>
+            <img src="img/logo.svg" alt="">   
+            <br><br>
+           </a>
+          
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
@@ -87,9 +89,9 @@
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificações</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0" style=" background-color: #d9cabb !important;">
                             <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Alerta Umidade</h6>
+                                <h6 class="fw-normal mb-0" >Alerta Umidade</h6>
                                 <small>5 minutos atrás</small>
                             </a>
                             <hr class="dropdown-divider">
@@ -106,12 +108,12 @@
                             <a href="#" class="dropdown-item text-center">Ver todas as notificações</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
+                    <div class="nav-item dropdown" >
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Fernanda</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0" style=" background-color: #d9cabb !important;">
                             <a href="#" class="dropdown-item">Meu Perfil</a>
                             <a href="#" class="dropdown-item">Configurações</a>
                             <a href="#" class="dropdown-item">Sair</a>
@@ -127,7 +129,7 @@
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <i class="fa fa-chart-line fa-3x text-primary" style="color: rgba(66, 28, 19, 0.9) !important" ;></i>
                             <div class="ms-3">
                                 <p class="mb-2">Temperatura Atual</p>
                                 <h4 class="mb-0">20ºC</h4>
@@ -136,27 +138,27 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <i class="fa fa-chart-bar fa-3x text-primary" ></i>
                             <div class="ms-3">
-                                <p class="mb-2">Umidade Atual</p>
+                                <p class="mb-2" >Umidade Atual</p>
                                 <h4 class="mb-0">11%</h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class=" bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <i class="fa fa-chart-area fa-3x text-primary" ></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
+                                <p class="mb-2" >Temperatura Ideal</p>
                                 <h4 class="mb-0">$1234</h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class=" bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <i class="fa fa-chart-pie fa-3x text-primary" style="color: rgba(66, 28, 19, 0.9) !important"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
+                                <p class="mb-2" >Umidade Ideal</p>
                                 <h4 class="mb-0">$1234</h4>
                             </div>
                         </div>
@@ -173,7 +175,6 @@
                         <div class="bg-custom bg-secondary text-center rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Temperatura</h6>
-                                <a href="" style="color: #421C13 !important;">Mostrar tudo</a>
                             </div>
                             <canvas id="temperatura"></canvas>
                         </div>
@@ -182,7 +183,6 @@
                         <div class="bg-custom bg-secondary text-center rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Umidade</h6>
-                                <a href="">Mostrar tudo</a>
                             </div>
                             <canvas id="umidade"></canvas>
                         </div>
@@ -197,7 +197,7 @@
                 <div class="bg-secondary text-center rounded p-4" style="background-color: #B8937D !important;">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0"  style="color: #421C13 !important;">Histórico de Temperatura</h6>
-                        <a href="#" style="color: #421C13 !important;">Mostrar tudo</a>
+                    <a href="#"  style="color: #421C13 !important; ">Mostrar tudo</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -321,7 +321,7 @@
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a href="#">CoffeeSense</a>, Todos os direitos reservados. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                         </div>
@@ -334,7 +334,7 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <a href="#"class="btn btn-lg btn-primary btn-lg-square back-to-top" ><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
