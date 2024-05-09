@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F4EBE2;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #B8937D;
+    height: 50px;
+    padding: 0 20px;
+}
+
+.menu,
+.sair {
+    font-size: 12px;
+    color: black;
+}
+
+.sair h1 {
+    border-radius: 30%; /* Faz a borda redonda */
+    border: 1px solid #F4EBE2; /* Define a cor da borda como a mesma cor de fundo da página */
+    padding: 5px; /* Adiciona espaço interno */
+background-color: #F4EBE2;
+}
+
+.title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #000;
+    margin: 20px;
+}
+.armazens-container {
+    display: flex;
+    justify-content: space-between; /* Distribui as divs ao longo da linha */
+    margin: 0 -5px;
+}
+
+.armazem {
+    width: 200px;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #D9D9D9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 20px;
+    
+}
+.divisor{
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    margin: 10px 0;
+}
+
+.statusCor{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Torna o elemento redondo */
+    display: inline-block;
+    margin-top: 10px;
+    background-color:#619B63;
+}
+
+.status {
+    font-weight: bold;
+}
+.statusCor.verde {
+    background-color: #619B63; /* Verde */
+}
+
+.statusCor.vermelho {
+    background-color: #FF0000; /* Vermelho */
+}
+
+.statusCor.amarelo {
+    background-color: #FFFF00; /* Amarelo */
+}
