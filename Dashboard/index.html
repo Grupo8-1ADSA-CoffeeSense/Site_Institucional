@@ -54,7 +54,7 @@
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">Fernanda Caramico</h6>
-                        <span>Admin</span>
+                        <span  style="color: rgba(66, 28, 19, 0.9) !important">Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -79,11 +79,7 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Pesquisar">
-                </form>
-                <div class="navbar-nav align-items-center ms-auto">
-                  
+                <div class="navbar-nav align-items-center ms-auto">                 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
@@ -104,8 +100,6 @@
                                 <h6 class="fw-normal mb-0">Alerta de temperatura</h6>
                                 <small>15 minutos atrás</small>
                             </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-center">Ver todas as notificações</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown" >
@@ -129,7 +123,7 @@
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary" style="color: rgba(66, 28, 19, 0.9) !important" ;></i>
+                            <img src="img/situacao.svg"  id="bolinha-situacao" style="display: flex; justify-content: flex-start; align-items: left; height: 50px; width: 50px;" alt="">
                             <div class="ms-3">
                                 <p class="mb-2">Temperatura Atual</p>
                                 <h4 class="mb-0">20ºC</h4>
@@ -138,7 +132,7 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary" ></i>
+                            <img src="img/situacao.svg" id="bolinha-situacao" style="display: flex; justify-content: flex-start; align-items: left; height: 50px; width: 50px;" alt="">
                             <div class="ms-3">
                                 <p class="mb-2" >Umidade Atual</p>
                                 <h4 class="mb-0">11%</h4>
@@ -150,7 +144,7 @@
                             <i class="fa fa-chart-area fa-3x text-primary" ></i>
                             <div class="ms-3">
                                 <p class="mb-2" >Temperatura Ideal</p>
-                                <h4 class="mb-0">$1234</h4>
+                                <h4 class="mb-0">20ºC</h4>
                             </div>
                         </div>
                     </div>
@@ -159,7 +153,7 @@
                             <i class="fa fa-chart-pie fa-3x text-primary" style="color: rgba(66, 28, 19, 0.9) !important"></i>
                             <div class="ms-3">
                                 <p class="mb-2" >Umidade Ideal</p>
-                                <h4 class="mb-0">$1234</h4>
+                                <h4 class="mb-0">11% á 12%</h4>
                             </div>
                         </div>
                     </div>
@@ -206,45 +200,39 @@
                                     <th scope="col">Data</th>
                                     <th scope="col">Hora</th>
                                     <th scope="col">Temperatura</th>
-                                    <th scope="col">Umidade</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
+                                    <td>08/05/2024</td>
+                                    <td>12:09PM</td>
+                                    <td>20ºC</td>
+                                    <td>Bom</td>
                                 </tr>
                                 <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
+                                    <td>08/05/2024</td>
+                                    <td>12:09PM</td>
+                                    <td>19ºC</td>
+                                    <td>Bom</td>
                                 </tr>
                                 <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
+                                    <td>08/05/2024</td>
+                                    <td>12:09PM</td>
+                                    <td>20ºC</td>
+                                    <td>Bom</td>
                                 </tr>
                                 <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
+                                    <td>08/05/2024</td>
+                                    <td>12:09PM</td>
+                                    <td>20ºC</td>
+                                    <td>Bom</td>
                                 </tr>
                                 <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
+                                    <td>08/05/2024</td>
+                                    <td>12:09PM</td>
+                                    <td>22ºC</td>
+                                    <td>Ruim</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -267,46 +255,40 @@
                             <tr class="text-white">
                                 <th scope="col">Data</th>
                                 <th scope="col">Hora</th>
-                                <th scope="col">Temperatura</th>
                                 <th scope="col">Umidade</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
+                                <td>08/05/2024</td>
+                                <td>12:09PM</td>
+                                <td>11%</td>
+                                <td>Bom</td>
                             </tr>
                             <tr>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
+                                <td>08/05/2024</td>
+                                <td>12:09PM</td>
+                                <td>11%</td>
+                                <td>Bom</td>
                             </tr>
                             <tr>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
+                                <td>08/05/2024</td>
+                                <td>12:09PM</td>
+                                <td>11%</td>
+                                <td>Bom</td>
                             </tr>
                             <tr>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
+                                <td>08/05/2024</td>
+                                <td>12:09PM</td>
+                                <td>11%</td>
+                                <td>Bom</td>
                             </tr>
                             <tr>
-                                <td>01 Jan 2045</td>
-                                <td>INV-0123</td>
-                                <td>Jhon Doe</td>
-                                <td>$123</td>
-                                <td>Paid</td>
+                                <td>08/05/2024</td>
+                                <td>12:09PM</td>
+                                <td>11%</td>
+                                <td>Bom</td>
                             </tr>
                         </tbody>
                     </table>
