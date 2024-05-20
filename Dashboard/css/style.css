@@ -152,7 +152,7 @@ td {
     width: 250px;
     height: 100vh;
     overflow-y: auto;
-    background: #B8937D;
+    background: #a17a63;
     transition: 0.5s;
     z-index: 999;
 }
@@ -206,28 +206,28 @@ td {
 /*** Navbar ***/
 .sidebar .navbar .navbar-nav .nav-link {
     padding: 7px 20px;
-    color: #B8937D;
+    color: #a17a63;
     font-weight: 500;
-    border-left: 3px solid #B8937D;
+    border-left: 3px solid #a17a63;
     border-radius: 0 30px 30px 0;
     outline: none;
 }
 
 .sidebar .navbar {
-    background-color: #B8937D !important;
+    background-color: #a17a63 !important;
 }
 
 /* fundo da sidebar */
 .sidebar .navbar .navbar-nav .nav-link:hover,
 .sidebar .navbar .navbar-nav .nav-link.active {
     color: #B8937D;
-    background: #9a6851;
+    background: #7e533f;
     border-color: #B8937D;
     /*cor da fonte da side bar e dos icones e do cosinho que fica no lado*/
 }
 
 .navbar-expand.bg-secondary.navbar-dark.sticky-top.px-4.py-0 {
-    background-color: #B8937D !important;
+    background-color:  #a17a63 !important;
 }
 
 /* cor de fundo da navbar */
@@ -297,7 +297,7 @@ td {
 /* cor da fonte dos dropdown da navbar */
 .content .navbar .dropdown-item:hover,
 .content .navbar .dropdown-item.active {
-    background: #8a4d3f;
+    background: #94655b;
 }
 
 /* cor do hoover da navbar */
