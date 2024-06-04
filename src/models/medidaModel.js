@@ -29,6 +29,22 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
+// function obterTemperaturasArmazem() {
+
+//     var instrucaoSql = ` SELECT 
+//     temperatura,
+//     data_horaCaptura as momento,
+//     DATE_FORMAT(data_horaCaptura, '%H:%i:%s') as momento_grafico
+//     FROM dados_monitoramento
+//     WHERE fkDispositivo IN (
+//     SELECT idDispositivo 
+//     FROM dispositivo_monitoramento 
+//     WHERE fkArmazem = 1`;
+
+//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+//     return database.executar(instrucaoSql);
+// }
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal

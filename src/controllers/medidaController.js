@@ -41,6 +41,21 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
+// function obterTemperaturasArmazem(req, res) {
+    
+//     medidaModel.obterTemperaturasArmazem()
+//         .then(function (temperaturas) {
+//             if (resultado.length > 0) {
+//                 res.status(200).json(temperaturas);
+//             } else {
+//                 res.status(204).send("Nenhum resultado encontrado!")
+//             }
+            
+//         })
+//         .catch(function (erro) {
+//             res.status(500).json({ error: "Erro ao obter as temperaturas do armazém." });
+//         });
+// }
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
