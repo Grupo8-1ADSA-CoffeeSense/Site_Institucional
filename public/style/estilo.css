@@ -29,6 +29,7 @@ nav{
     position: sticky;
     background-color: #F4EBE2;
     z-index: 100;
+    border-bottom: 2px solid #6F4026;
 }
 
 ul {
@@ -73,18 +74,61 @@ nav ul li:hover::after {
 }
 
 .botao_login {
-    font-family: "Roboto", sans-serif;
-    height: 46px;
+    height: 50px;
     width: 150px;
-    border-radius: 5px;
-    background-color: #6F4026;
-    color: #FEFFFD;
-    border: 0px;
-    font-size: 20px;
-    margin-right: 20px;
-    letter-spacing: 1px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
     font-weight: 300;
-}
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #BE9B87;
+    color: #F4EBE2;
+   }
+   
+.botao_login span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+   }
+   
+.botao_login:hover span {
+    color: #F4EBE2;
+   }
+   
+.botao_login::before,
+.botao_login::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+.botao_login::before {
+    content: "";
+    background: #6F4026;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    
+   }
+   
+.botao_login:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
+   
 
 /* FIM NAVBAR */
 
@@ -112,20 +156,61 @@ nav ul li:hover::after {
 }
 
 .botao_registro {
-    font-family: "Roboto", sans-serif;
-    height: 46px;
-    width: 150px;
-    border-radius: 5px;
-    background-color: #6F4026;
-    color: #FEFFFD;
-    border: 0px;
+    height: 55px;
+    width: 160px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
     font-weight: 300;
-    font-size: 20px;
-    margin-right: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #BE9B87;
+    color: #F4EBE2;
     margin-left: 45px;
-    margin-top: 41px;
-    letter-spacing: 1px;
-}
+   }
+   
+.botao_registro span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+   }
+   
+.botao_registro:hover span {
+    color: #F4EBE2;
+   }
+   
+.botao_registro::before,
+.botao_registro::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+.botao_registro::before {
+    content: "";
+    background: #6F4026;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    
+   }
+   
+.botao_registro:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
 
 .home {
     display: flex;
@@ -664,6 +749,63 @@ nav ul li:hover::after {
   }
   
 
+
+  .form-container .form-submit-btn {
+    height: 50px;
+    width: 150px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #BE9B87;
+    color: #F4EBE2;
+   }
+   
+.form-container .form-submit-btn span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+   }
+   
+   .form-container .form-submit-btn:hover span {
+    color: #6F4026;
+   }
+   
+   .form-container .form-submit-btn::before,
+   .form-container .form-submit-btn::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+   .form-container .form-submit-btn::before {
+    content: "";
+    background: #6F4026;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    
+   }
+   
+   .form-container .form-submit-btn:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
+ 
   /* Começo footer */
 
 footer .nav-link {
