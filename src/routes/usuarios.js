@@ -16,4 +16,10 @@ router.get('/nomeUsuario', function(req, res) {
     usuarioController.nomeUsuario(req, res);
 });
 
+router.get('/obterArmazens', function (req, res) {
+    usuarioController.obterArmazens(req, res); 
+});
+
+
+
 module.exports = router;

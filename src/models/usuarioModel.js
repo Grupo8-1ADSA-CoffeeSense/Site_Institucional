@@ -33,9 +33,17 @@ function cadastrar(email, nome, senha, empresaId) {
     return database.executar(instrucaoSql);
 }
 
+function obterArmazens() {
+  var instrucaoSql = `
+      SELECT idArmazem, nome 
+      FROM armazem;
+  `;
+  return database.executar(instrucaoSql);
+}
 
 module.exports = {
     autenticar,
     cadastrar,
-    nomeUsuario
+    nomeUsuario,
+    obterArmazens
 };

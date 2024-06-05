@@ -86,8 +86,20 @@ function cadastrar(req, res) {
         });
 }
 
+function obterArmazens(req, res) {
+    usuarioModel.obterArmazens()
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.error("Erro ao obter armazéns:", erro);
+            res.status(500).json({ error: "Erro interno do servidor" });
+        });
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    nomeUsuario
+    nomeUsuario,
+    obterArmazens
 }

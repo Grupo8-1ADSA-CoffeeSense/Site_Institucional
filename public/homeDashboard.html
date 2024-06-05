@@ -1,266 +1,114 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-
-
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-
-    <link rel="stylesheet" href="style/homeDashboard.css">
+    <link rel="stylesheet" href="style/homeDashboard.css" />
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
-    <link rel="stylesheet" href="style/estilo.css">
-
-
-
-
-</head>
-
-
-
-
-
-
-<body onload="validarSessao()">
-
+    <link rel="stylesheet" href="style/estilo.css" />
+  </head>
+  <body onload="validarSessao()">
     <nav>
-
-        <img class="logo" src="assets/logo.png" alt="" />
-
-        <ul>
-
-
-
-        </ul>
-
-
-
-
-        <button onclick="botao_login()" class="botao_login">Sair</button>
-
+      <img class="logo" src="assets/logo.png" alt="" />
+      <ul></ul>
+      <button onclick="botao_login()" class="botao_login">Sair</button>
     </nav>
-
     <div class="texto_inicial">
-
-        <p>Bem Vindo(a) de volta<span id="b_usuario">Usuário</span> </p>
-
-        <div class="subtitulo">
-
-            <p>Aqui estão as capturas de hoje</p>
-
-        </div>
-
+      <p>Bem Vindo(a) de volta <span id="b_usuario">Usuário</span></p>
+      <div class="subtitulo">
+        <p>Aqui estão as capturas de hoje</p>
+      </div>
     </div>
-
     <div class="alerts">
-
-        <div class="sessao">
-
-            <div class="parametro">
-
-                <p>Legenda - Parâmetros para Alertas de Temperatura</p>
-
-                <div class="container_alerta">
-
-                    <div class="alerta">
-
-                        <p><b>Alerta</b></p>
-
-                        <p>
-                            <=19ºC </p>
-
-                    </div>
-
-                    <div class="ideal">
-
-                        <p><b>Ideal</b></p>
-
-                        <p>20ºC</p>
-
-
-
-
-                    </div>
-
-                    <div class="perigo">
-
-                        <p><b>Perigo</b></p>
-
-                        <p>>=22 ºC</p>
-
-                    </div>
-
-
-
-
-                </div>
-
+      <div class="sessao">
+        <div class="parametro">
+          <p>Legenda - Parâmetros para Alertas de Temperatura</p>
+          <div class="container_alerta">
+            <div class="alerta">
+              <p><b>Alerta</b></p>
+              <p><=19ºC</p>
             </div>
-
-        </div>
-
-        <div class="sessao">
-
-            <div class="parametro">
-
-                <p>Legenda - Parâmetros para Alertas de Umidade</p>
-
-                <div class="container_alerta">
-
-                    <div class="alerta">
-
-                        <p><b>Alerta</b></p>
-
-                        <p>
-
-                            <=19ºC </p>
-
-                    </div>
-
-                    <div class="ideal">
-
-                        <p><b>Ideal</b></p>
-
-                        <p>20ºC</p>
-
-
-
-
-                    </div>
-
-                    <div class="perigo">
-
-                        <p><b>Perigo</b></p>
-
-                        <p>>=22 ºC</p>
-
-                    </div>
-
-
-
-
-                </div>
-
+            <div class="ideal">
+              <p><b>Ideal</b></p>
+              <p>20ºC</p>
             </div>
-
+            <div class="perigo">
+              <p><b>Perigo</b></p>
+              <p>>=22 ºC</p>
+            </div>
+          </div>
         </div>
-
+      </div>
+      <div class="sessao">
+        <div class="parametro">
+          <p>Legenda - Parâmetros para Alertas de Umidade</p>
+          <div class="container_alerta">
+            <div class="alerta">
+              <p><b>Alerta</b></p>
+              <p><=19ºC</p>
+            </div>
+            <div class="ideal">
+              <p><b>Ideal</b></p>
+              <p>20ºC</p>
+            </div>
+            <div class="perigo">
+              <p><b>Perigo</b></p>
+              <p>>=22 ºC</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="container_armazem">
-
-        <div class="armazem">
-
-            <div class="container_status">
-
-                <img src="img/Ellipse 10.svg" alt="">
-
-                <p>Status do Armazem</p>
-
-            </div>
-
-
-
-
-        </div>
-
-        <div class="armazem">
-
-            <div class="container_status">
-
-                <img src="img/Ellipse 10.svg" alt="">
-
-                <p>Status do Armazem</p>
-
-            </div>
-
-        </div>
-
-        <div class="armazem">
-
-            <div class="container_status">
-
-                <img src="img/Ellipse 10.svg" alt="">
-
-                <p>Status do Armazem</p>
-
-
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="container_armazem">
-
-        <div class="armazem">
-
-            <div class="container_status">
-
-                <img src="img/Ellipse 10.svg" alt="">
-
-
-
-
-                <p>Status do Armazem</p>
-
-
-
-
-            </div>
-
-
-
-
-        </div>
-
-        <div class="armazem">
-
-            <div class="container_status">
-
-                <img src="img/Ellipse 10.svg" alt="">
-
-                <p>Status do Armazem</p>
-
-
-
-
-            </div>
-
-        </div>
-
-        <div class="armazem">
-
-            <div class="container_status">
-
-                <img src="img/Ellipse 10.svg" alt="">
-
-                <p>Status do Armazem</p>
-
-
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-
-</body>
-
-
-
-
+    <div class="container_armazem"></div> 
+  </body>
 </html>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("/usuarios/obterArmazens", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    .then(function (resposta) {
+        if (!resposta.ok) {
+            throw new Error("Erro ao obter os armazéns.");
+        }
+        return resposta.json();
+    })
+    .then(function (data) {
+        criarCardsArmazens(data);
+    })
+    .catch(function (erro) {
+        console.error("Erro ao obter os armazéns: ", erro);
+    });
+});
+
+function criarCardsArmazens(armazens) {
+    const containerArmazem = document.querySelector(".container_armazem");
+    containerArmazem.innerHTML = ""; // Limpa os armazéns existentes
+
+    armazens.forEach(armazem => {
+        const armazemDiv = document.createElement("div");
+        armazemDiv.classList.add("armazem");
+
+        const statusDiv = document.createElement("div");
+        statusDiv.classList.add("container_status");
+
+        const img = document.createElement("img");
+        img.src = "img/Ellipse 10.svg";
+        img.alt = "";
+
+        const p = document.createElement("p");
+        p.innerText = armazem.nome;
+
+        statusDiv.appendChild(img);
+        statusDiv.appendChild(p);
+        armazemDiv.appendChild(statusDiv);
+        containerArmazem.appendChild(armazemDiv);
+    });
+}
+</script>
