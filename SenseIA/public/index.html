@@ -7,13 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
     <nav>
-        <img class="logo" src="./assets/logo.png" alt="" />
-        <button onclick="botao_login()" class="botao_voltar">Voltar</button>
+        <img class="logo" src="assets/logo.png" alt="" />
+        <ul>
+            <li><a class="nav-link" href="#perguntas-frequentes">Perguntas Frequentes</a></li>
+            <li><a class="nav-link" href="#senseIA">Qual é sua dúvida?</a></li>
 
+        </ul>
+
+        <button onclick="botao_login()" class="botao_login">Login</button>
     </nav>
 
-    <div id="container">
+    <div id="container" class="senseIA-frequentes">
         <h1>SenseIA</h1>
         <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
         <br><br>
@@ -21,6 +27,12 @@
         <h3>Resposta da IA:</h3>
         <div id="resposta"></div>
     </div>
+
+    <section id="perguntas-frequentes" class="perguntasFrequentes">
+        <div class="containerPerguntasFrequentes">
+            <h2>Perguntas frequentes</h2>
+        </div>
+    </section>
 
     <script>
         
