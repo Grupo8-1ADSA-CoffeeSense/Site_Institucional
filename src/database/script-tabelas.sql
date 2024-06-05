@@ -24,7 +24,7 @@
 	  telFixo VARCHAR(10)
 	  );
 	  
-
+SELECT * FROM empresa;
 
 	-- Tabela para os funcionarios fazerem login no site para acessar os gráficos
 	CREATE TABLE usuario (
@@ -42,6 +42,8 @@
 				REFERENCES empresa(idEmpresa)
 	);
 
+ALTER TABLE usuario modify column idUsuario INT auto_increment;
+SELECT * FROM usuario;
     
 	-- Tabela para manter registro da localização de cada armazem 
 	CREATE TABLE armazem(
@@ -132,7 +134,6 @@
 	(3, 3, '2024-05-07 08:00:00', 14.00, 12.00),
 	(4, 4, '2024-05-07 08:00:00', 20.00, 11.10),
 	(5, 5, '2024-05-07 08:00:00', 21.32, 11.34);
-
 
 
 
