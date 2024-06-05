@@ -12,6 +12,28 @@ body{
 }
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar{
+    width: 10px;
+    color: #6F4026;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background-color: #6F4026;
+    border-radius: 99px
+  }
+
 .logo{
     margin-left: 20px;
     height: 60px;
@@ -591,7 +613,7 @@ nav ul li:hover::after {
     font-size: 30px;
     font-weight: 400;
     margin-top: 40px; 
-    margin-left: 60%;
+    margin-left: 65%;
     margin-bottom: 30px;
     position: relative; 
 }
@@ -600,7 +622,7 @@ nav ul li:hover::after {
     position: absolute; 
     top: 100%; 
     margin-top: 2%;
-    left: 33%; 
+    left: 25%; 
     transform: translateX(-50%); 
 }
 .mae_contato{
@@ -619,9 +641,9 @@ nav ul li:hover::after {
 .form-container {
     width: 50%;
     height: auto;
-    background: linear-gradient(#BE9B87
-    , #BE9B87) padding-box,linear-gradient(145deg, transparent 35%,#32160B, #6F4026    ) border-box;
-    border: 2px solid transparent;
+    background: linear-gradient(#D8B29D
+    , #D8B29D) padding-box,linear-gradient(145deg, transparent 35%,#32160B, #6F4026    ) border-box;
+    border: 2px solid #6F4026;
     padding: 32px 24px;
     font-size: 14px;
     font-family: inherit;
@@ -654,7 +676,7 @@ nav ul li:hover::after {
   .form-group p {
     font-weight: 400;
     font-family: "Roboto", sans-serif;
-    color: #F4EBE2;
+    color: #6F4026;
     word-wrap: break-word;
     font-size: 20px;  
     flex: 1;
