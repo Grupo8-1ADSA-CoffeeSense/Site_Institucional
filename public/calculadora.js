@@ -20,7 +20,7 @@ function calcular() {
 
     for (let ano = 1; ano <= qdt_anos; ano += 1) {
         
-        resultado.innerHTML += `Deixa de faturar <b>${faturamento_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b>, para faturar apenas <b>${faturamento_desvalorizado_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b> em <b>${ano}<b> ano(s) <br> Pois tem seu cefé desvalorizado em até <b>${desvalorizacao_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b><br><br><br>`
+        resultado.innerHTML += `Deixa de faturar <b>${faturamento_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b>, para faturar apenas <b>${faturamento_desvalorizado_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b> em <b>${ano}<b> ano(s) <br> Pois tem seu café desvalorizado em até <b>${desvalorizacao_total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</b><br><br><br>`
         faturamento_total += faturamento_ano
         desvalorizacao_total += desvalorizacao_ano
         faturamento_desvalorizado_total += faturamento_desvalorizado_ano

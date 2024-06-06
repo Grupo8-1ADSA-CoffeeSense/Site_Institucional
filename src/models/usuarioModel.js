@@ -33,13 +33,26 @@ function cadastrar(email, nome, senha, empresaId) {
     return database.executar(instrucaoSql);
 }
 
-function obterArmazens() {
+function obterArmazens(usuarioId) {
   var instrucaoSql = `
-      SELECT idArmazem, nome 
-      FROM armazem;
+      SELECT 
+          a.idArmazem, 
+          a.nome AS nomeArmazem,  
+          a.localizacao, 
+          a.capacidade_toneladas,
+          e.nome AS nomeEmpresa
+      FROM 
+          armazem a
+      JOIN 
+          empresa e ON a.fkEmpresa = e.idEmpresa
+      JOIN 
+          usuario u ON e.idEmpresa = u.fkEmpresa
+      WHERE 
+          u.idUsuario = ${usuarioId};
   `;
   return database.executar(instrucaoSql);
 }
+
 
 module.exports = {
     autenticar,

@@ -900,3 +900,8 @@ nav ul li:hover::after {
   .footer-bottom p {
     margin: 0;
   }
+
+  #b_usuario{
+    font-size: 30px;
+    font-family: "Cinzel", serif;
+  }

@@ -87,7 +87,10 @@ function cadastrar(req, res) {
 }
 
 function obterArmazens(req, res) {
-    usuarioModel.obterArmazens()
+
+    var usuarioId = req.query.usuarioId;
+
+    usuarioModel.obterArmazens(usuarioId)
         .then(function (resultado) {
             res.json(resultado);
         })

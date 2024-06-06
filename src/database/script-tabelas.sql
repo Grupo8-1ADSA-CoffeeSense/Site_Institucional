@@ -114,7 +114,7 @@ SELECT * FROM usuario;
 	(4, '45678901234567', 'Cafeina Velha', 'Agricultura', '34567890','897',null, '11934567890','39456789');
 
 
-	INSERT INTO armazem (nome, localizacao, capacidade_toneladas, fkEmpresa, fkAlerta) VALUES
+	INSERT INTO armazem (nome, localizacao, capacidade_toneladas, fkEmpresa, fkParametro) VALUES
 	('Armazém A', 'Cidade Aristoteles', 1000,1,1),
 	('Armazém B', 'Cidade Bethoven', 1500,1,1),
 	('Armazém C','Cidade Chopin',1000,2,1),

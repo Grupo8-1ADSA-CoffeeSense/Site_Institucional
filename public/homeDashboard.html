@@ -16,7 +16,7 @@
       <button onclick="botao_login()" class="botao_login">Sair</button>
     </nav>
     <div class="texto_inicial">
-      <p>Bem Vindo(a) de volta <span id="b_usuario">Usuário</span></p>
+      <p>Bem Vindo(a) de volta  <span id="b_usuario">Usuário</span></p>
       <div class="subtitulo">
         <p>Aqui estão as capturas de hoje</p>
       </div>
@@ -67,7 +67,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("/usuarios/obterArmazens", {
+    fetch(`/usuarios/obterArmazens?usuarioId=${sessionStorage.getItem('ID_USUARIO')}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function criarCardsArmazens(armazens) {
     const containerArmazem = document.querySelector(".container_armazem");
-    containerArmazem.innerHTML = ""; // Limpa os armazéns existentes
+    containerArmazem.innerHTML = ""; 
 
     armazens.forEach(armazem => {
         const armazemDiv = document.createElement("div");
@@ -103,7 +103,7 @@ function criarCardsArmazens(armazens) {
         img.alt = "";
 
         const p = document.createElement("p");
-        p.innerText = armazem.nome;
+        p.innerText = armazem.nomeArmazem; 
 
         statusDiv.appendChild(img);
         statusDiv.appendChild(p);
@@ -111,4 +111,5 @@ function criarCardsArmazens(armazens) {
         containerArmazem.appendChild(armazemDiv);
     });
 }
+
 </script>
