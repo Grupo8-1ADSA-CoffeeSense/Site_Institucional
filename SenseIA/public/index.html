@@ -10,12 +10,6 @@
   
     <nav>
         <img class="logo" src="assets/logo.png" alt="" />
-        <ul>
-            <li><a class="nav-link" href="#perguntas-frequentes">Perguntas Frequentes</a></li>
-            <li><a class="nav-link" href="#senseIA">Qual é sua dúvida?</a></li>
-
-        </ul>
-
         <button onclick="botao_login()" class="botao_login">Login</button>
     </nav>
 
@@ -32,26 +26,53 @@
         <div class="containerPerguntasFrequentes">
             <h2>Perguntas frequentes</h2>
         </div>
+        <div class="custom-select">
+            <select>
+                <option>Selecione uma pergunta</option>
+                <option>O que é o sensor DHT11?</option>
+                <option>Como funciona o sensor DHT11?</option>
+                <option>Qual a faixa de medição do sensor DHT11?</option>
+                <option>Quais são as aplicações comuns do sensor DHT11?</option>
+            </select>
+            <div class="select-arrow"></div>
+        </div>
     </section>
 
     <script>
         
         async function gerarResposta() {
-            const pergunta = document.getElementById('pergunta').value;
+    const pergunta = document.getElementById('pergunta').value;
+    const respostaElement = document.getElementById('resposta');
+    
+    respostaElement.style.display = 'block';
+    respostaElement.innerText = ''; // Limpa o conteúdo da resposta
+    
+    const response = await fetch('/perguntar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ pergunta })
+    });
 
-            const response = await fetch('/perguntar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ pergunta })
-            });
+    const data = await response.json();
 
-            const data = await response.json();
-
-            resposta.style.display = 'block';
-            document.getElementById('resposta').innerText = data.resultado;
+    // Simula a digitação da resposta com espaços após o término de uma palavra
+    let respostaText = '';
+    for (let digitacao = 0; digitacao < data.resultado.length; digitacao++) {
+        if (data.resultado[digitacao] === ' ') {
+            await delay(100); 
         }
+        respostaText += data.resultado[digitacao];
+        respostaElement.innerText = respostaText;
+    }
+}
+
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 
     </script>
     

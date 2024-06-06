@@ -16,27 +16,26 @@ body {
     background-color: var(--primary);
     margin: 0;
     padding: 0;
-    background-color: #F4EBE2;
+    
 }
 
-/* 
+
 nav{
     font-family: "Roboto", sans-serif;
     align-items: center;
     justify-content: space-between;
-
     display: flex;
     flex-direction: row;
     padding: 20px;
     top: 0;
     position: sticky;
-    background-color: #F4EBE2;
+    background-color: var(--primary);
     z-index: 100;
     width: 100%;
     gap: 50%;
     border-bottom: 2px solid var(--third);
-} */
-nav {
+}
+/* nav {
     font-family: "Roboto", sans-serif;
     align-items: center;
     display: flex;
@@ -47,16 +46,8 @@ nav {
     position: sticky;
     background-color: #F4EBE2;
     z-index: 100;
-}
+} */
   
-nav ul{
-    list-style: none;
-    display: flex;
-
-}
-a{
-    text-decoration: none;
-}
 
 .logo {
     height: 60px;
@@ -83,15 +74,8 @@ a{
     color: var(--third);
 }
 
-.perguntasFrequentes {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    color:#6F4026;
-    font-size: 20px;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
+
+
 
 
 #container {
@@ -143,4 +127,60 @@ button:hover {
     color: var(--room);
     text-align: left;
     display: none;
+}
+
+.perguntasFrequentes {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color:#6F4026;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.custom-select {
+	position: relative
+;
+}
+
+.custom-select select {
+	appearance: none;
+	-webkit-appearance: none;
+	width: auto;
+	font-size: 20px;
+	padding: 11px 10px 11px 10px;
+	background-color: #6F4026;
+	border: 2px solid #211610;
+	border-radius: 5px;
+	color: #F4EBE2;
+	cursor: pointer;
+	outline: none;
+    text-align: center;
+	box-shadow: 3px 3px 2px 0px #E2E2E2;
+}
+
+.custom-select select:focus {
+	background: #6F4026;
+	border: 2px solid #F4EBE2;
+	border-radius: 5px;
+	border: 2px solid #211610;
+
+}
+
+.custom-select::after {
+	content: "";
+	position: absolute;
+	pointer-events: none;
+	top: 50%;
+	right: 710px;
+	transform: translate(0, -50%);
+	width: 19px;
+	height: 19px;
+	background-color: #F4EBE2;
+	clip-path: polygon(50% 80%, 0 20%, 100% 20%);
+	border: 2px solid #211610;
+
 }
