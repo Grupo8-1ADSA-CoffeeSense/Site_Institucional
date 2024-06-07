@@ -174,10 +174,12 @@ nav ul li:hover::after {
     width: 686px;
     font-size: 25px;
     margin-left: 45px;
-    text-align: left; /* Justificar o texto à esquerda */
+    text-align: left; 
+    margin-bottom: 40px;
 }
 
 .botao_registro {
+    
     height: 55px;
     width: 160px;
     outline: none;

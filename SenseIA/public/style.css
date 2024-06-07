@@ -10,12 +10,28 @@
     
 
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
     scroll-behavior: smooth;
-}
+  }
+
+::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar{
+    width: 10px;
+    color: #6F4026;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background-color: #6F4026;
+    border-radius: 99px
+  }
 
 body {
     font-family: "Roboto", sans-serif;
@@ -24,19 +40,31 @@ body {
     padding: 0;
     
 }
-nav {
-    font-family: 'Roboto', sans-serif;
-    align-items: center;
+nav{
+    font-family: "Roboto", sans-serif;
+    align-items: center ;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
     top: 0;
     position: sticky;
-    background-color: var(--primary);
+    background-color: #F4EBE2;
     z-index: 100;
-    /* border-bottom: 2px solid var(--third); */
-    width: 100%;
+    border-bottom: 2px solid #6F4026;
+}
+
+ul {
+    display: flex;
+}
+
+nav ul li {
+    color: #6F4026;
+    font-size: 18px;
+    display: flex;
+    padding-inline: 30px;
+    list-style: none; 
+    position: relative;
 }
 
 .logo {
@@ -60,25 +88,82 @@ a {
     color: var(--third);
 }
 
-.botao_login {
-    font-family: "Roboto", sans-serif;
-    height: 46px;
-    width: 150px;
-    border-radius: 500px;
-    background-color: #6F4026;
-    color: #FEFFFD;
-    border: 0px;
-    font-size: 20px;
-    margin-right: 20px;
-    letter-spacing: 1px;
-    font-weight: 300;
+nav ul li::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px; 
+    height: 2px; 
+    width: 0; 
+    background-color: currentColor; 
+    transition: width 0.3s ease, left 0.3s ease; 
+    transform: translateX(0%); 
 }
 
-.botao_login:hover {
-    background-color: var(--fifth);
-    border: 2px solid var(--third);
-    color: var(--third);
+nav ul li:hover::after {
+    width: calc(100% - 60px); 
+    left: 30px; 
+    text-decoration: underline;
 }
+
+
+.botao_voltar {
+    
+    height: 55px;
+    width: 160px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #BE9B87;
+    color: #F4EBE2;
+    margin-left: 45px;
+   }
+   
+.botao_voltar span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+   }
+   
+.botao_voltar:hover span {
+    color: #F4EBE2;
+   }
+   
+.botao_voltar::before,
+.botao_voltaro::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+.botao_voltar::before {
+    content: "";
+    background: #6F4026;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    
+   }
+   
+   .botao_voltar:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
 
 .containerHome {
     background-color: var(--third);
