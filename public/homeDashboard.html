@@ -91,6 +91,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    fetch(`/usuarios/obterArmazens?usuarioId=${sessionStorage.getItem('ID_USUARIO')}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    .then(function (resposta) {
+        if (!resposta.ok) {
+            throw new Error("Erro ao obter os armazéns.");
+        }
+        return resposta.json();
+    })
+    .then(function (data) {
+        criarCardsArmazens(data);
+    })
+    .catch(function (erro) {
+        console.error("Erro ao obter os armazéns: ", erro);
+    });
+});
+
 function criarCardsArmazens(armazens) {
     const containerArmazem = document.querySelector(".container_armazem");
     containerArmazem.innerHTML = ""; 
@@ -102,14 +123,13 @@ function criarCardsArmazens(armazens) {
         const statusDiv = document.createElement("div");
         statusDiv.classList.add("container_status");
 
-        const img = document.createElement("img");
-        img.src = "img/Ellipse 10.svg";
-        img.alt = "";
+        const ball = document.createElement("div");
+        ball.classList.add("ball"); // Corrigido
 
         const p = document.createElement("p");
         p.innerText = armazem.nomeArmazem; 
 
-        statusDiv.appendChild(img);
+        statusDiv.appendChild(ball);
         statusDiv.appendChild(p);
         armazemDiv.appendChild(statusDiv);
         containerArmazem.appendChild(armazemDiv);
