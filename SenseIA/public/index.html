@@ -7,37 +7,65 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
     <nav>
-        <img class="logo" src="assets/logo.png" alt="" />
-        <button onclick="botao_login()" class="botao_login">Login</button>
+        <img class="logo" src="assets/logo.png" alt="Logo" />
+        <ul>
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#senseIA">SenseIA</a></li>
+            <li><a class="nav-link" href="#perguntasFrequentes">Perguntas Frequentes</a></li>
+        </ul>
+        <button onclick="botao_login()" class="botao_login"><span>Login</span></button>
     </nav>
 
-    <div id="container" class="senseIA-frequentes">
-        <h1>SenseIA</h1>
-        <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
-        <br><br>
-        <button onclick="gerarResposta()">Gerar Resposta</button>
-        <h3>Resposta da IA:</h3>
-        <div id="resposta"></div>
-    </div>
+    <section id="home" class="home">
 
-    <section id="perguntas-frequentes" class="perguntasFrequentes">
-        <div class="containerPerguntasFrequentes">
-            <h2>Perguntas frequentes</h2>
+        <div class="containerHome">
+            <h1>Bem-vindo ao SenseAI</h1>
+            <p>Seu assistente inteligente para perguntas e respostas.</p>
         </div>
-        <div class="custom-select">
-            <select>
-                <option>Selecione uma pergunta</option>
-                <option>O que é o sensor DHT11?</option>
-                <option>Como funciona o sensor DHT11?</option>
-                <option>Qual a faixa de medição do sensor DHT11?</option>
-                <option>Quais são as aplicações comuns do sensor DHT11?</option>
-            </select>
-            <div class="select-arrow"></div>
-        </div>
+
     </section>
 
+    <section id="senseIA" class="senseIA">
+        <h1>SenseIA</h1><br>
+        <h2>Qual é sua dúvida?</h2><br>
+        <textarea id="pergunta" type="text" placeholder="Digite aqui..."></textarea>
+        <br><br>
+        <button onclick="gerarResposta()">Gerar Resposta</button><br><br>
+        <h3>Resposta da IA:</h3>
+        <div id="resposta"></div>
+    </section>
+
+    <section id="perguntasFrequentes" class="perguntasFrequentes">
+        <h2>Perguntas frequentes</h2><br>
+        <div class="perguntas-lista">
+            <div class="pergunta">
+                <h3>O que é o sensor DHT11?</h3>
+                <p>O sensor DHT11 é um sensor de temperatura e umidade que fornece valores precisos de temperatura e
+                    umidade do ambiente.</p>
+            </div>
+            <div class="pergunta">
+                <h3>Como funciona o sensor DHT11?</h3>
+                <p>O sensor DHT11 possui um termistor para medir a temperatura e um sensor de umidade capacitivo. Ele
+                    converte esses sinais em dados digitais para leitura.</p>
+            </div>
+            <div class="pergunta">
+                <h3>Qual a faixa de medição do sensor DHT11?</h3>
+                <p>O sensor DHT11 pode medir temperaturas entre 0°C a 50°C com uma precisão de ±2°C e umidade relativa
+                    entre 20% a 90% com uma precisão de ±5%.</p>
+            </div>
+            <div class="pergunta">
+                <h3>Quais são as aplicações comuns do sensor DHT11?</h3>
+                <p>O sensor DHT11 é comumente usado em projetos de automação residencial, monitoramento ambiental,
+                    controle de umidade em estufas e em sistemas de climatização.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2024 Todos os direitos reservados.</p>
+    </footer>
+    
     <script>
         
         async function gerarResposta() {

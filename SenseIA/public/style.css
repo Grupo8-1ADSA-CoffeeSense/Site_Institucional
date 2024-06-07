@@ -10,6 +10,12 @@
     
 
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: "Roboto", sans-serif;
@@ -18,47 +24,47 @@ body {
     padding: 0;
     
 }
-
-
-nav{
-    font-family: "Roboto", sans-serif;
+nav {
+    font-family: 'Roboto', sans-serif;
     align-items: center;
-    justify-content: space-between;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding: 20px;
     top: 0;
     position: sticky;
     background-color: var(--primary);
     z-index: 100;
+    /* border-bottom: 2px solid var(--third); */
     width: 100%;
-    gap: 50%;
-    border-bottom: 2px solid var(--third);
 }
-/* nav {
-    font-family: "Roboto", sans-serif;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
-    top: 0;
-    position: sticky;
-    background-color: #F4EBE2;
-    z-index: 100;
-} */
-  
 
 .logo {
+    margin-left: 20px;
     height: 60px;
-    margin-left: 60px ;
+}
+
+ul {
+    display: flex;
+    font-size: 18px;
+    position: relative;
+}
+
+li {
+    padding-inline: 30px;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--third);
 }
 
 .botao_login {
     font-family: "Roboto", sans-serif;
     height: 46px;
     width: 150px;
-    border-radius: 5px;
+    border-radius: 500px;
     background-color: #6F4026;
     color: #FEFFFD;
     border: 0px;
@@ -68,26 +74,105 @@ nav{
     font-weight: 300;
 }
 
-.botao_login:hover{
+.botao_login:hover {
     background-color: var(--fifth);
     border: 2px solid var(--third);
     color: var(--third);
 }
 
-
-
-
-
-#container {
-    width: 80%;
-    margin: 50px auto;
+.containerHome {
+    background-color: var(--third);
+    border: #211610;
+    padding: 100px 20px;
     text-align: center;
 }
 
-h1,h3 {
-    color: var(--third);
+.containerHome h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 20px;
 }
 
+.containerHome p {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 40px;
+
+}
+
+.senseIA{
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    background: var(--second);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.senseIA{
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    background: var(--fifth);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.senseIA h1{
+    font-size: 24px;
+    color: var(--second);
+
+}
+.senseIA h2{
+    font-size: 20px;
+    color: var(--second);
+
+}
+.perguntasFrequentes {
+    background: var(--fifth);
+    padding: 50px 0;
+}
+.perguntasFrequentes h2 {
+    color: var(--second);
+    font-size: 24px;
+
+}
+
+.perguntas-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pergunta {
+    width: calc(50% - 20px);
+    margin-bottom: 30px;
+    padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    background-color: var(--room);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.pergunta:hover {
+    transform: translateY(-5px);
+}
+
+.pergunta h3 {
+    color: var(--third);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.pergunta p {
+    color: var(--second);
+    font-size: 15px;
+    line-height: 1.6;
+}
 
 textarea[type="text"] {
     padding: 8px;
@@ -128,12 +213,11 @@ button:hover {
     text-align: left;
     display: none;
 }
-
 .perguntasFrequentes {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    color:#6F4026;
+    color: #6F4026;
     font-size: 20px;
     font-weight: 300;
     letter-spacing: 1px;
@@ -141,6 +225,15 @@ button:hover {
     text-align: center;
 }
 
+footer {
+    background-color: var(--third);
+    color: var(--fifth);
+    padding: 20px 0;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+/* 
 .custom-select {
 	position: relative
 ;
@@ -183,4 +276,14 @@ button:hover {
 	clip-path: polygon(50% 80%, 0 20%, 100% 20%);
 	border: 2px solid #211610;
 
+} */
+
+/* #container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
 }
+
+h1,h3 {
+    color: var(--third);
+} */
