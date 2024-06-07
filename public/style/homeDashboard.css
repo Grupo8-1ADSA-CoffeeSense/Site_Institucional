@@ -51,6 +51,62 @@ body {
 
 }
 
+.botao_sair {
+    height: 50px;
+    width: 150px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #BE9B87;
+    color: #F4EBE2;
+   }
+   
+.botao_sair span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+   }
+   
+.botao_sair:hover span {
+    color: #F4EBE2;
+   }
+   
+.botao_sair::before,
+.botao_sair::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+.botao_sair::before {
+    content: "";
+    background: #6F4026;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    
+   }
+   
+.botao_sair:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
+
 #b_usuario{
     font-size: 30px;
     font-family: "Cinzel", serif;
