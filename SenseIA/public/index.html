@@ -38,26 +38,22 @@
 
     <section id="perguntasFrequentes" class="perguntasFrequentes">
         <h2>Perguntas frequentes</h2><br>
-        <div class="perguntas-lista">
-            <div class="pergunta">
-                <h3>O que é o sensor DHT11?</h3>
-                <p>O sensor DHT11 é um sensor de temperatura e umidade que fornece valores precisos de temperatura e
-                    umidade do ambiente.</p>
+        <div class="perguntas-lista" >
+            <div class="pergunta" onclick="perguntaFrequente1()">
+                <h3 >O que é o sensor DHT11?</h3>
+        
             </div>
-            <div class="pergunta">
+            <div class="pergunta" onclick="perguntaFrequente2()">
                 <h3>Como funciona o sensor DHT11?</h3>
-                <p>O sensor DHT11 possui um termistor para medir a temperatura e um sensor de umidade capacitivo. Ele
-                    converte esses sinais em dados digitais para leitura.</p>
+            
             </div>
-            <div class="pergunta">
+            <div class="pergunta" onclick="perguntaFrequente3()">
                 <h3>Qual a faixa de medição do sensor DHT11?</h3>
-                <p>O sensor DHT11 pode medir temperaturas entre 0°C a 50°C com uma precisão de ±2°C e umidade relativa
-                    entre 20% a 90% com uma precisão de ±5%.</p>
+            
             </div>
-            <div class="pergunta">
+            <div class="pergunta" onclick="perguntaFrequente4()">
                 <h3>Quais são as aplicações comuns do sensor DHT11?</h3>
-                <p>O sensor DHT11 é comumente usado em projetos de automação residencial, monitoramento ambiental,
-                    controle de umidade em estufas e em sistemas de climatização.</p>
+              
             </div>
         </div>
     </section>
@@ -70,6 +66,22 @@
     
     <script>
         
+        function perguntaFrequente1(){
+            const pergunta = document.getElementById('pergunta').value = 'O que é o sensor DHT11?'
+            gerarResposta() 
+        }
+        function perguntaFrequente2(){
+            const pergunta = document.getElementById('pergunta').value = 'Como funciona o sensor DHT11?'
+            gerarResposta() 
+        }
+        function perguntaFrequente3(){
+            const pergunta = document.getElementById('pergunta').value = 'Qual a faixa de medição do sensor DHT11?'
+            gerarResposta() 
+        }
+        function perguntaFrequente4(){
+            const pergunta = document.getElementById('pergunta').value = 'Quais são as aplicações comuns do sensor DHT11?'
+            gerarResposta() 
+        }
         async function gerarResposta() {
     const pergunta = document.getElementById('pergunta').value;
     const respostaElement = document.getElementById('resposta');
