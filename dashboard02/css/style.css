@@ -101,7 +101,7 @@ body{
 -two-space: nowrap;
 }
 
-/* Curve outside */
+
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before{
 	content: '';
@@ -378,7 +378,8 @@ body{
     font-weight: bold;
     font-size: 25px;
     color: var(--black1);
-    
+    align-items: center;
+	margin-top: 20px;
 }
 
 .historic {
