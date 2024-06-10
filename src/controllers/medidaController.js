@@ -22,42 +22,46 @@ function buscarUltimasMedidas(req, res) {
 }
 
 
-function buscarMedidasEmTempoReal(req, res) {
+    function buscarMedidasEmTempoReal(req, res) {
 
-    var idAquario = req.params.idAquario;
+        var idAquario = req.params.idAquario;
 
-    console.log(`Recuperando medidas em tempo real`);
+        console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
+        medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+    }
 
-// function obterTemperaturasArmazem(req, res) {
+    function buscarDadosMonitoramento(req, res) {
+        var armazemId = req.params.armazemId;
     
-//     medidaModel.obterTemperaturasArmazem()
-//         .then(function (temperaturas) {
-//             if (resultado.length > 0) {
-//                 res.status(200).json(temperaturas);
-//             } else {
-//                 res.status(204).send("Nenhum resultado encontrado!")
-//             }
-            
-//         })
-//         .catch(function (erro) {
-//             res.status(500).json({ error: "Erro ao obter as temperaturas do armazém." });
-//         });
-// }
+        console.log(`Buscando dados de monitoramento para o armazém com ID ${armazemId}`);
+    
+        medidaModel.buscarDadosMonitoramento(armazemId).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum dado de monitoramento encontrado para este armazém.");
+            }
+        }).catch(function (erro) {
+            console.error("Erro ao buscar dados de monitoramento:", erro);
+            res.status(500).json({ error: "Houve um erro ao buscar os dados de monitoramento." });
+        });
+    }
+    
+
+
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    buscarMedidasEmTempoReal,
+    buscarDadosMonitoramento: buscarDadosMonitoramento
 }

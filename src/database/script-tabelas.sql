@@ -118,26 +118,24 @@ SELECT * FROM usuario;
 	('Armazém A', 'Cidade Aristoteles', 1000,1,1),
 	('Armazém B', 'Cidade Bethoven', 1500,1,1),
 	('Armazém C','Cidade Chopin',1000,2,1),
-	('Armazém D','Cidade Nietzsche',1500,3,1),
-	('Armazém E', 'Cidade Mozart', 1500,4,1);
+	('Armazém D','Cidade Nietzsche',1500,3,1);
+    
 
 	INSERT INTO dispositivo_monitoramento VALUES
 	(1,'Sensor 1', 1),
 	(2, 'Sensor 2', 2),
 	(3,'Sensor 3', 3),
-	(4,'Sensor 4',4),
-	(5,'Sensor 5', 5);
+	(4,'Sensor 4',4);
 
 	INSERT INTO dados_monitoramento VALUES
 	(1, 1, '2024-05-07 08:00:00', 18.3, 11.25),
 	(2,2, '2024-05-07 08:00:00', 14.00, 14.00),
 	(3, 3, '2024-05-07 08:00:00', 14.00, 12.00),
-	(4, 4, '2024-05-07 08:00:00', 20.00, 11.10),
-	(5, 5, '2024-05-07 08:00:00', 21.32, 11.34);
+	(4, 4, '2024-05-07 08:00:00', 20.00, 11.10);
 
 
 
-
+SELECT * FROM armazem;
 	-- JOINS
     
     
@@ -167,3 +165,15 @@ SELECT * FROM usuario;
 		JOIN armazem  
 			 ON dispositivo.fkArmazem = armazem.idArmazem;
              
+ALTER TABLE dados_monitoramento MODIFY COLUMN idDados INT AUTO_INCREMENT;
+
+-- Inserindo os registros na tabela dados_monitoramento apenas para o armazém 4 e empresa 4
+INSERT INTO dados_monitoramento (fkDispositivo, data_horaCaptura, temperatura, umidade)
+VALUES
+    (4, '2024-05-07 08:00:00', 18.3, 11.25),
+    (4, '2024-05-07 08:00:00', 14.00, 14.00),
+    (4, '2024-05-07 08:00:00', 14.00, 12.00),
+    (4, '2024-05-07 08:00:00', 20.00, 11.10);
+
+
+	-- lembrar de deixar o script organizado depois
