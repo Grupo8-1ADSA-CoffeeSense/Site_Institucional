@@ -13,9 +13,11 @@
 
 <body onload="validarSessao()">
   <nav>
+    <a id="logo_homeDashboard" href="index.html">
     <img class="logo" src="assets/logo.png" alt="" />
+  </a>
     <ul></ul>
-    <button onclick="botao_sair('../loginCadastro.html')" class="botao_sair"><span>Sair</span></button>
+    <button onclick="limparSessao()" class="botao_sair"><span>Sair</span></button>
   </nav>
   <div class="texto_inicial">
     <p>Bem Vindo(a) de volta <span id="b_usuario">Usuário</span></p>
@@ -71,9 +73,6 @@
 </html>
 
 <script>
-  function botao_sair(url) {
-    window.location.href = url;
-  }
 
   document.addEventListener("DOMContentLoaded", function () {
     fetch(`/usuarios/obterArmazens?usuarioId=${sessionStorage.getItem('ID_USUARIO')}`, {

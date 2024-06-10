@@ -8,14 +8,40 @@ function validarSessao() {
     if (email != null && nome != null) {
         b_usuario.innerHTML = nome;
     } else {
-        window.location = "../login.html";
+        window.location = "../loginCadastro.html";
     }
 }
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../login.html";
+    window.location = "../loginCadastro.html";
 }
+
+//carol
+function validaUsuarioLogado() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+    if (email == null || nome == null) {
+        return false
+    }
+    else {
+        return true
+    }
+}
+function exibirMenu() {
+    var usuarioLogado = validaUsuarioLogado()
+    if (usuarioLogado == true) {
+        let botao_login = document.getElementById("botao_login")
+        botao_login.style.display = "none"
+
+    }
+    else {
+        let botao_sair = document.getElementById("botao_sair")
+        botao_sair.style.display = "none"
+
+    }
+}
+//carol
 
 // carregamento (loading)
 function aguardar() {
@@ -33,4 +59,3 @@ function finalizarAguardar(texto) {
         divErrosLogin.innerHTML = texto;
     }
 }
-
