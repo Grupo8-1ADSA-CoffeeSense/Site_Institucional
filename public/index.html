@@ -182,8 +182,8 @@
         <div class="form-container">
             <form class="form">
                 <div class="form-group">
-                    <p>Nome:</p>
-                    <input type="text" id="nome_input" placeholder="Nome" name="nome" required="" />
+                    <!-- <p>Nome:</p> -->
+                    <!-- <input type="text" id="nome_input" placeholder="Nome" name="nome" required="" /> -->
                     <p>Email:</p>
                     <input type="text" id="email_input" placeholder="Email" name="email" required="" />
                 </div>
@@ -193,7 +193,7 @@
                     <textarea placeholder="Digite a sua Mensagem aqui..." id="textarea" rows="10" cols="50" required="">
             </textarea>
                 </div>
-                <button class="form-submit-btn" type="submit">
+                <button class="form-submit-btn"  id="button--submit" onclick="validateEmail()">
                     <span>Enviar</span>
                 </button>
             </form>
@@ -268,4 +268,26 @@
     function botao_login() {
         window.location.href = "loginCadastro.html"
     }
-</script>
+
+    function validateEmail() {
+        const email = email_input.value
+        const mensagemEmail = textarea.value
+ 
+        if (email == "" ) {
+            alert(`Por favor, preencha o campo do email.`);
+        }
+        else {
+            let email = 'coffeesensepi@gmail.com';
+            let subject = `Ryan`;
+            let cc = 'samuel.lima@sptech.school';
+            let body = `${mensagemEmail}`;
+ 
+            let mailtoLink = 'mailto:' + email +
+                '?subject=' + encodeURIComponent(subject) +
+                '&cc=' + cc +
+                '&body=' + encodeURIComponent(body);
+ 
+            window.location.href = mailtoLink;
+        };
+    }
+</script> 

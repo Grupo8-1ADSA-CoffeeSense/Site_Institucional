@@ -143,9 +143,7 @@ nav ul li:hover::after {
     width: 120%;
     left: -10%;
     transform: skew(30deg);
-    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-    
-   }
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);   }
    
 .botao_login:hover::before {
     transform: translate3d(100%, 0, 0);
