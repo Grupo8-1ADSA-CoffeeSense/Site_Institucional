@@ -132,6 +132,8 @@ body{
 
 .logo {
 	position: relative;
+	left: 70px;
+	top: 20px;
 }
 
 /* Main */
