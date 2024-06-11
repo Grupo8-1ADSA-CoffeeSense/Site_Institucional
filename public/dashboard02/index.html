@@ -17,7 +17,7 @@
 	</style>
 </head>
 
-<body>
+<body onload="chamafuncoes()">
 
 	<div class="container">
 		<nav class="navigation">
@@ -57,7 +57,7 @@
 		</nav>
 
 		<div class="main">
-			<div class="topbar">
+			<div class="topbar" onclick="mudaUmidade()">
 				<div class="toggle">
 					<ion-icon name="menu-outline"></ion-icon>
 				</div>
@@ -74,7 +74,7 @@
 			<div class="cardBox">
 				<div class="card">
 					<div>
-						<div class="numbers">20ºC</div>
+						<div class="numbers" id="mostra_temperaturaAtual">20ºC</div>
 						<div class="cardName">Temperatura Atual</div>
 					</div>
 					<div class="iconBx">
@@ -86,7 +86,7 @@
 			<div class="cardBox">
 				<div class="card">
 					<div>
-						<div class="numbers">20%</div>
+						<div class="numbers" id="mostra_umidade">20%</div>
 						<div class="cardName">Umidade Atual</div>
 					</div>
 					<div class="iconBx">
@@ -336,6 +336,14 @@
     };
 </script>
 <script>
+
+	function chamafuncoes(){
+		buscarDadosEMostrarGraficos(armazemId)
+		atualizarGraficoTemperatura(dados)
+		atualizarGraficoUmidade(dados)
+		obterIdDoArmazemDaURL()
+
+	}
     function buscarDadosEMostrarGraficos(armazemId) {
         fetch(`/medidas/monitoramento/${armazemId}`, {
             method: "GET",
@@ -356,6 +364,8 @@
         .catch(function (erro) {
             console.error("Erro ao obter os dados de monitoramento: ", erro);
         });
+
+
     }
 
     function atualizarGraficoTemperatura(dados) {
@@ -367,6 +377,8 @@
 
         const contextoTemperatura = document.getElementById('temperaturaChart').getContext('2d');
         new Chart(contextoTemperatura, configTemperatura);
+	mudaTemperatura()
+
     }
 
     function atualizarGraficoUmidade(dados) {
@@ -378,6 +390,10 @@
 
         const contextoUmidade = document.getElementById('umidadeChart').getContext('2d');
         new Chart(contextoUmidade, configUmidade);
+	mudaUmidade()
+	setTimeout(() => {
+atualizarGraficoUmidade(dados)
+}, 5000);
     }
 
     function obterIdDoArmazemDaURL() {
@@ -393,4 +409,34 @@
             console.error("ID do armazém não encontrado na URL.");
         }
     };
+
+
+    function mudaUmidade(){
+	let listaumidades = []
+	let tamanhoListaUmidade = configUmidade.data.datasets[0].data.length
+
+	for(let contaUmidade = 0 ; contaUmidade < tamanhoListaUmidade ; contaUmidade ++){
+
+
+listaumidades.push(configUmidade.data.datasets[0].data[contaUmidade])
+}
+	mostra_umidade.innerHTML = listaumidades[(listaumidades.length -1)] +'%'
+
+	console.log(listaumidades)
+    }
+
+  
+    function mudaTemperatura(){
+	let listaTemperatura = []
+	let tamanhoListaTemperatura = configTemperatura.data.datasets[0].data.length
+
+
+for(let contaTemperatura = 0 ; contaTemperatura < tamanhoListaTemperatura ; contaTemperatura ++){
+
+
+	listaTemperatura.push(configTemperatura.data.datasets[0].data[contaTemperatura])
+}
+	mostra_temperaturaAtual.innerHTML = listaTemperatura[(listaTemperatura.length -1)] +  'Cº'
+console.log(listaTemperatura)
+}
 </script>
