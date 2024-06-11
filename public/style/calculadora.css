@@ -54,19 +54,56 @@ nav ul li:hover::after {
 }
 
 .botao_login {
-    font-family: "Roboto", sans-serif;
-    height: 46px;
+    height: 50px;
     width: 150px;
-    border-radius: 5px;
-    background-color: #6F4026;
-    color: #FEFFFD;
-    border: 0px;
-    font-size: 20px;
-    margin-right: 20px;
-    letter-spacing: 1px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
     font-weight: 300;
-}
-
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #BE9B87;
+    color: #F4EBE2;
+    transition: background 0.4s;
+   }
+   
+.botao_login span {
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s;
+   }
+   
+.botao_login::before,
+.botao_login::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    content: "";
+   }
+   
+.botao_login::before {
+    content: "";
+    background: #6F4026;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);   }
+   
+.botao_login:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
 /* FIM NAVBAR */
 
 /* Inicio HOME */
@@ -161,7 +198,7 @@ nav ul li:hover::after {
 
 .home_direita select,
 option {
-    width: 200px;
+    width: 400px;
     height: 48px;
     border-radius: 5px;
     border: 1px solid #6F4439;
@@ -227,20 +264,58 @@ option {
     background-color: #4c2a1a;
 }
 
-.botao_submit {
-    width: 400px;
-    height: 48px;
-    border-radius: 5px;
-    background-color: #6F4439;
-    color: #FFFFFF;
+.botao_submit{
+    height: 50px;
+    width: 300px;
+    top: 20px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
     font-weight: 300;
-    font-size: 20px;
-    font-family: Roboto, sans-serif;
-    text-align: center;
-    letter-spacing: 1px;
-    margin-top: 30px;
-    appearance: none;
-}
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #BE9B87;
+    color: #F4EBE2;
+    transition: background 0.4s;
+   }
+   
+.botao_submit span {
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s;
+   }
+   
+.botao_submit::before,
+.botao_submit::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    content: "";
+   }
+   
+.botao_submit::before {
+    content: "";
+    background: #6F4026;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);   }
+   
+.botao_submit:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
 
 .modal-overlay {
     position: fixed;
