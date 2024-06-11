@@ -106,11 +106,9 @@ nav ul li:hover::after {
     text-decoration: underline;
 }
 
-
 .botao_voltar {
-    
-    height: 55px;
-    width: 160px;
+    height: 50px;
+    width: 150px;
     outline: none;
     cursor: pointer;
     border: none;
@@ -128,7 +126,7 @@ nav ul li:hover::after {
     overflow: hidden;
     background: #BE9B87;
     color: #F4EBE2;
-    margin-left: 45px;
+    transition: background 0.4s;
    }
    
 .botao_voltar span {
@@ -142,7 +140,7 @@ nav ul li:hover::after {
    }
    
 .botao_voltar::before,
-.botao_voltaro::after {
+.botao_voltar::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -157,11 +155,9 @@ nav ul li:hover::after {
     width: 120%;
     left: -10%;
     transform: skew(30deg);
-    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-    
-   }
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);   }
    
-   .botao_voltar:hover::before {
+.botao_voltar:hover::before {
     transform: translate3d(100%, 0, 0);
    }
 
@@ -268,25 +264,58 @@ textarea[type="text"] {
     border: 2px solid var(--third);
 }
 
-select,
-button {
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 5px;
+.botao_resposta {
+    height: 50px;
+    width: 150px;
+    outline: none;
     cursor: pointer;
-}
-
-button {
-    background-color: var(--fifth);
-    color: var(--third);
-    border: 2px solid var(--third);
-}
-
-button:hover {
-    background-color: var(--third);
-    border: 2px solid var(--fifth);
-    color: var(--fifth);
-}
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #BE9B87;
+    color: #F4EBE2;
+    transition: background 0.4s;
+   }
+   
+.botao_resposta span {
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s;
+    bottom:10px;
+   }
+   
+.botao_resposta::before,
+.botao_resposta::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    content: "";
+   }
+   
+.botao_resposta::before {
+    content: "";
+    background: #6F4026;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);   }
+   
+.botao_resposta:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
 
 #resposta {
     margin-top: 20px;

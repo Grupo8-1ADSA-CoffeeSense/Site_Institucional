@@ -35,7 +35,7 @@ SELECT * FROM empresa;
 	nome VARCHAR(255) NOT NULL,
 	email VARCHAR(255) UNIQUE,
 		CONSTRAINT chkEmail
-			CHECK (email like('%@%')),
+			CHECK (email LIKE('%@%')),
 	senha VARCHAR(255) ,
 	CONSTRAINT fk_funcionario_empresa
 			FOREIGN KEY (fkEmpresa)
