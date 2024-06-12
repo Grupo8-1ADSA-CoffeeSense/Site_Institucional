@@ -56,6 +56,16 @@ html,body{
   border: 1px solid lightgrey;
   border-radius: 5px;
 }
+.botao_voltar{
+  font-size: 20px;
+  height: 8%;
+  width: 100%;
+  color: #fff;
+  background: #6F4439;
+  border-radius: 5px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
 .slide-controls .slide{
   height: 100%;
   width: 100%;

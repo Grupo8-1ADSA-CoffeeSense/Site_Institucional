@@ -47,6 +47,7 @@
                   <input type="submit" value="Login" onclick="entrar()">
                   <!-- onclick="Loginvalido() -->
                </div>
+               <button class="botao_voltar" onclick="voltar()">Voltar</button>
                <div class="signup-link">
                   Ainda não foi registrado? <a href="">Contate a empresa!</a>
                </div>
@@ -77,6 +78,7 @@
                      onkeyup="verificaCampos()" required>
                   <span class="span-verificacao" id="span_confirmacao"></span>
                </div>
+               
 
                <div class="field">
                   <span>Empresa:</span>
@@ -88,6 +90,14 @@
                   <div class="btn-layer"></div>
                   <input type="submit" onclick="cadastrar()" value="Cadastre-se">
                </div>
+               <div class="field btn">
+                  <div class="btn-layer"></div>
+                  <input type="submit" onclick="voltar()" value="Voltar">
+               </div>
+               
+
+               
+
             </form>
          </div>
       </div>
@@ -284,6 +294,10 @@
          });
 
          return false;
+      }
+      function voltar(){
+         window.location = "index.html";
+
       }
 
    </script>
