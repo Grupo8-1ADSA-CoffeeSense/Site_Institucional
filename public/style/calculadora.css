@@ -7,6 +7,19 @@ body {
     margin: 0;
 }
 
+::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar{
+    width: 10px;
+    color: #6F4026;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background-color: #6F4026;
+    border-radius: 99px
+  }
 
 .logo {
     margin-left: 20px;
