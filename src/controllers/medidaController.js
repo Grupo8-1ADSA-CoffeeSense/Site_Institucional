@@ -58,10 +58,24 @@ function buscarUltimasMedidas(req, res) {
         });
     }
     
-
+    
+    function buscarUltimoDadoMonitoramento(req, res) {
+        const armazemId = req.params.armazemId;
+        medidaModel.buscarUltimoDadoMonitoramento(armazemId).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum dado de monitoramento encontrado para este armazem.");
+            }
+        }).catch(function (erro) {
+            console.error("Erro ao buscar dados de monitoramento:", erro);
+            res.status(500).json({ error: "Houve um erro ao buscar os dados de monitoramento." });
+        });
+    }
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    buscarDadosMonitoramento: buscarDadosMonitoramento
+    buscarDadosMonitoramento: buscarDadosMonitoramento,
+    buscarUltimoDadoMonitoramento
 }

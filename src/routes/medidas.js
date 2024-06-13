@@ -15,4 +15,8 @@ router.get("/monitoramento/:armazemId", function (req, res) {
     medidaController.buscarDadosMonitoramento(req, res);
 });
 
+router.get("/buscarUltimoDadoMonitoramento/:armazemId", function (req, res) {
+    medidaController.buscarUltimoDadoMonitoramento(req, res);
+});
+
 module.exports = router;
