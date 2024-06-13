@@ -7,6 +7,22 @@
 	font-family: 'Ubuntu', sans-serif;
 }
 
+.alert {
+	padding: 15px;
+	margin: 5px;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.alert-red {
+	background-color: red;
+}
+.alert-yellow {
+	background-color: yellow;
+	color: black;
+}
+
 :root{
 	--primary	: #6F4026;
 	--two: #DCD1CB;

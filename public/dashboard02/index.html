@@ -25,6 +25,7 @@
 
 
 	<div class="container">
+		<div id="alert-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
 		<nav class="navigation">
 			<ul>
 				<li>
@@ -261,183 +262,214 @@
 
 </html>
 <script>
-let dadosTemperatura = {
-  labels: [],
-  data: [],
-};
-
-let dadosUmidade = {
-  labels: [],
-  data: [],
-};
-
-let temperaturaChart = null;
-let umidadeChart = null;
-
-function inicializarGraficosComDadosIniciais(dados) {
-  const dadosIniciais = dados.slice(-10);
-
-  dadosIniciais.forEach(item => {
-    dadosTemperatura.labels.push(item.data_hora);
-    dadosTemperatura.data.push(item.temperatura);
-    dadosUmidade.labels.push(item.data_hora);
-    dadosUmidade.data.push(item.umidade);
-  });
-
-  criarGraficos();
-}
-
-function atualizarGraficoComNovosDados(dados) {
-  const novaCaptura = dados[dados.length - 1];
-  dadosTemperatura.labels.push(novaCaptura.data_hora);
-  dadosTemperatura.data.push(novaCaptura.temperatura);
-  dadosUmidade.labels.push(novaCaptura.data_hora);
-  dadosUmidade.data.push(novaCaptura.umidade);
-
-  if (dadosTemperatura.labels.length > 10) {
-    dadosTemperatura.labels.shift();
-    dadosTemperatura.data.shift();
-    dadosUmidade.labels.shift();
-    dadosUmidade.data.shift();
-  }
-
-  temperaturaChart.data.labels = dadosTemperatura.labels;
-  temperaturaChart.data.datasets[0].data = dadosTemperatura.data;
-  temperaturaChart.update();
-
-  umidadeChart.data.labels = dadosUmidade.labels;
-  umidadeChart.data.datasets[0].data = dadosUmidade.data;
-  umidadeChart.update();
-
-  mudaTemperatura();
-  mudaUmidade();
-}
-
-function buscarDadosEMostrarGraficos(armazemId) {
-  fetch(`/medidas/monitoramento/${armazemId}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-  .then(function (resposta) {
-    if (!resposta.ok) {
-      throw new Error("Erro ao obter os dados de monitoramento.");
-    }
-    return resposta.json();
-  })
-  .then(function (dados) {
-    if (!temperaturaChart || !umidadeChart) {
-      inicializarGraficosComDadosIniciais(dados);
-    } else {
-      atualizarGraficoComNovosDados(dados);
-    }
-  })
-  .catch(function (erro) {
-    console.error("Erro ao obter os dados de monitoramento: ", erro);
-  });
-}
-
-function criarGraficos() {
-  const contextoTemperatura = document.getElementById('temperaturaChart').getContext('2d');
-  const contextoUmidade = document.getElementById('umidadeChart').getContext('2d');
-
-  temperaturaChart = new Chart(contextoTemperatura, {
-    type: 'line',
-    data: {
-      labels: dadosTemperatura.labels,
-      datasets: [{
-        label: 'Temperatura (ºC)',
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        data: dadosTemperatura.data,
-        fill: false,
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        x: {
-          display: true,
-          title: {
-            display: true,
-            text: 'Data e Hora'
-          }
-        },
-        y: {
-          display: true,
-          title: {
-            display: true,
-            text: 'Temperatura (ºC)'
-          }
-        }
-      }
-    }
-  });
-
-  umidadeChart = new Chart(contextoUmidade, {
-    type: 'line',
-    data: {
-      labels: dadosUmidade.labels,
-      datasets: [{
-        label: 'Umidade (%)',
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        data: dadosUmidade.data,
-        fill: false,
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        x: {
-          display: true,
-          title: {
-            display: true,
-            text: 'Data e Hora'
-          }
-        },
-        y: {
-          display: true,
-          title: {
-            display: true,
-            text: 'Umidade (%)'
-          }
-        }
-      }
-    }
-  });
-
-  mudaTemperatura();
-  mudaUmidade();
-
-  setInterval(() => {
-    buscarDadosEMostrarGraficos(obterIdDoArmazemDaURL());
-  }, 5000);
-}
-
-function mudaTemperatura() {
-  const tamanhoListaTemperatura = dadosTemperatura.data.length;
-  document.getElementById('mostra_temperaturaAtual').innerHTML = dadosTemperatura.data[tamanhoListaTemperatura - 1] + 'ºC';
-}
-
-function mudaUmidade() {
-  const tamanhoListaUmidade = dadosUmidade.data.length;
-  document.getElementById('mostra_umidade').innerHTML = dadosUmidade.data[tamanhoListaUmidade - 1] + '%';
-}
-
-function obterIdDoArmazemDaURL() {
-  const parametrosURL = new URLSearchParams(window.location.search);
-  return parametrosURL.get('armazemId');
-}
-
-window.onload = function() {
-  const idDoArmazem = obterIdDoArmazemDaURL();
-  if (idDoArmazem) {
-    buscarDadosEMostrarGraficos(idDoArmazem);
-  } else {
-    console.error("ID do armazém não encontrado na URL.");
-  }
-};
-
-</script>
+	let dadosTemperatura = {
+	  labels: [],
+	  data: [],
+	};
+	
+	let dadosUmidade = {
+	  labels: [],
+	  data: [],
+	};
+	
+	let temperaturaChart = null;
+	let umidadeChart = null;
+	
+	function inicializarGraficosComDadosIniciais(dados) {
+	  console.log("Inicializando gráficos com dados iniciais:", dados);
+	  const dadosIniciais = dados.filter(item => item.temperatura !== '0.00' && item.umidade !== '0.00').slice(-10);
+	
+	  dadosIniciais.forEach(item => {
+		dadosTemperatura.labels.push(item.data_hora);
+		dadosTemperatura.data.push(item.temperatura);
+		dadosUmidade.labels.push(item.data_hora);
+		dadosUmidade.data.push(item.umidade);
+	  });
+	
+	  criarGraficos();
+	}
+	
+	function atualizarGraficoComNovosDados(dados) {
+	  console.log("Atualizando gráficos com novos dados:", dados);
+	  const novaCaptura = dados.findLast(item => item.temperatura !== '0.00' && item.umidade !== '0.00');
+	  if (novaCaptura) {
+		dadosTemperatura.labels.push(novaCaptura.data_hora);
+		dadosTemperatura.data.push(novaCaptura.temperatura);
+		dadosUmidade.labels.push(novaCaptura.data_hora);
+		dadosUmidade.data.push(novaCaptura.umidade);
+	
+		if (dadosTemperatura.labels.length > 10) {
+		  dadosTemperatura.labels.shift();
+		  dadosTemperatura.data.shift();
+		  dadosUmidade.labels.shift();
+		  dadosUmidade.data.shift();
+		}
+	
+		temperaturaChart.data.labels = dadosTemperatura.labels;
+		temperaturaChart.data.datasets[0].data = dadosTemperatura.data;
+		temperaturaChart.update();
+	
+		umidadeChart.data.labels = dadosUmidade.labels;
+		umidadeChart.data.datasets[0].data = dadosUmidade.data;
+		umidadeChart.update();
+	
+		mudaTemperatura();
+		mudaUmidade();
+	  }
+	}
+	
+	function buscarDadosEMostrarGraficos(armazemId) {
+	  fetch(`/medidas/monitoramento/${armazemId}`, {
+		method: "GET",
+		headers: {
+		  "Content-Type": "application/json",
+		},
+	  })
+	  .then(function (resposta) {
+		if (!resposta.ok) {
+		  throw new Error("Erro ao obter os dados de monitoramento.");
+		}
+		return resposta.json();
+	  })
+	  .then(function (dados) {
+		console.log("Dados recebidos do servidor:", dados);
+		if (!temperaturaChart || !umidadeChart) {
+		  inicializarGraficosComDadosIniciais(dados);
+		} else {
+		  atualizarGraficoComNovosDados(dados);
+		}
+	  })
+	  .catch(function (erro) {
+		console.error("Erro ao obter os dados de monitoramento: ", erro);
+	  });
+	}
+	
+	function criarGraficos() {
+	  const contextoTemperatura = document.getElementById('temperaturaChart').getContext('2d');
+	  const contextoUmidade = document.getElementById('umidadeChart').getContext('2d');
+	
+	  temperaturaChart = new Chart(contextoTemperatura, {
+		type: 'line',
+		data: {
+		  labels: dadosTemperatura.labels,
+		  datasets: [{
+			label: 'Temperatura (ºC)',
+			backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			borderColor: 'rgba(255, 99, 132, 1)',
+			data: dadosTemperatura.data,
+			fill: false,
+		  }]
+		},
+		options: {
+		  responsive: true,
+		  scales: {
+			x: {
+			  display: true,
+			  title: {
+				display: true,
+				text: 'Data e Hora'
+			  }
+			},
+			y: {
+			  display: true,
+			  title: {
+				display: true,
+				text: 'Temperatura (ºC)'
+			  }
+			}
+		  }
+		}
+	  });
+	
+	  umidadeChart = new Chart(contextoUmidade, {
+		type: 'line',
+		data: {
+		  labels: dadosUmidade.labels,
+		  datasets: [{
+			label: 'Umidade (%)',
+			backgroundColor: 'rgba(54, 162, 235, 0.2)',
+			borderColor: 'rgba(54, 162, 235, 1)',
+			data: dadosUmidade.data,
+			fill: false,
+		  }]
+		},
+		options: {
+		  responsive: true,
+		  scales: {
+			x: {
+			  display: true,
+			  title: {
+				display: true,
+				text: 'Data e Hora'
+			  }
+			},
+			y: {
+			  display: true,
+			  title: {
+				display: true,
+				text: 'Umidade (%)'
+			  }
+			}
+		  }
+		}
+	  });
+	
+	  mudaTemperatura();
+	  mudaUmidade();
+	
+	  setInterval(() => {
+		buscarDadosEMostrarGraficos(obterIdDoArmazemDaURL());
+	  }, 4000);
+	}
+	
+	function exibirAlerta(mensagem, cor) {
+		const alertContainer = document.getElementById('alert-container');
+		alertContainer.innerHTML = ''; 
+		const alert = document.createElement('div');
+		alert.className = `alert alert-${cor}`;
+		alert.textContent = mensagem;
+		alert.onclick = () => alert.remove(); 
+		alertContainer.appendChild(alert);
+	}
+	
+	function verificaCondicoesEExibeAlerta(temperatura, umidade) {
+		if (temperatura >= 25 || temperatura <= 18 || umidade <= 10 || umidade >= 14) {
+			exibirAlerta('Alerta: Condição Crítica!', 'red');
+		} else if (temperatura >= 23 || temperatura <= 19 || umidade >= 11 || umidade <= 13) {
+			exibirAlerta('Atenção: Condição de Aviso!', 'yellow');
+		}
+	}
+	
+	function mudaTemperatura() {
+		const tamanhoListaTemperatura = dadosTemperatura.data.length;
+		const temperaturaAtual = dadosTemperatura.data[tamanhoListaTemperatura - 1];
+		document.getElementById('mostra_temperaturaAtual').innerHTML = temperaturaAtual + 'ºC';
+		
+		const umidadeAtual = dadosUmidade.data[dadosUmidade.data.length - 1];
+		verificaCondicoesEExibeAlerta(temperaturaAtual, umidadeAtual);
+	}
+	
+	function mudaUmidade() {
+		const tamanhoListaUmidade = dadosUmidade.data.length;
+		const umidadeAtual = dadosUmidade.data[tamanhoListaUmidade - 1];
+		document.getElementById('mostra_umidade').innerHTML = umidadeAtual + '%';
+		
+		const temperaturaAtual = dadosTemperatura.data[dadosTemperatura.data.length - 1];
+		verificaCondicoesEExibeAlerta(temperaturaAtual, umidadeAtual);
+	}
+	
+	function obterIdDoArmazemDaURL() {
+	  const parametrosURL = new URLSearchParams(window.location.search);
+	  return parametrosURL.get('armazemId');
+	}
+	
+	window.onload = function() {
+	  const idDoArmazem = obterIdDoArmazemDaURL();
+	  if (idDoArmazem) {
+		buscarDadosEMostrarGraficos(idDoArmazem);
+	  } else {
+		console.error("ID do armazém não encontrado na URL.");
+	  }
+	};
+	</script>
+	
