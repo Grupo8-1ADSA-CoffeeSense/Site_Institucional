@@ -266,7 +266,7 @@ body{
 }
 
 .cardBox .card .cardName{
-	color: var(--black2);
+	color: #222;
 	font-size: 1.1em;
 	margin-top: 5px;
 }
