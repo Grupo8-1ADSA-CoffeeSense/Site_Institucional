@@ -10,9 +10,40 @@
   <script src="../js/sessao.js"></script>
   <script src="../js/alerta.js"></script>
   <link rel="stylesheet" href="style/estilo.css" />
+  <style>
+     .container_status {
+      display: flex;
+      align-items: center;
+    }
+
+    .ball {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin-right: 10px;
+      background-color: green; /* Default color */
+    }
+
+    .status-alarme {
+      background-color: red !important;
+    }
+
+    .status-aviso {
+      background-color: yellow !important;
+    }
+
+    .armazem-details {
+      margin-top: 10px;
+    }
+
+    .armazem-details p {
+      margin: 2px 0;
+    }
+  </style>
 </head>
 
 <body onload="validarSessao()">
+  <div id="alert-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
   <nav>
     <a id="logo_homeDashboard" href="index.html">
     <img class="logo" src="assets/logo.png" alt="" />
@@ -34,7 +65,7 @@
           <div class="alerta">
             <p><b>Alerta</b></p>
             <p>
-              <=19ºC
+              <=19 ou >=22ºC
           </div>
           <div class="ideal">
             <p><b>Ideal</b></p>
@@ -42,7 +73,7 @@
           </div>
           <div class="perigo">
             <p><b>Perigo</b></p>
-            <p>>=22 ºC</p>
+            <p>>=24 ºC</p>
           </div>
         </div>
       </div>
@@ -54,78 +85,152 @@
           <div class="alerta">
             <p><b>Alerta</b></p>
             <p>
-              <=19ºC
+              <=10 ou >=13%
           </div>
           <div class="ideal">
             <p><b>Ideal</b></p>
-            <p>20ºC</p>
+            <p>11 á 12%</p>
           </div>
           <div class="perigo">
             <p><b>Perigo</b></p>
-            <p>>=22 ºC</p>
+            <p><=9 ou >=14%</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <div id="alert-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
   <div class="container_armazem"></div>
 </body>
 
 </html>
 
 <script>
-
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     fetch(`/usuarios/obterArmazens?usuarioId=${sessionStorage.getItem('ID_USUARIO')}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
     })
-      .then(function (resposta) {
+    .then(function (resposta) {
         if (!resposta.ok) {
-          throw new Error("Erro ao obter os armazéns.");
+            throw new Error("Erro ao obter os armazéns.");
         }
         return resposta.json();
-      })
-      .then(function (data) {
-        criarCardsArmazens(data);
-      })
-      .catch(function (erro) {
-        console.error("Erro ao obter os armazéns: ", erro);
-      });
-  });
+    })
+    .then(function (data) {
+      console.log(data); 
+      const armazensUnicos = data.filter((valor, indice, self) =>
+        self.findIndex(t => t.idArmazem === valor.idArmazem) === indice
+    );
+        const armazensComDados = data.map(armazem => ({
+            idArmazem: armazem.idArmazem,
+            nomeArmazem: armazem.nomeArmazem,
+            localizacao: armazem.localizacao,
+            capacidadeToneladas: armazem.capacidade_toneladas,
+            nomeEmpresa: armazem.nomeEmpresa,
+            temperaturas: [], 
+            umidades: [], 
+            capturas: [] 
+        }));
 
-  function criarCardsArmazens(armazens) {
+        data.forEach(dado => {
+            const armazem = armazensComDados.find(a => a.idArmazem === dado.idArmazem);
+            if (armazem) {
+                armazem.temperaturas.push(dado.temperatura);
+                armazem.umidades.push(dado.umidade);
+                armazem.capturas.push(new Date(dado.dataHoraCaptura).getTime()); // Salva a captura como timestamp
+            }
+        });
+
+        armazensComDados.forEach(armazem => {
+            const ultimaCapturaIndex = armazem.capturas.length - 1;
+            armazem.ultimaTemperatura = armazem.temperaturas[ultimaCapturaIndex];
+            armazem.ultimaUmidade = armazem.umidades[ultimaCapturaIndex];
+            armazem.ultimaCaptura = armazem.capturas[ultimaCapturaIndex];
+        });
+
+        criarCardsArmazens(armazensComDados);
+    })
+    .catch(function (erro) {
+        console.error("Erro ao obter os armazéns: ", erro);
+    });
+});
+
+function criarCardsArmazens(armazens) {
     const containerArmazem = document.querySelector(".container_armazem");
     containerArmazem.innerHTML = "";
 
     if (armazens.length == 0) {
-      const noArmazemMessage = document.createElement("p");
-      noArmazemMessage.innerText = "Nenhum armazém cadastrado.";
-      containerArmazem.appendChild(noArmazemMessage);
+        const noArmazemMessage = document.createElement("p");
+        noArmazemMessage.innerText = "Nenhum armazém cadastrado.";
+        containerArmazem.appendChild(noArmazemMessage);
     } else {
-      armazens.forEach(armazem => {
-        const armazemDiv = document.createElement("div");
-        armazemDiv.classList.add("armazem");
+        armazens.forEach(armazem => {
+            const armazemDiv = document.createElement("div");
+            armazemDiv.classList.add("armazem");
 
-        armazemDiv.addEventListener("click", function () {
-          window.location.href = `./dashboard02/index.html?armazemId=${armazem.idArmazem}`;
+            armazemDiv.addEventListener("click", function () {
+                window.location.href = `./dashboard02/index.html?armazemId=${armazem.idArmazem}`;
+            });
+
+            const statusDiv = document.createElement("div");
+            statusDiv.classList.add("container_status");
+
+            const ball = document.createElement("div");
+            ball.classList.add("ball");
+            statusDiv.appendChild(ball);
+
+            const p = document.createElement("p");
+            p.innerText = armazem.nomeArmazem;
+            statusDiv.appendChild(p);
+
+            const detailsDiv = document.createElement("div");
+            detailsDiv.classList.add("armazem-details");
+
+            const tempP = document.createElement("p");
+            tempP.innerText = `Temperatura: ${armazem.ultimaTemperatura}ºC`;
+            detailsDiv.appendChild(tempP);
+
+            const umidadeP = document.createElement("p");
+            umidadeP.innerText = `Umidade: ${armazem.ultimaUmidade}%`;
+            detailsDiv.appendChild(umidadeP);
+
+            const capturaP = document.createElement("p");
+            capturaP.innerText = `Última Captura: ${new Date(armazem.ultimaCaptura).toLocaleString()}`;
+            detailsDiv.appendChild(capturaP);
+
+            armazemDiv.appendChild(statusDiv);
+            armazemDiv.appendChild(detailsDiv);
+            containerArmazem.appendChild(armazemDiv);
+
+            verificarCondicoesEAlterarStatus(armazem, ball);
         });
-        const statusDiv = document.createElement("div");
-        statusDiv.classList.add("container_status");
-
-        const ball = document.createElement("div");
-        ball.classList.add("ball");
-
-        const p = document.createElement("p");
-        p.innerText = armazem.nomeArmazem;
-
-        statusDiv.appendChild(ball);
-        statusDiv.appendChild(p);
-        armazemDiv.appendChild(statusDiv);
-        containerArmazem.appendChild(armazemDiv);
-      });
     }
-  }
+}
+
+function verificarCondicoesEAlterarStatus(armazem, ball) {
+    const temperatura = armazem.ultimaTemperatura;
+    const umidade = armazem.ultimaUmidade;
+
+    if (temperatura >= 25 || temperatura <= 18 || umidade <= 10 || umidade >= 14) {
+        ball.classList.add("status-alarme");
+        exibirAlerta(`Alerta: Condição Crítica no ${armazem.nomeArmazem}!`, 'red');
+    } else if (temperatura >= 23 || temperatura <= 19 || umidade >= 11 || umidade <= 13) {
+        ball.classList.add("status-aviso");
+        exibirAlerta(`Atenção: Condição de Aviso no ${armazem.nomeArmazem}!`, 'yellow');
+    }
+}
+
+function exibirAlerta(mensagem, cor) {
+    const alertContainer = document.getElementById('alert-container');
+    alertContainer.innerHTML = '';
+    const alert = document.createElement('div');
+    alert.className = `alert alert-${cor}`;
+    alert.textContent = mensagem;
+    alert.onclick = () => alert.remove();
+    alertContainer.appendChild(alert);
+}
+  
 </script>
