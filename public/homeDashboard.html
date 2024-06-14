@@ -250,34 +250,27 @@ function criarCardsArmazens(armazens) {
 function verificarCondicoesEAlterarStatus(armazem, ball) {
     const temperatura = armazem.ultimaTemperatura;
     const umidade = armazem.ultimaUmidade;
+    let mensagem = "";
 
-    if (temperatura < 19) {
+    if (temperatura < 19 || temperatura >= 24) {
         ball.classList.add("status-alarme");
         mensagem = `Urgente: Temperatura crítica no ${armazem.nomeArmazem} (${temperatura}ºC)!`;
         exibirAlerta(mensagem, 'red');
-    } else if (temperatura >= 24) {
-        ball.classList.add("status-alarme");
-        mensagem = `Urgente: Temperatura crítica no ${armazem.nomeArmazem} (${temperatura}ºC)!`;
-        exibirAlerta(mensagem, 'red');
-    } else if (temperatura >= 22 && temperatura < 24) {
+    } else if (temperatura >= 22) {
         ball.classList.add("status-aviso");
         mensagem = `Atenção: Temperatura entre 22°C e 23.9°C no ${armazem.nomeArmazem} (${temperatura}ºC)!`;
         exibirAlerta(mensagem, 'yellow');
-    } else if (temperatura >= 19 && temperatura < 22) {
+    } else if (temperatura >= 19) {
         ball.classList.add("status-aviso");
         mensagem = `Atenção: Temperatura entre 19°C e 21.9°C no ${armazem.nomeArmazem} (${temperatura}ºC)!`;
         exibirAlerta(mensagem, 'yellow');
     }
 
-    if (umidade <= 9) {
+    if (umidade <= 9 || umidade >= 14) {
         ball.classList.add("status-alarme");
         mensagem = `Urgente: Umidade Crítica (${umidade}%) no ${armazem.nomeArmazem}!`;
         exibirAlerta(mensagem, 'red');
-    } else if (umidade >= 14) {
-        ball.classList.add("status-alarme");
-        mensagem = `Alerta: Umidade Alta (${umidade}%) no ${armazem.nomeArmazem}!`;
-        exibirAlerta(mensagem, 'red');
-    } else if (umidade >= 13 || umidade <= 10) {
+    } else if (umidade >= 10 && umidade <= 13) {
         ball.classList.add("status-aviso");
         mensagem = `Atenção: Umidade de Aviso (${umidade}%) no ${armazem.nomeArmazem}!`;
         exibirAlerta(mensagem, 'yellow');
