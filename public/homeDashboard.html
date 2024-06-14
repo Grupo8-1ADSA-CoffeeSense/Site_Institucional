@@ -11,7 +11,7 @@
   <script src="../js/alerta.js"></script>
   <link rel="stylesheet" href="style/estilo.css" />
   <style>
-     .container_status {
+    .container_status {
       display: flex;
       align-items: center;
     }
@@ -39,6 +39,24 @@
     .armazem-details p {
       margin: 2px 0;
     }
+
+    .alert {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert-red {
+    background-color: red;
+    color: white;
+}
+
+.alert-yellow {
+    background-color: yellow;
+    color: black;
+}
+
   </style>
 </head>
 
@@ -46,8 +64,8 @@
   <div id="alert-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
   <nav>
     <a id="logo_homeDashboard" href="index.html">
-    <img class="logo" src="assets/logo.png" alt="" />
-  </a>
+      <img class="logo" src="assets/logo.png" alt="" />
+    </a>
     <ul></ul>
     <button onclick="limparSessao()" class="botao_sair"><span>Sair</span></button>
   </nav>
@@ -65,7 +83,7 @@
           <div class="alerta">
             <p><b>Alerta</b></p>
             <p>
-              <=19 ou >=22ºC
+              >=19 ou >=22ºC
           </div>
           <div class="ideal">
             <p><b>Ideal</b></p>
@@ -107,55 +125,74 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    fetch(`/usuarios/obterArmazens?usuarioId=${sessionStorage.getItem('ID_USUARIO')}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-    .then(function (resposta) {
-        if (!resposta.ok) {
-            throw new Error("Erro ao obter os armazéns.");
-        }
-        return resposta.json();
-    })
-    .then(function (data) {
-      console.log(data); 
-      const armazensUnicos = data.filter((valor, indice, self) =>
-        self.findIndex(t => t.idArmazem === valor.idArmazem) === indice
-    );
-        const armazensComDados = data.map(armazem => ({
-            idArmazem: armazem.idArmazem,
-            nomeArmazem: armazem.nomeArmazem,
-            localizacao: armazem.localizacao,
-            capacidadeToneladas: armazem.capacidade_toneladas,
-            nomeEmpresa: armazem.nomeEmpresa,
-            temperaturas: [], 
-            umidades: [], 
-            capturas: [] 
-        }));
+    // Definir o intervalo de atualização em milissegundos (por exemplo, a cada 5 segundos)
+    const intervaloAtualizacao = 5000; // 5 segundos
 
-        data.forEach(dado => {
-            const armazem = armazensComDados.find(a => a.idArmazem === dado.idArmazem);
-            if (armazem) {
-                armazem.temperaturas.push(dado.temperatura);
-                armazem.umidades.push(dado.umidade);
-                armazem.capturas.push(new Date(dado.dataHoraCaptura).getTime()); // Salva a captura como timestamp
+    // Função para atualizar os dados dos armazéns
+    function atualizarDadosArmazens() {
+        fetch(`/usuarios/obterArmazens?usuarioId=${sessionStorage.getItem('ID_USUARIO')}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then(function (resposta) {
+            if (!resposta.ok) {
+                throw new Error("Erro ao obter os armazéns.");
             }
-        });
+            return resposta.json();
+        })
+        .then(function (data) {
+            console.log("Dados recebidos da API:", data); 
+            const armazensUnicos = data.filter((valor, indice, self) =>
+                self.findIndex(t => t.idArmazem === valor.idArmazem) === indice
+            );
 
-        armazensComDados.forEach(armazem => {
-            const ultimaCapturaIndex = armazem.capturas.length - 1;
-            armazem.ultimaTemperatura = armazem.temperaturas[ultimaCapturaIndex];
-            armazem.ultimaUmidade = armazem.umidades[ultimaCapturaIndex];
-            armazem.ultimaCaptura = armazem.capturas[ultimaCapturaIndex];
-        });
+            console.log("Armazéns únicos:", armazensUnicos);
 
-        criarCardsArmazens(armazensComDados);
-    })
-    .catch(function (erro) {
-        console.error("Erro ao obter os armazéns: ", erro);
-    });
+            const armazensComDados = armazensUnicos.map(armazem => ({
+                idArmazem: armazem.idArmazem,
+                nomeArmazem: armazem.nomeArmazem,
+                localizacao: armazem.localizacao,
+                capacidadeToneladas: armazem.capacidade_toneladas,
+                nomeEmpresa: armazem.nomeEmpresa,
+                temperaturas: [],
+                umidades: [],
+                capturas: []
+            }));
+
+            console.log("Armazéns com dados iniciais:", armazensComDados);
+
+            data.forEach(dado => {
+                const armazem = armazensComDados.find(a => a.idArmazem === dado.idArmazem);
+                if (armazem) {
+                    armazem.temperaturas.push(dado.temperatura);
+                    armazem.umidades.push(dado.umidade);
+                    armazem.capturas.push(new Date(dado.dataHoraCaptura).getTime());
+                }
+            });
+
+            armazensComDados.forEach(armazem => {
+                const ultimaCapturaIndex = armazem.capturas.length - 1;
+                armazem.ultimaTemperatura = armazem.temperaturas[ultimaCapturaIndex];
+                armazem.ultimaUmidade = armazem.umidades[ultimaCapturaIndex];
+                armazem.ultimaCaptura = armazem.capturas[ultimaCapturaIndex];
+            });
+
+            console.log("Armazéns com dados finais:", armazensComDados);
+
+            criarCardsArmazens(armazensComDados);
+        })
+        .catch(function (erro) {
+            console.error("Erro ao obter os armazéns: ", erro);
+        });
+    }
+
+    // Chamada inicial para carregar os dados
+    atualizarDadosArmazens();
+
+    // Configurar intervalo para atualizar os dados a cada intervalo definido
+    setInterval(atualizarDadosArmazens, intervaloAtualizacao);
 });
 
 function criarCardsArmazens(armazens) {
@@ -214,23 +251,56 @@ function verificarCondicoesEAlterarStatus(armazem, ball) {
     const temperatura = armazem.ultimaTemperatura;
     const umidade = armazem.ultimaUmidade;
 
-    if (temperatura >= 25 || temperatura <= 18 || umidade <= 10 || umidade >= 14) {
+    if (temperatura < 19) {
         ball.classList.add("status-alarme");
-        exibirAlerta(`Alerta: Condição Crítica no ${armazem.nomeArmazem}!`, 'red');
-    } else if (temperatura >= 23 || temperatura <= 19 || umidade >= 11 || umidade <= 13) {
+        mensagem = `Urgente: Temperatura crítica no ${armazem.nomeArmazem} (${temperatura}ºC)!`;
+        exibirAlerta(mensagem, 'red');
+    } else if (temperatura >= 24) {
+        ball.classList.add("status-alarme");
+        mensagem = `Urgente: Temperatura crítica no ${armazem.nomeArmazem} (${temperatura}ºC)!`;
+        exibirAlerta(mensagem, 'red');
+    } else if (temperatura >= 22 && temperatura < 24) {
         ball.classList.add("status-aviso");
-        exibirAlerta(`Atenção: Condição de Aviso no ${armazem.nomeArmazem}!`, 'yellow');
+        mensagem = `Atenção: Temperatura entre 22°C e 23.9°C no ${armazem.nomeArmazem} (${temperatura}ºC)!`;
+        exibirAlerta(mensagem, 'yellow');
+    } else if (temperatura >= 19 && temperatura < 22) {
+        ball.classList.add("status-aviso");
+        mensagem = `Atenção: Temperatura entre 19°C e 21.9°C no ${armazem.nomeArmazem} (${temperatura}ºC)!`;
+        exibirAlerta(mensagem, 'yellow');
+    }
+
+    if (umidade <= 9) {
+        ball.classList.add("status-alarme");
+        mensagem = `Urgente: Umidade Crítica (${umidade}%) no ${armazem.nomeArmazem}!`;
+        exibirAlerta(mensagem, 'red');
+    } else if (umidade >= 14) {
+        ball.classList.add("status-alarme");
+        mensagem = `Alerta: Umidade Alta (${umidade}%) no ${armazem.nomeArmazem}!`;
+        exibirAlerta(mensagem, 'red');
+    } else if (umidade >= 13 || umidade <= 10) {
+        ball.classList.add("status-aviso");
+        mensagem = `Atenção: Umidade de Aviso (${umidade}%) no ${armazem.nomeArmazem}!`;
+        exibirAlerta(mensagem, 'yellow');
     }
 }
 
 function exibirAlerta(mensagem, cor) {
     const alertContainer = document.getElementById('alert-container');
-    alertContainer.innerHTML = '';
+
     const alert = document.createElement('div');
     alert.className = `alert alert-${cor}`;
     alert.textContent = mensagem;
-    alert.onclick = () => alert.remove();
+
+    alert.addEventListener('click', function() {
+        alert.remove();
+    });
+
     alertContainer.appendChild(alert);
+
+    setTimeout(function() {
+        alert.remove();
+    }, 5000); 
 }
-  
+
+
 </script>

@@ -9,11 +9,19 @@
 	<link rel="shortcut icon" href="./assets/logo.png">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<style>
-		.chart-container {
-			width: 80%;
-			margin: 50px auto;
-		}
+	.chart-container {
+    width: 80%; 
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden; 
 	
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
 	
 	</style>
 </head>
@@ -72,7 +80,6 @@
 
 
 				<div class="user">
-					<img src="img/person-circle-outline.svg">
 				</div>
 
 			</div>
@@ -126,17 +133,16 @@
 				</div>
 			</div>
 			
-			<!-- Adicione os elementos canvas aqui -->
-			<div class="chart-container">
+			<div class="chart-container rounded">
 				<canvas id="temperaturaChart"></canvas>
 			</div>
 			
-			<div class="chart-container">
+			<div class="chart-container rounded">
 				<canvas id="umidadeChart"></canvas>
 			</div>
 			
 
-			<div class="span_historic">
+			<!-- <div class="span_historic">
 				<Span>Historico de Temperatura</Span>
 				<span class="icon"><ion-icon size="large" name="reader-outline" style="color: #6F4026;"></span>
 			</div>
@@ -223,7 +229,7 @@
 					<div class="cell">Ruim</div>
 				</div>
 			</div>
-
+ -->
 
 
 		</div>
@@ -290,33 +296,33 @@
 	}
 	
 	function atualizarGraficoComNovosDados(dados) {
-	  console.log("Atualizando gráficos com novos dados:", dados);
-	  const novaCaptura = dados.findLast(item => item.temperatura !== '0.00' && item.umidade !== '0.00');
-	  if (novaCaptura) {
-		dadosTemperatura.labels.push(novaCaptura.data_hora);
-		dadosTemperatura.data.push(novaCaptura.temperatura);
-		dadosUmidade.labels.push(novaCaptura.data_hora);
-		dadosUmidade.data.push(novaCaptura.umidade);
-	
-		if (dadosTemperatura.labels.length > 10) {
-		  dadosTemperatura.labels.shift();
-		  dadosTemperatura.data.shift();
-		  dadosUmidade.labels.shift();
-		  dadosUmidade.data.shift();
-		}
-	
-		temperaturaChart.data.labels = dadosTemperatura.labels;
-		temperaturaChart.data.datasets[0].data = dadosTemperatura.data;
-		temperaturaChart.update();
-	
-		umidadeChart.data.labels = dadosUmidade.labels;
-		umidadeChart.data.datasets[0].data = dadosUmidade.data;
-		umidadeChart.update();
-	
-		mudaTemperatura();
-		mudaUmidade();
-	  }
-	}
+    console.log("Atualizando gráficos com novos dados:", dados);
+    const novaCaptura = dados.find(item => item.temperatura !== '0.00' && item.umidade !== '0.00');
+    if (novaCaptura) {
+        dadosTemperatura.labels.push(novaCaptura.data_hora);
+        dadosTemperatura.data.push(novaCaptura.temperatura);
+        dadosUmidade.labels.push(novaCaptura.data_hora);
+        dadosUmidade.data.push(novaCaptura.umidade);
+
+        if (dadosTemperatura.labels.length > 10) {
+            dadosTemperatura.labels.shift();
+            dadosTemperatura.data.shift();
+            dadosUmidade.labels.shift();
+            dadosUmidade.data.shift();
+        }
+
+        temperaturaChart.data.labels = dadosTemperatura.labels;
+        temperaturaChart.data.datasets[0].data = dadosTemperatura.data;
+        umidadeChart.data.labels = dadosUmidade.labels;
+        umidadeChart.data.datasets[0].data = dadosUmidade.data;
+
+        temperaturaChart.update();
+        umidadeChart.update();
+
+        mudaTemperatura();
+        mudaUmidade();
+    }
+}
 	
 	function buscarDadosEMostrarGraficos(armazemId) {
 	  fetch(`/medidas/monitoramento/${armazemId}`, {
@@ -421,42 +427,65 @@
 		buscarDadosEMostrarGraficos(obterIdDoArmazemDaURL());
 	  }, 4000);
 	}
-	
 	function exibirAlerta(mensagem, cor) {
-		const alertContainer = document.getElementById('alert-container');
-		alertContainer.innerHTML = ''; 
-		const alert = document.createElement('div');
-		alert.className = `alert alert-${cor}`;
-		alert.textContent = mensagem;
-		alert.onclick = () => alert.remove(); 
-		alertContainer.appendChild(alert);
-	}
-	
-	function verificaCondicoesEExibeAlerta(temperatura, umidade) {
-		if (temperatura >= 25 || temperatura <= 18 || umidade <= 10 || umidade >= 14) {
-			exibirAlerta('Alerta: Condição Crítica!', 'red');
-		} else if (temperatura >= 23 || temperatura <= 19 || umidade >= 11 || umidade <= 13) {
-			exibirAlerta('Atenção: Condição de Aviso!', 'yellow');
-		}
-	}
-	
-	function mudaTemperatura() {
-		const tamanhoListaTemperatura = dadosTemperatura.data.length;
-		const temperaturaAtual = dadosTemperatura.data[tamanhoListaTemperatura - 1];
-		document.getElementById('mostra_temperaturaAtual').innerHTML = temperaturaAtual + 'ºC';
-		
-		const umidadeAtual = dadosUmidade.data[dadosUmidade.data.length - 1];
-		verificaCondicoesEExibeAlerta(temperaturaAtual, umidadeAtual);
-	}
-	
-	function mudaUmidade() {
-		const tamanhoListaUmidade = dadosUmidade.data.length;
-		const umidadeAtual = dadosUmidade.data[tamanhoListaUmidade - 1];
-		document.getElementById('mostra_umidade').innerHTML = umidadeAtual + '%';
-		
-		const temperaturaAtual = dadosTemperatura.data[dadosTemperatura.data.length - 1];
-		verificaCondicoesEExibeAlerta(temperaturaAtual, umidadeAtual);
-	}
+    const alertContainer = document.getElementById('alert-container');
+    
+        
+    const alert = document.createElement('div');
+    alert.className = `alert alert-${cor}`;
+    alert.textContent = mensagem;
+    alert.onclick = () => alert.remove(); 
+    alertContainer.appendChild(alert);
+    
+    setTimeout(function() {
+        alert.remove();
+    }, 2000);
+}
+
+function verificaCondicoesEExibeAlerta(temperatura, umidade) {
+    let alertaExibido = false;
+
+    if (temperatura >= 24 || temperatura < 19) {
+        exibirAlerta(`Alerta: Condição Crítica! Temperatura fora dos limites (Atual: ${temperatura}ºC)`, 'red');
+        alertaExibido = true;
+    } else if (temperatura >= 22 && temperatura <= 23.9) {
+        exibirAlerta(`Atenção: Condição de Aviso! Temperatura perto do limite (Atual: ${temperatura}ºC)`, 'yellow');
+        alertaExibido = true;
+    }
+
+    if (umidade <= 11 || umidade >= 13) {
+        exibirAlerta(`Alerta: Condição Crítica! Umidade fora dos limites (Atual: ${umidade}%)`, 'red');
+        alertaExibido = true;
+    } else if (umidade > 11 && umidade < 13) {
+        exibirAlerta(`Atenção: Condição de Aviso! Umidade perto do limite (Atual: ${umidade}%)`, 'yellow');
+        alertaExibido = true;
+    }
+
+    if (!alertaExibido) {
+        exibirAlerta('', 'red');
+    }
+}
+
+
+
+function mudaTemperatura() {
+    const tamanhoListaTemperatura = dadosTemperatura.data.length;
+    const temperaturaAtual = dadosTemperatura.data[tamanhoListaTemperatura - 1];
+    document.getElementById('mostra_temperaturaAtual').innerHTML = temperaturaAtual + 'ºC';
+    
+    const umidadeAtual = dadosUmidade.data[dadosUmidade.data.length - 1];
+    verificaCondicoesEExibeAlerta(temperaturaAtual, umidadeAtual);
+}
+
+function mudaUmidade() {
+    const tamanhoListaUmidade = dadosUmidade.data.length;
+    const umidadeAtual = dadosUmidade.data[tamanhoListaUmidade - 1];
+    document.getElementById('mostra_umidade').innerHTML = umidadeAtual + '%';
+    
+    const temperaturaAtual = dadosTemperatura.data[dadosTemperatura.data.length - 1];
+    verificaCondicoesEExibeAlerta(temperaturaAtual, umidadeAtual);
+}
+
 	
 	function obterIdDoArmazemDaURL() {
 	  const parametrosURL = new URLSearchParams(window.location.search);

@@ -43,12 +43,13 @@ function buscarDadosMonitoramento(armazemId) {
         JOIN armazem  
             ON dispositivo.fkArmazem = armazem.idArmazem
         WHERE armazem.idArmazem = ${armazemId}
-         ORDER BY dm.data_horaCaptura DESC;
+        ORDER BY dm.data_horaCaptura DESC;
     `;
     
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
 
 module.exports = {
     buscarUltimasMedidas,

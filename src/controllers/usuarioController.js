@@ -87,7 +87,6 @@ function cadastrar(req, res) {
 }
 
 function obterArmazens(req, res) {
-
     var usuarioId = req.query.usuarioId;
 
     usuarioModel.obterArmazens(usuarioId)
@@ -99,6 +98,7 @@ function obterArmazens(req, res) {
             res.status(500).json({ error: "Erro interno do servidor" });
         });
 }
+
 
 module.exports = {
     autenticar,
